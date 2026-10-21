@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Sentor Veteriner Kliniği</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Sentor Veteriner Kliniği — Cennet Mahallesi, Küçükçekmece. Aşı, sağlık kontrolü, kısırlaştırma ve cerrahi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Düzen: tam genişlik fotoğraflı giriş + altında hızlı bilgi şeridi; hizmetler satır satır, yorumlar üçlü, saatler ve adres yan yana. */
+:root {
+  --zemin: #F5F7FB;
+  --yuzey: #FFFFFF;
+  --metin: #172033;
+  --soluk: #5A6478;
+  --cizgi: #DDE3EE;
+  --ana: #2F4BD8;        /* lacivert-mavi */
+  --ana-koyu: #1B2C86;
+  --turuncu: #F28B3C;    /* sıcak vurgu */
+  --ortu: rgba(14, 22, 54, .62);
+  --f-baslik: "Sora", "Segoe UI", system-ui, sans-serif;
+  --f-govde: "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #0E1322; --yuzey: #161D31; --metin: #E9EDF7; --soluk: #A3ADC4; --cizgi: #263049; --ana: #7D93FF; --ana-koyu: #AEBBFF; --turuncu: #F7A25E; --ortu: rgba(6, 10, 26, .66); color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #0E1322; --yuzey: #161D31; --metin: #E9EDF7; --soluk: #A3ADC4; --cizgi: #263049; --ana: #7D93FF; --ana-koyu: #AEBBFF; --turuncu: #F7A25E; --ortu: rgba(6, 10, 26, .66); color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: var(--ana); }
+a:focus-visible { outline: 3px solid var(--turuncu); outline-offset: 3px; border-radius: 8px; }
+
+.ornek { background: var(--turuncu); color: #1d1206; font-size: 0.85rem; font-weight: 600; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* giriş: tam genişlik fotoğraf */
+.kahraman { position: relative; min-height: 560px; display: flex; flex-direction: column; color: #fff; background: #0E1636 url("img/px-6234622.jpg") center 35% / cover no-repeat; }
+.kahraman::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14, 22, 54, .55) 0%, var(--ortu) 55%, rgba(14, 22, 54, .88) 100%); }
+.kahraman > * { position: relative; }
+.kahraman > .sar { width: 100%; }
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
+.logo { font-family: var(--f-baslik); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.02em; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.logo i { width: 34px; height: 34px; border-radius: 50%; background: var(--turuncu); display: grid; place-items: center; font-style: normal; font-size: 1rem; color: #1d1206; }
+.logo small { font-family: var(--f-govde); font-weight: 600; font-size: 0.8rem; opacity: .8; display: block; letter-spacing: .02em; }
+.tel { color: #fff; text-decoration: none; font-weight: 700; border: 1.5px solid rgba(255, 255, 255, .6); padding: 9px 16px; border-radius: 12px; }
+.kahraman .icerik { margin-top: auto; padding-block: 40px 36px; max-width: 760px; }
+.kahraman .etiket { display: inline-block; font-weight: 700; font-size: 0.85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--turuncu); }
+.kahraman h1 { font-size: clamp(2.2rem, 5.2vw, 4rem); line-height: 1.05; margin-top: 10px; }
+.kahraman p { margin-top: 16px; font-size: 1.15rem; max-width: 34em; opacity: .92; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 12px; font-weight: 700; text-decoration: none; font-family: var(--f-baslik); font-size: 0.98rem; }
+.btn svg { width: 19px; height: 19px; }
+.btn.turuncu { background: var(--turuncu); color: #1d1206; }
+.btn.cizgi { border: 1.5px solid rgba(255, 255, 255, .7); color: #fff; }
+
+/* hızlı bilgi şeridi */
+.serit { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 18px; margin-top: -34px; position: relative; box-shadow: 0 16px 36px rgba(23, 32, 51, .1); }
+.serit > div { padding: 18px 22px; display: flex; flex-direction: column; gap: 2px; }
+.serit > div + div { border-left: 1px solid var(--cizgi); }
+.serit small { color: var(--soluk); font-size: 0.82rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+.serit b { font-family: var(--f-baslik); font-size: 1.1rem; }
+.serit .yildiz { color: var(--turuncu); }
+
+section { padding-block: 64px; }
+.bolum-bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 26px; }
+.bolum-bas h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.1; max-width: 16em; }
+.bolum-bas p { color: var(--soluk); max-width: 28em; }
+
+.hizmet-liste { border-top: 2px solid var(--metin); }
+.hizmet-satir { display: grid; grid-template-columns: 54px minmax(0, 1fr) minmax(0, 1.3fr); gap: 20px; align-items: center; padding-block: 20px; border-bottom: 1px solid var(--cizgi); }
+.hizmet-satir .ikon { width: 46px; height: 46px; border-radius: 12px; background: var(--ana); color: #fff; display: grid; place-items: center; }
+.hizmet-satir .ikon svg { width: 22px; height: 22px; }
+.hizmet-satir h3 { font-size: 1.25rem; }
+.hizmet-satir p { color: var(--soluk); }
+
+.yorumlar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.yorum { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+.yorum .yildiz { color: var(--turuncu); letter-spacing: 2px; }
+.yorum p { font-size: 1rem; }
+.yorum footer { margin-top: auto; color: var(--soluk); font-size: 0.88rem; }
+
+.ziyaret { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0; border-radius: 22px; overflow: hidden; background: var(--yuzey); border: 1px solid var(--cizgi); }
+.ziyaret img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 260px; }
+.ziyaret .bilgi { padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+.ziyaret h3 { font-size: 1.3rem; }
+.saat { display: grid; grid-template-columns: minmax(0, 1fr) auto; row-gap: 8px; column-gap: 16px; font-variant-numeric: tabular-nums; }
+.saat span:nth-child(even) { font-weight: 700; text-align: right; }
+.adres { color: var(--soluk); }
+.ziyaret .btn.mavi { background: var(--ana); color: #fff; align-self: flex-start; }
+
+.dip { padding-block: 26px 90px; color: var(--soluk); font-size: 0.92rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); }
+
+.wp { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px rgba(0, 0, 0, .22); z-index: 5; }
+.wp svg { width: 30px; height: 30px; }
+
+@media (max-width: 860px) {
+  .serit { grid-template-columns: minmax(0, 1fr); }
+  .serit > div + div { border-left: 0; border-top: 1px solid var(--cizgi); }
+  .yorumlar { grid-template-columns: minmax(0, 1fr); }
+  .ziyaret { grid-template-columns: minmax(0, 1fr); }
+  .hizmet-satir { grid-template-columns: 54px minmax(0, 1fr); }
+  .hizmet-satir p { grid-column: 2; }
+}
+@media (max-width: 540px) {
+  .kahraman { min-height: 520px; }
+  .tel span { display: none; }
+  section { padding-block: 44px; }
+}
+</style>
+
+</head><body>
+<div class="ornek">Örnek tasarım · Sentor Veteriner Kliniği için hazırlanmıştır. Fotoğraflar temsilidir.</div>
+
+<header class="kahraman">
+  <div class="sar ust">
+    <a class="logo" href="#"><i>S</i><span>Sentor Veteriner<small>Cennet · Küçükçekmece</small></span></a>
+    <a class="tel" href="tel:+905070310680" aria-label="Kliniği ara: 0507 031 06 80">☎ <span>0507 031 06 80</span></a>
+  </div>
+  <div class="sar icerik">
+    <span class="etiket">Cennet Mahallesi'nin veteriner kliniği</span>
+    <h1>İlk aşısından ameliyatına, her adımda yanındayız.</h1>
+    <p>Aşı ve sağlık kontrolleri, kısırlaştırma ve cerrahi. Yeni sahiplenenlerin bütün sorularına zaman ayıran bir ekip.</p>
+    <div class="cta">
+      <a class="btn turuncu" href="https://wa.me/905070310680" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Randevu için yazın
+      </a>
+      <a class="btn cizgi" href="https://maps.google.com/?cid=13002417724076774109" target="_blank" rel="noopener">Yol tarifi al</a>
+    </div>
+  </div>
+</header>
+
+<div class="sar">
+  <div class="serit">
+    <div><small>Google puanı</small><b><span class="yildiz">★</span> 4,8 · 373 yorum</b></div>
+    <div><small>Hafta içi ve Cumartesi</small><b>10:00 – 20:00</b></div>
+    <div><small>Pazar</small><b>11:30 – 19:00</b></div>
+  </div>
+</div>
+
+<section>
+  <div class="sar">
+    <div class="bolum-bas">
+      <h2>Dostunuz için neler yapıyoruz</h2>
+      <p>Muayeneden cerrahiye kadar temel ihtiyaçları kliniğimizde karşılıyoruz.</p>
+    </div>
+    <div class="hizmet-liste">
+      <div class="hizmet-satir">
+        <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg></span>
+        <h3>Aşı ve sağlık kontrolü</h3>
+        <p>Yavruluktan itibaren aşı takvimi, düzenli kontroller ve parazit uygulamaları.</p>
+      </div>
+      <div class="hizmet-satir">
+        <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z"/><path d="M9 12h6"/><path d="M12 9v6"/></svg></span>
+        <h3>Kısırlaştırma ve cerrahi</h3>
+        <p>Kedi ve köpeklerde kısırlaştırma ameliyatı ve gerekli cerrahi müdahaleler.</p>
+      </div>
+      <div class="hizmet-satir">
+        <span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <h3>Yeni sahiplenenlere rehberlik</h3>
+        <p>Beslenme, bakım ve davranış soruları için sabırla danışmanlık.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bolum-bas">
+      <h2>Bizi ziyaret edenler anlatıyor</h2>
+      <p><a href="https://maps.google.com/?cid=13002417724076774109" target="_blank" rel="noopener">Tüm yorumlar Google'da</a></p>
+    </div>
+    <div class="yorumlar">
+      <figure class="yorum" style="margin:0"><span class="yildiz">★★★★★</span><p>"Osman hoca ve Ecem hoca, minik lionumuza çok iyi baktı. Kedimiz 4. kattan atlamıştı. Ve ağır travması vardı…"</p><footer>Ali F. · Google yorumu</footer></figure>
+      <figure class="yorum" style="margin:0"><span class="yildiz">★★★★★</span><p>"Kedi Daisy'mi 4 aylıktan bu yana aşılar ve sağlık kontrolü için götürüyorum. … Her zaman ilgililer, dostane ve profesyonel yaklaşımları için tüm ekibe teşekkür ederim."</p><footer>Ufuk G. · Google yorumu</footer></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="ziyaret">
+      <img src="img/px-33394308.jpg" alt="Veteriner hekim yavru bir kediyi tartıyor">
+      <div class="bilgi">
+        <h3>Çalışma saatleri</h3>
+        <div class="saat">
+          <span>Pazartesi – Cumartesi</span><span>10:00 – 20:00</span>
+          <span>Pazar</span><span>11:30 – 19:00</span>
+        </div>
+        <h3>Adres</h3>
+        <p class="adres">Cennet Mah., Alparslan Cd. No:47/A<br>34290 Küçükçekmece / İstanbul<br>0507 031 06 80</p>
+        <a class="btn mavi" href="https://maps.google.com/?cid=13002417724076774109" target="_blank" rel="noopener">Haritada aç</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sar">
+  <footer class="dip">
+    <span>© 2026 Sentor Veteriner Kliniği</span>
+    <span>Küçükçekmece / İstanbul</span>
+  </footer>
+</div>
+
+<a class="wp" href="https://wa.me/905070310680" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+</body></html>
