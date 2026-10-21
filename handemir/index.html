@@ -6,7 +6,7 @@
 <meta name="description" content="Handemir Mobilya — İkitelli Keresteciler Sitesi, Başakşehir. Atölyemizde üretilen masif ahşap ve rattan yatak odası, gardırop ve dekorasyon parçaları. Mağazalara toptan, evlere özel üretim.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Josefin+Sans:wght@600;700&family=Karla:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Josefin+Sans:wght@600;700&family=Karla:wght@400;500;600;700&display=swap">
 <style>
 /* Düzen: butik showroom kataloğu — yulaf zemin, ceviz ve rattan tonları; editoryal bölümler (koleksiyon şeridi, iki yol: evler / mağazalar, atölye süreci). */
 :root {
@@ -18,10 +18,9 @@
   --ceviz: #6B4A2F;
   --rattan: #C9A36A;
   --zeytin: #6E7553;
-  --f-baslik: "Bodoni Moda", "Didot", Georgia, serif;
+  --f-baslik: "Playfair Display", Georgia, serif;
   --f-govde: "Karla", "Segoe UI", system-ui, sans-serif;
   --f-logo: "Josefin Sans", "Segoe UI", sans-serif;
-  --f-imza: "Mrs Saint Delafield", "Segoe Script", cursive;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) { --zemin: #18130E; --kagit: #201912; --metin: #F1E9DD; --soluk: #BFAF9C; --cizgi: #3A2E23; --ceviz: #D9A877; --rattan: #D8B57C; --zeytin: #A9B08A; color-scheme: dark; }
@@ -42,7 +41,7 @@ a:focus-visible { outline: 2px solid var(--ceviz); outline-offset: 3px; }
 /* logo: kalın küçük harf + el yazısı "mobilya" (Instagram logosundaki gibi) */
 .logo { display: inline-flex; flex-direction: column; text-decoration: none; color: var(--metin); line-height: 1; }
 .logo b { font-family: var(--f-logo); font-weight: 700; font-size: 1.7rem; letter-spacing: -.01em; }
-.logo i { font-family: var(--f-imza); font-style: normal; font-size: 1.7rem; margin: -10px 0 0 46px; color: var(--ceviz); }
+.logo i { font-family: var(--f-govde); font-style: normal; font-weight: 700; font-size: 0.6rem; letter-spacing: .5em; margin: 5px 0 0 2px; color: var(--ceviz); }
 
 .ust { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding-block: 20px; flex-wrap: wrap; }
 .ust nav { display: flex; gap: 26px; flex-wrap: wrap; align-items: center; }
@@ -97,7 +96,7 @@ section { padding-block: 84px; }
 /* iki yol */
 .yollar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .yol { background: var(--kagit); border: 1px solid var(--cizgi); padding: clamp(24px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px; }
-.yol .no { font-family: var(--f-imza); font-size: 2.6rem; color: var(--rattan); line-height: .8; }
+.yol .no { font-family: var(--f-baslik); font-style: italic; font-size: 1.5rem; color: var(--rattan); line-height: 1; }
 .yol h3 { font-size: 1.9rem; line-height: 1.1; }
 .yol p { color: var(--soluk); }
 .yol ul { margin: 6px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
@@ -154,7 +153,7 @@ section { padding-block: 84px; }
 
 <div class="sar">
   <header class="ust">
-    <a class="logo" href="#" aria-label="Handemir Mobilya"><b>handemir</b><i>mobilya</i></a>
+    <a class="logo" href="#" aria-label="Handemir Mobilya"><b>handemir</b><i>MOBİLYA</i></a>
     <nav aria-label="Bölümler">
       <a href="#koleksiyon">Koleksiyon</a>
       <a href="#magazalar">Mağazalar için</a>
