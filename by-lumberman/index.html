@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>By Lumberman</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="By Lumberman — 1954'ten bu yana ahşapla çalışan bir kerestecinin atölyesi. Masif ahşap yemek masaları, TV üniteleri, vitrinler ve çocuk yatakları. İkitelli Keresteciler Sitesi, Başakşehir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,500;0,600;0,700;1,500&family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@600;700&display=swap">
+<style>
+/* Düzen: miras/zanaat — koyu espresso zemin, kehribar vurgu; büyük "1954" tipografisi; keresteden mobilyaya hikâye; tasarımcı imzası; ürün kategorileri numaralı katalog satırları. */
+:root {
+  --zemin: #F2ECE3;
+  --kagit: #FAF6F0;
+  --metin: #1E1813;
+  --soluk: #66594C;
+  --cizgi: #DDD2C3;
+  --espresso: #1F1712;
+  --espresso-2: #2B211A;
+  --kehribar: #D08A3C;
+  --kehribar-acik: #F0C38A;
+  --f-baslik: "Zilla Slab", "Rockwell", Georgia, serif;
+  --f-govde: "Archivo", "Segoe UI", system-ui, sans-serif;
+  --f-dar: "Archivo Narrow", "Arial Narrow", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #15100C; --kagit: #1D1611; --metin: #F0E8DD; --soluk: #B9A996; --cizgi: #33281F; --espresso: #0E0A07; --espresso-2: #18120D; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #15100C; --kagit: #1D1611; --metin: #F0E8DD; --soluk: #B9A996; --cizgi: #33281F; --espresso: #0E0A07; --espresso-2: #18120D; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: var(--kehribar); }
+a:focus-visible { outline: 2px solid var(--kehribar); outline-offset: 3px; }
+.dar { font-family: var(--f-dar); letter-spacing: .18em; text-transform: uppercase; font-size: 0.8rem; font-weight: 700; }
+
+.ornek { background: var(--kehribar); color: #1E1813; font-size: 0.84rem; font-weight: 600; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* giriş: koyu, kereste fotoğrafı + 1954 */
+.kahraman { background: var(--espresso); color: #F0E8DD; position: relative; overflow: hidden; }
+.kahraman::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--espresso) 34%, rgba(31, 23, 18, .55) 62%, rgba(31, 23, 18, .2)), url("img/px-12278581.jpg") right center / cover no-repeat; opacity: 1; }
+.kahraman > .sar { position: relative; z-index: 1; }
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 12px; color: #F0E8DD; text-decoration: none; }
+.logo .muhur { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--kehribar); display: grid; place-items: center; font-family: var(--f-baslik); font-weight: 700; color: var(--kehribar); font-size: 0.95rem; }
+.logo b { font-family: var(--f-baslik); font-size: 1.45rem; letter-spacing: .02em; display: block; line-height: 1; }
+.logo small { color: #BFAF9C; font-size: 0.72rem; letter-spacing: .2em; text-transform: uppercase; }
+.ust .tel { color: #F0E8DD; text-decoration: none; font-weight: 600; border: 1.5px solid rgba(240, 232, 221, .4); padding: 9px 16px; border-radius: 4px; }
+.giris { padding-block: 60px 90px; max-width: 640px; }
+.yil { font-family: var(--f-baslik); font-weight: 700; font-size: clamp(5rem, 15vw, 11rem); line-height: .82; color: transparent; -webkit-text-stroke: 2px var(--kehribar); letter-spacing: -.02em; }
+.giris h1 { font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 1.05; margin-top: 18px; }
+.giris h1 span { color: var(--kehribar-acik); }
+.giris p { margin-top: 18px; color: #D6C8B6; font-size: 1.12rem; max-width: 32em; }
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 24px; border-radius: 4px; font-weight: 700; text-decoration: none; }
+.btn svg { width: 19px; height: 19px; }
+.btn.kehribar { background: var(--kehribar); color: #1E1813; }
+.btn.cizgi { border: 1.5px solid rgba(240, 232, 221, .5); color: #F0E8DD; }
+
+/* güven şeridi */
+.rozetler { background: var(--espresso-2); color: #F0E8DD; border-top: 1px solid rgba(208, 138, 60, .25); }
+.rozetler .sar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.rozetler div.r { padding: 22px 18px; display: grid; gap: 2px; }
+.rozetler div.r + div.r { border-left: 1px solid rgba(240, 232, 221, .12); }
+.rozetler b { font-family: var(--f-baslik); font-size: 1.5rem; color: var(--kehribar-acik); }
+.rozetler span { color: #BFAF9C; font-size: 0.92rem; }
+
+section { padding-block: 84px; }
+
+/* hikâye */
+.hikaye { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.hikaye img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; filter: saturate(.92); }
+.hikaye .metin { display: grid; gap: 18px; }
+.hikaye h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; }
+.hikaye p { color: var(--soluk); }
+.imza { display: flex; align-items: center; gap: 14px; margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--cizgi); }
+.imza .harf { width: 52px; height: 52px; border-radius: 50%; background: var(--espresso); color: var(--kehribar); display: grid; place-items: center; font-family: var(--f-baslik); font-weight: 700; font-size: 1.2rem; }
+.imza b { display: block; font-family: var(--f-baslik); font-size: 1.15rem; }
+.imza span { color: var(--soluk); font-size: 0.92rem; }
+
+/* katalog */
+.katalog-bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 26px; }
+.katalog-bas h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; }
+.katalog-bas p { color: var(--soluk); max-width: 28em; }
+.katalog { border-top: 2px solid var(--metin); }
+.satir { display: grid; grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1.2fr) 180px; gap: 22px; align-items: center; padding-block: 22px; border-bottom: 1px solid var(--cizgi); }
+.satir .no { font-family: var(--f-dar); font-weight: 700; color: var(--kehribar); font-size: 1.1rem; letter-spacing: .1em; }
+.satir h3 { font-size: 1.55rem; }
+.satir p { color: var(--soluk); }
+.satir img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.satir .eskiz { width: 100%; aspect-ratio: 3 / 2; background: #1F1712; display: grid; place-items: center; position: relative; }
+.satir .eskiz svg { width: 62%; height: 78%; stroke: #D08A3C; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.satir .eskiz small { position: absolute; left: 8px; bottom: 5px; font-family: var(--f-dar); font-size: 0.62rem; letter-spacing: .16em; color: #8C7A66; text-transform: uppercase; }
+
+/* showroom */
+.showroom { position: relative; color: #F0E8DD; }
+.showroom img { width: 100%; height: clamp(320px, 52vw, 560px); object-fit: cover; display: block; }
+.showroom .kutu { position: absolute; left: max(16px, env(safe-area-inset-left, 0px)); bottom: 28px; background: rgba(31, 23, 18, .88); padding: clamp(18px, 3vw, 32px); max-width: 480px; margin-right: 16px; }
+.showroom h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.08; }
+.showroom p { color: #D6C8B6; margin-top: 10px; }
+
+/* iletişim */
+.iletisim { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.kart { background: var(--kagit); border: 1px solid var(--cizgi); padding: 28px; display: grid; gap: 10px; align-content: start; }
+.kart.koyu { background: var(--espresso); color: #F0E8DD; border-color: var(--espresso); }
+.kart.koyu p { color: #D6C8B6; }
+.kart h3 { font-size: 1.6rem; line-height: 1.15; }
+.kart dl { margin: 0; display: grid; gap: 12px; }
+.kart dt { font-family: var(--f-dar); letter-spacing: .16em; text-transform: uppercase; font-size: 0.74rem; color: var(--soluk); font-weight: 700; }
+.kart dd { margin: 2px 0 0; }
+.kart dd a { color: var(--metin); }
+
+.dip { padding-block: 26px 90px; color: var(--soluk); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); }
+.wp { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px rgba(0, 0, 0, .25); z-index: 5; }
+.wp svg { width: 30px; height: 30px; }
+
+@media (max-width: 900px) {
+  .hikaye, .iletisim { grid-template-columns: minmax(0, 1fr); }
+  .rozetler .sar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rozetler div.r:nth-child(3) { border-left: 0; }
+  .rozetler div.r:nth-child(n+3) { border-top: 1px solid rgba(240, 232, 221, .12); }
+  .satir { grid-template-columns: 50px minmax(0, 1fr); }
+  .satir p { grid-column: 2; }
+  .satir img, .satir .eskiz { grid-column: 1 / -1; }
+  .kahraman::after { background: linear-gradient(180deg, rgba(31, 23, 18, .55), var(--espresso) 70%), url("img/px-12278581.jpg") center top / cover no-repeat; }
+}
+@media (max-width: 520px) {
+  section { padding-block: 56px; }
+  .ust .tel span { display: none; }
+  .rozetler b { font-size: 1.2rem; }
+  .showroom .kutu { position: static; max-width: none; margin: 0; }
+  .showroom img { height: 280px; }
+}
+</style>
+</head><body>
+<div class="ornek">Örnek tasarım · By Lumberman için hazırlanmıştır. Fotoğraflar temsilidir; yayında atölyenin kendi fotoğrafları kullanılır.</div>
+
+<header class="kahraman">
+  <div class="sar">
+    <div class="ust">
+      <a class="logo" href="#"><span class="muhur">BL</span><span><b>By Lumberman</b><small>Woodmaster · İkitelli</small></span></a>
+      <a class="tel" href="tel:+905325669024">☎ <span>0532 566 90 24</span></a>
+    </div>
+    <div class="giris">
+      <div class="yil" aria-hidden="true">1954</div>
+      <h1>Ahşabı ağaçtan tanıyan bir kerestecinin <span>atölyesi.</span></h1>
+      <p>1954'ten bu yana ahşapla çalışan bir ailenin bilgisiyle, masif ahşaptan yemek masaları, TV üniteleri, vitrinler ve çocuk yatakları tasarlıyor ve üretiyoruz.</p>
+      <div class="dugmeler">
+        <a class="btn kehribar" href="https://wa.me/905325669024" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          Bilgi ve detay için yazın
+        </a>
+        <a class="btn cizgi" href="#urunler">Ürünleri görün</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="rozetler">
+  <div class="sar">
+    <div class="r"><b>1954</b><span>Keresteciliğin başladığı yıl</span></div>
+    <div class="r"><b>Masif ahşap</b><span>Kendi kerestemizden</span></div>
+    <div class="r"><b>Tasarımcı</b><span>Osman Özdemir</span></div>
+    <div class="r"><b>71,6 bin</b><span>Instagram'da takip eden</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sar hikaye">
+    <img src="img/px-5711703.jpg" alt="Usta bir marangoz atölyede ahşap işliyor">
+    <div class="metin">
+      <span class="dar" style="color:var(--kehribar)">Hikâyemiz</span>
+      <h2>Keresteden mobilyaya, aynı ellerde.</h2>
+      <p>Güven Kerestecilik'in İkitelli'deki atölyesinde, onlarca yıldır ahşabı seçen, kurutan ve işleyen bir ailenin birikimi var. By Lumberman, bu birikimi evlere taşıyan tasarım atölyesidir.</p>
+      <p>Hangi ağacın hangi parçaya yakıştığını bildiğimiz için her mobilya, kendi kerestemizden ve uzun ömürlü olsun diye üretilir.</p>
+      <div class="imza"><span class="harf">OÖ</span><div><b>Osman Özdemir</b><span>Tasarımcı · By Lumberman</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="urunler" style="padding-top:0">
+  <div class="sar">
+    <div class="katalog-bas">
+      <h2>Atölyeden çıkanlar</h2>
+      <p>Tüm parçalar ölçünüze ve kullanacağınız alana göre uyarlanabilir. Fiyat ve detay için yazmanız yeterli.</p>
+    </div>
+    <div class="katalog">
+      <div class="satir"><span class="no">01</span><h3>Yemek masaları</h3><p>Masif ahşap yemek masaları ve sandalyeler; ayaklı, tabla ayaklı ve yuvarlak modeller.</p><img src="img/px-7538106.jpg" alt="Masif ahşap yemek masası ve sandalyeler"></div>
+      <div class="satir"><span class="no">02</span><h3>Orta ve yan sehpalar</h3><p>Torna ayaklı, kalın tablalı sehpalar; salonun odak noktası.</p><img src="img/px-8135264.jpg" alt="Torna ayaklı masif ahşap masa"></div>
+      <div class="satir"><span class="no">03</span><h3>TV üniteleri ve vitrinler</h3><p>Camlı vitrinler, kemerli dolaplar ve masif TV üniteleri.</p><div class="eskiz" role="img" aria-label="Kemerli camlı vitrin eskizi"><svg viewBox="0 0 120 80"><path d="M38 76V14h44v62"/><path d="M34 14h52"/><path d="M42 72V28a8 8 0 0 1 16 0v44M62 72V28a8 8 0 0 1 16 0v44"/><path d="M42 44h16M62 44h16M42 58h16M62 58h16" stroke-width="1.2"/><path d="M36 76h48M40 76v3M80 76v3"/><path d="M8 76h22M90 76h22" stroke-width="1" stroke-dasharray="2 3"/></svg><small>Eskiz</small></div></div>
+      <div class="satir"><span class="no">04</span><h3>Çocuk yatakları</h3><p>Ev şeklinde ve korkuluklu, yere yakın çocuk yatakları; doğal ahşaptan.</p><div class="eskiz" role="img" aria-label="Ev şeklinde çocuk yatağı eskizi"><svg viewBox="0 0 120 80"><path d="M22 70V34L48 12l26 22v36"/><path d="M74 34h24v36"/><path d="M48 12h26l24 22" stroke-width="1.4"/><path d="M18 70h84"/><path d="M26 62h70v8H26z" stroke-width="1.4"/><path d="M30 62c2-5 8-6 14-5" stroke-width="1.2"/><path d="M84 46v16M90 46v16M78 46h18" stroke-width="1.2"/><path d="M8 74h104" stroke-width="1" stroke-dasharray="2 3"/></svg><small>Eskiz</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="showroom" style="padding:0">
+  <img src="img/px-5710853.jpg" alt="Atölyede ahşap kesimi">
+  <div class="kutu">
+    <span class="dar" style="color:var(--kehribar-acik)">Showroom &amp; atölye</span>
+    <h2 style="margin-top:8px">Parçaları yerinde görün, ahşaba dokunun.</h2>
+    <p>Keresteciler Sitesi'ndeki atölyemizde üretimi ve hazır parçaları yakından görebilirsiniz.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sar iletisim">
+    <div class="kart koyu">
+      <span class="dar" style="color:var(--kehribar)">İletişim</span>
+      <h3>Bilgi ve detaylar için arayın ya da yazın</h3>
+      <p>Ölçü, fotoğraf ya da beğendiğiniz bir model gönderin; size uygun parçayı birlikte belirleyelim.</p>
+      <div class="dugmeler"><a class="btn kehribar" href="https://wa.me/905325669024" target="_blank" rel="noopener">WhatsApp'tan yazın</a></div>
+    </div>
+    <div class="kart">
+      <dl>
+        <div><dt>Telefon</dt><dd><a href="tel:+905325669024">0532 566 90 24</a></dd></div>
+        <div><dt>Adres</dt><dd>Güven Kerestecilik A.Ş., İkitelli Keresteciler Sitesi 21. Blok No:19/21, 34490 Başakşehir / İstanbul</dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/by_lumberman/" target="_blank" rel="noopener">@by_lumberman</a></dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="sar"><footer class="dip" style="margin-top:40px"><span>© 2026 By Lumberman · Güven Kerestecilik A.Ş.</span><span>Başakşehir / İstanbul</span></footer></div>
+</section>
+
+<a class="wp" href="https://wa.me/905325669024" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+</body></html>
