@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>İlhan Nakliyat</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="İlhan Nakliyat Evden Eve Taşımacılık — Halkalı, Küçükçekmece. Asansörlü taşıma, paketleme, şehir içi ve şehirler arası nakliyat. 7/24 ulaşılabilir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap">
+<style>
+/* Düzen: güven veren taşımacılık firması — orman yeşili + hardal; büyük fotoğraf ve "fiyat teklifi al" odaklı; adım adım süreç; yorumlar; 7/24 iletişim. */
+:root {
+  --zemin: #F6F5F0;
+  --yuzey: #FFFFFF;
+  --metin: #18231E;
+  --soluk: #5A6760;
+  --cizgi: #DDE0D6;
+  --orman: #1F4636;
+  --hardal: #E3B23C;
+  --f-baslik: "Lexend", "Segoe UI", system-ui, sans-serif;
+  --f-govde: "Work Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #101713; --yuzey: #17211C; --metin: #EAF0EC; --soluk: #A6B4AC; --cizgi: #27342D; --orman: #8FD1B0; --hardal: #F0C55F; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #101713; --yuzey: #17211C; --metin: #EAF0EC; --soluk: #A6B4AC; --cizgi: #27342D; --orman: #8FD1B0; --hardal: #F0C55F; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: var(--orman); }
+a:focus-visible { outline: 3px solid var(--hardal); outline-offset: 3px; border-radius: 8px; }
+
+.ornek { background: var(--metin); color: var(--zemin); font-size: 0.85rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--metin); }
+.logo .kamyon { width: 42px; height: 42px; border-radius: 10px; background: var(--orman); color: var(--hardal); display: grid; place-items: center; }
+.logo .kamyon svg { width: 24px; height: 24px; }
+.logo b { font-family: var(--f-baslik); font-size: 1.3rem; display: block; line-height: 1.05; }
+.logo small { color: var(--soluk); font-size: 0.82rem; }
+.ust .canli { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.95rem; }
+.ust .canli i { width: 9px; height: 9px; border-radius: 50%; background: #2BB673; display: block; box-shadow: 0 0 0 4px rgba(43, 182, 115, .18); }
+
+.kahraman { position: relative; border-radius: 28px; overflow: hidden; min-height: 540px; display: flex; align-items: flex-end; color: #fff; background: #1F4636 url("img/px-7464687.jpg") center / cover no-repeat; }
+.kahraman::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16, 34, 26, .15) 0%, rgba(16, 34, 26, .55) 45%, rgba(16, 34, 26, .92) 100%); }
+.kahraman .icerik { position: relative; padding: clamp(22px, 4vw, 44px); max-width: 760px; }
+.kahraman .etiket { display: inline-flex; gap: 8px; align-items: center; background: var(--hardal); color: #18231E; font-weight: 600; font-size: 0.88rem; padding: 6px 12px; border-radius: 999px; }
+.kahraman h1 { font-size: clamp(2.3rem, 5.4vw, 4rem); line-height: 1.04; margin-top: 14px; }
+.kahraman p { margin-top: 14px; font-size: 1.15rem; opacity: .92; max-width: 34em; }
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 22px; border-radius: 12px; font-family: var(--f-baslik); font-weight: 600; text-decoration: none; }
+.btn svg { width: 20px; height: 20px; }
+.btn.hardal { background: var(--hardal); color: #18231E; }
+.btn.beyaz { background: rgba(255, 255, 255, .14); color: #fff; border: 1.5px solid rgba(255, 255, 255, .55); }
+
+.serit { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.serit div { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 16px; padding: 16px 18px; }
+.serit b { font-family: var(--f-baslik); font-size: 1.35rem; display: block; color: var(--orman); }
+.serit span { color: var(--soluk); font-size: 0.92rem; }
+
+section { padding-block: 60px; }
+.bas { margin-bottom: 26px; max-width: 38em; display: flex; flex-direction: column; gap: 8px; }
+.bas h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1.08; }
+.bas p { color: var(--soluk); }
+
+.hizmetler { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.hizmet { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 18px; padding: 20px; }
+.hizmet .ikon { width: 52px; height: 52px; border-radius: 14px; background: var(--orman); color: var(--hardal); display: grid; place-items: center; }
+.hizmet .ikon svg { width: 26px; height: 26px; }
+.hizmet h3 { font-size: 1.2rem; }
+.hizmet p { color: var(--soluk); margin-top: 4px; }
+
+.adimlar { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; counter-reset: a; }
+.adimlar li { counter-increment: a; background: var(--orman); color: #EAF0EC; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
+.adimlar li::before { content: counter(a); font-family: var(--f-baslik); font-weight: 800; font-size: 2.2rem; color: var(--hardal); line-height: 1; }
+.adimlar b { font-family: var(--f-baslik); font-size: 1.15rem; }
+.adimlar span { opacity: .85; }
+
+.ikili { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 30px; align-items: start; }
+.ikili img { width: 100%; aspect-ratio: 4 / 3.3; object-fit: cover; border-radius: 22px; display: block; }
+.yorumlar { display: flex; flex-direction: column; gap: 14px; }
+.yorum { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 18px; padding: 20px; margin: 0; }
+.yorum .y { color: var(--hardal); letter-spacing: 2px; }
+.yorum p { margin-top: 6px; }
+.yorum footer { color: var(--soluk); font-size: 0.9rem; margin-top: 8px; }
+
+.iletisim { background: var(--orman); color: #EAF0EC; border-radius: 28px; padding: clamp(22px, 4vw, 44px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+.iletisim h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1.08; }
+.iletisim p { opacity: .85; margin-top: 10px; }
+.iletisim .kutu { background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.iletisim .kutu b { font-family: var(--f-baslik); font-size: 1.5rem; color: var(--hardal); }
+.iletisim .kutu a { color: #fff; }
+
+.dip { padding-block: 26px 110px; color: var(--soluk); font-size: 0.92rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); margin-top: 40px; }
+
+.alt-cubuk { display: none; }
+@media (max-width: 860px) {
+  .serit { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hizmetler, .adimlar, .ikili, .iletisim { grid-template-columns: minmax(0, 1fr); }
+  .kahraman { min-height: 520px; }
+  .alt-cubuk { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--yuzey); border-top: 1px solid var(--cizgi); padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+  .alt-cubuk a { justify-content: center; }
+  .alt-cubuk .btn.beyaz { background: var(--orman); border-color: var(--orman); }
+}
+@media (max-width: 520px) { section { padding-block: 44px; } .ust .canli span { display: none; } }
+</style>
+
+</head><body>
+<div class="ornek">Örnek tasarım · İlhan Nakliyat için hazırlanmıştır. Fotoğraflar temsilidir.</div>
+
+<div class="sar">
+  <header class="ust">
+    <a class="logo" href="#">
+      <span class="kamyon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+      <span><b>İlhan Nakliyat</b><small>Evden eve taşımacılık · Halkalı</small></span>
+    </a>
+    <span class="canli"><i></i><span>7/24 ulaşılabilir · 0530 945 49 13</span></span>
+  </header>
+
+  <div class="kahraman">
+    <div class="icerik">
+      <span class="etiket">★ 4,9 · 148 Google yorumu</span>
+      <h1>Eşyalarınız özenle paketlenir, zarar görmeden taşınır.</h1>
+      <p>Halkalı'dan İstanbul'un her yerine ve şehirler arası evden eve nakliyat. Asansörlü taşıma ve profesyonel paketleme.</p>
+      <div class="dugmeler">
+        <a class="btn hardal" href="https://wa.me/905309454913?text=Merhaba%2C%20ta%C5%9F%C4%B1nma%20i%C3%A7in%20fiyat%20teklifi%20almak%20istiyorum.%0ANereden%3A%20%0ANereye%3A%20%0ATarih%3A%20%0AEv%20b%C3%BCy%C3%BCkl%C3%BC%C4%9F%C3%BC%20(%C3%B6rn.%202%2B1)%3A%20" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          WhatsApp'tan fiyat teklifi al
+        </a>
+        <a class="btn beyaz" href="tel:+905309454913">Hemen ara</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="serit">
+    <div><b>Asansörlü</b><span>taşıma ile hızlı ve güvenli</span></div>
+    <div><b>Paketleme</b><span>her eşya özenle sarılır</span></div>
+    <div><b>Şehir içi</b><span>İstanbul'un her ilçesine</span></div>
+    <div><b>Şehirler arası</b><span>İstanbul dışına da taşıyoruz</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="sar">
+    <div class="bas"><h2>Hizmetlerimiz</h2><p>Taşınmanın yorucu kısmını biz üstleniyoruz.</p></div>
+    <div class="hizmetler">
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></span><div><h3>Evden eve nakliyat</h3><p>Evinizin tamamını planlı şekilde, tek seferde yeni adresinize taşıyoruz.</p></div></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></span><div><h3>Asansörlü taşımacılık</h3><p>Yüksek katlarda eşyalar merdivenden değil, asansörle güvenle iner ve çıkar.</p></div></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></svg></span><div><h3>Paketleme</h3><p>Kırılacak ve değerli eşyalarınız taşınmadan önce özenle paketlenir.</p></div></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><div><h3>Şehirler arası taşıma</h3><p>İstanbul'dan başka şehirlere evden eve nakliyat.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><h2>Nasıl ilerliyoruz</h2></div>
+    <ol class="adimlar">
+      <li><b>Bize yazın ya da arayın</b><span>Nereden nereye, hangi tarihte ve evin büyüklüğünü söyleyin.</span></li>
+      <li><b>Fiyat teklifinizi alın</b><span>İhtiyacınıza göre net bir fiyat ve gün planı paylaşalım.</span></li>
+      <li><b>Taşınma günü</b><span>Paketleme, taşıma ve yeni adrese teslim; siz sadece takip edin.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar ikili">
+    <img src="img/px-7464708.jpg" alt="Kırılacak eşya etiketli bir taşıma kolisi">
+    <div>
+      <div class="bas" style="margin-bottom:16px"><h2>Taşıdığımız ailelerden</h2></div>
+      <div class="yorumlar">
+        <figure class="yorum"><span class="y">★★★★★</span><p>"Sorunsuz İstanbuldan Edirne Süloğluna hiçbir eşyamıza zarar gelmeden taşıdılar bizi. Emeği geçen herkese teşekkür ederiz."</p><footer>Ayaz Zahit G. · Google yorumu</footer></figure>
+        <figure class="yorum"><span class="y">★★★★★</span><p>"İnanılmaz bi ekibi var çok hızlı ve pratik ekip herşeyi en iyi şekilde paketliyip asansörlü taşımacılık hizmeti verdiler çok memnun kaldım tavsiye ederim"</p><footer>Aydin Ç. · Google yorumu</footer></figure>
+        <figure class="yorum"><span class="y">★★★★★</span><p>"Gayet profesyonel ve alanında başarı gençlerle çalışıyolar asansörlü taşımacılıkta bir numara diyebilirim"</p><footer>Yunus Emre T. · Google yorumu</footer></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sar">
+  <div class="iletisim">
+    <div>
+      <h2>Taşınma tarihiniz belli mi?</h2>
+      <p>Günü yaklaşmadan yerinizi ayırtın. 7 gün 24 saat ulaşabilirsiniz.</p>
+    </div>
+    <div class="kutu">
+      <b>0530 945 49 13</b>
+      <span>Halkalı Merkez Mah., Merkez Cami Sk. No:8, 34303 Küçükçekmece / İstanbul</span>
+      <a href="https://maps.google.com/?cid=15225501866823444287" target="_blank" rel="noopener">Haritada aç</a>
+    </div>
+  </div>
+  <footer class="dip"><span>© 2026 İlhan Nakliyat Evden Eve Taşımacılık</span><span>Küçükçekmece / İstanbul</span></footer>
+</div>
+
+<div class="alt-cubuk">
+  <a class="btn hardal" href="https://wa.me/905309454913?text=Merhaba%2C%20ta%C5%9F%C4%B1nma%20i%C3%A7in%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" rel="noopener">Fiyat teklifi al</a>
+  <a class="btn beyaz" href="tel:+905309454913">Hemen ara</a>
+</div>
+
+</body></html>
