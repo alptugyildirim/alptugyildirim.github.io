@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Toker Isı Kombi Servisi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Toker Isı Kombi Servisi — Fevzi Çakmak, Küçükçekmece. Kombi arıza, tamir ve bakım. Her gün gece 00:00'a kadar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Düzen: sıcak ev hissi — krem zemin, alev turuncusu vurgu; mevsim şeridi + "gece 00:00'a kadar" vaadi; usta odaklı yorumlar; telefonda altta sabit ara çubuğu. */
+:root {
+  --zemin: #FFF7EE;
+  --yuzey: #FFFFFF;
+  --metin: #2A1A12;
+  --soluk: #6E5A4E;
+  --cizgi: #EEDFCF;
+  --alev: #E8552D;
+  --amber: #F4A259;
+  --gece: #2A1A12;
+  --f-baslik: "Rubik", "Segoe UI", system-ui, sans-serif;
+  --f-govde: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #1A120D; --yuzey: #241913; --metin: #FBEFE5; --soluk: #C9B3A4; --cizgi: #3A2A20; --alev: #FF7A50; --amber: #F7B36F; --gece: #120B07; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #1A120D; --yuzey: #241913; --metin: #FBEFE5; --soluk: #C9B3A4; --cizgi: #3A2A20; --alev: #FF7A50; --amber: #F7B36F; --gece: #120B07; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1100px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); margin: 0; text-wrap: balance; letter-spacing: -0.015em; }
+p { margin: 0; }
+a { color: var(--alev); }
+a:focus-visible { outline: 3px solid var(--alev); outline-offset: 3px; border-radius: 8px; }
+
+.ornek { background: var(--gece); color: var(--zemin); font-size: 0.85rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.mevsim { background: var(--amber); color: #2A1A12; font-weight: 700; text-align: center; padding-block: 9px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--metin); }
+.logo .alev { width: 40px; height: 40px; border-radius: 12px; background: var(--alev); display: grid; place-items: center; color: #fff; }
+.logo .alev svg { width: 22px; height: 22px; }
+.logo b { font-family: var(--f-baslik); font-weight: 800; font-size: 1.35rem; line-height: 1; display: block; }
+.logo small { color: var(--soluk); font-size: 0.85rem; }
+.ust .tel { font-family: var(--f-baslik); font-weight: 700; text-decoration: none; color: var(--metin); background: var(--yuzey); border: 1px solid var(--cizgi); padding: 9px 16px; border-radius: 999px; }
+
+.giris { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: center; padding-block: 30px 60px; }
+.giris h1 { font-size: clamp(2.4rem, 5.4vw, 4.2rem); line-height: 1.02; font-weight: 800; }
+.giris h1 span { color: var(--alev); }
+.giris p { margin-top: 18px; color: var(--soluk); font-size: 1.18rem; max-width: 30em; }
+.saat-rozet { display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; background: var(--gece); color: #fff; border-radius: 14px; padding: 10px 16px; }
+.saat-rozet svg { width: 22px; height: 22px; color: var(--amber); }
+.saat-rozet b { font-family: var(--f-baslik); }
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 24px; border-radius: 14px; font-family: var(--f-baslik); font-weight: 700; font-size: 1.05rem; text-decoration: none; }
+.btn svg { width: 20px; height: 20px; }
+.btn.alev { background: var(--alev); color: #fff; }
+.btn.wp-b { background: #25D366; color: #08361a; }
+.foto { position: relative; }
+.foto img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 32px; display: block; }
+.foto .balon { position: absolute; left: -16px; bottom: 26px; max-width: 290px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 20px 20px 20px 4px; padding: 16px 18px; box-shadow: 0 16px 34px rgba(42, 26, 18, .16); }
+.foto .balon p { color: var(--metin); font-size: 1rem; margin: 0; }
+.foto .balon small { color: var(--soluk); display: block; margin-top: 6px; }
+.foto .puan { position: absolute; right: 16px; top: 16px; background: var(--gece); color: #fff; border-radius: 999px; padding: 8px 14px; font-weight: 700; }
+.foto .puan span { color: var(--amber); }
+
+section { padding-block: 60px; }
+.bas { max-width: 36em; margin-bottom: 26px; display: flex; flex-direction: column; gap: 8px; }
+.bas h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); line-height: 1.08; font-weight: 800; }
+.bas p { color: var(--soluk); }
+
+.hizmetler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.hizmet { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.hizmet .ikon { width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, var(--alev) 14%, transparent); color: var(--alev); display: grid; place-items: center; }
+.hizmet .ikon svg { width: 24px; height: 24px; }
+.hizmet h3 { font-size: 1.3rem; }
+.hizmet p { color: var(--soluk); }
+
+.yorumlar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.yorum { background: var(--gece); color: #FBEFE5; border-radius: 24px; padding: 24px; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.yorum .y { color: var(--amber); letter-spacing: 2px; }
+.yorum p { font-size: 1.05rem; }
+.yorum footer { margin-top: auto; opacity: .7; font-size: 0.9rem; }
+
+.bilgi { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.kart { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
+.kart h3 { font-size: 1.3rem; }
+.saat { display: grid; grid-template-columns: minmax(0, 1fr) auto; row-gap: 8px; column-gap: 14px; font-variant-numeric: tabular-nums; }
+.saat span:nth-child(even) { font-weight: 700; text-align: right; }
+.kart .soluk { color: var(--soluk); }
+
+.dip { padding-block: 26px 120px; color: var(--soluk); font-size: 0.92rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); }
+
+.alt-cubuk { display: none; }
+@media (max-width: 860px) {
+  .giris, .bilgi { grid-template-columns: minmax(0, 1fr); }
+  .foto { max-width: 480px; }
+  .foto .balon { left: 12px; }
+  .hizmetler, .yorumlar { grid-template-columns: minmax(0, 1fr); }
+  .alt-cubuk { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--yuzey); border-top: 1px solid var(--cizgi); padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+  .alt-cubuk a { justify-content: center; }
+}
+@media (max-width: 520px) { section { padding-block: 44px; } .ust .tel { display: none; } }
+</style>
+
+</head><body>
+<div class="ornek">Örnek tasarım · Toker Isı Kombi Servisi için hazırlanmıştır. Fotoğraflar temsilidir.</div>
+<div class="mevsim">Kış gelmeden kombinizin bakımını yaptırın, soğukta arıza sürprizi yaşamayın.</div>
+
+<div class="sar">
+  <header class="ust">
+    <a class="logo" href="#">
+      <span class="alev"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5.5 1-8.5z"/></svg></span>
+      <span><b>Toker Isı</b><small>Kombi servisi · Küçükçekmece</small></span>
+    </a>
+    <a class="tel" href="tel:+905425026060">0542 502 60 60</a>
+  </header>
+
+  <div class="giris">
+    <div>
+      <h1>Kombiniz soğuk mu? <span>Mustafa Usta</span>'yı arayın.</h1>
+      <p>Kombi arıza, tamir ve bakımında Küçükçekmece'de hızlı ve temiz işçilik. Akşam geç saatte bozulsa da arayabilirsiniz.</p>
+      <div class="saat-rozet">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+        <span><b>Her gün gece 00:00'a kadar</b> açığız</span>
+      </div>
+      <div class="dugmeler">
+        <a class="btn alev" href="tel:+905425026060">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          Hemen ara
+        </a>
+        <a class="btn wp-b" href="https://wa.me/905425026060" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="foto">
+      <img src="img/px-12644994.jpg" alt="Kalorifer peteğinin vanası açılıyor">
+      <span class="puan"><span>★</span> 5,0 · 133 yorum</span>
+      <div class="balon"><p>"Mustafa ustanın eline sağlık 1 aydır çözemediğim sorunu 5 dakikada çözdü."</p><small>Anıl B. · Google yorumu</small></div>
+    </div>
+  </div>
+</div>
+
+<section style="padding-top:20px">
+  <div class="sar">
+    <div class="bas"><h2>Neler yapıyoruz</h2><p>Kombinizle ilgili her sorun için tek numara.</p></div>
+    <div class="hizmetler">
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></span><h3>Arıza ve tamir</h3><p>Isıtmayan, sıcak su vermeyen ya da hata kodu gösteren kombilerin onarımı.</p></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Periyodik bakım</h3><p>Kış öncesi kombi bakımı; daha az arıza, daha verimli ısınma.</p></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5.5 1-8.5z"/></svg></span><h3>Isıtma sistemleri</h3><p>Evinizin ısıtma sistemiyle ilgili sorular ve kontroller.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><h2>Mustafa Usta hakkında söylenenler</h2><p>Google'da 133 yorum, ortalama 5,0 puan.</p></div>
+    <div class="yorumlar">
+      <figure class="yorum"><span class="y">★★★★★</span><p>"Gece geç saatlerde kombimiz bozulmuştu Mustafa Usta'yı aradık bir saat içinde gelip sorunumuzu çözdü kombiyi çalışır halde bıraktı ve gitti uygun fiyatlı yaptı"</p><footer>Süleyman A. · Google yorumu</footer></figure>
+      <figure class="yorum"><span class="y">★★★★★</span><p>"Geç saat demedi koştu geldi tertemiz işçiliği var kısa sürede yaptı"</p><footer>Gazi S. · Google yorumu</footer></figure>
+      <figure class="yorum"><span class="y">★★★★★</span><p>"Mustafa ustanın eline sağlık 1 aydır çözemediğim sorunu 5 dakikada çözdü."</p><footer>Anıl B. · Google yorumu</footer></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar bilgi">
+    <div class="kart"><h3>Çalışma saatleri</h3><div class="saat"><span>Pazartesi – Cumartesi</span><span>10:00 – 00:00</span><span>Pazar</span><span>12:00 – 00:00</span></div></div>
+    <div class="kart"><h3>Adres ve iletişim</h3><span class="soluk">Fevzi Çakmak Mah., Yavuz Selim Sk. No:35 D:B, 34295 Küçükçekmece / İstanbul</span><span>0542 502 60 60</span><a href="https://maps.google.com/?cid=6408216854490237159" target="_blank" rel="noopener">Haritada aç</a></div>
+  </div>
+</section>
+
+<div class="sar">
+  <footer class="dip"><span>© 2026 Toker Isı Kombi Servisi</span><span>Küçükçekmece / İstanbul</span></footer>
+</div>
+
+<div class="alt-cubuk">
+  <a class="btn alev" href="tel:+905425026060">Hemen ara</a>
+  <a class="btn wp-b" href="https://wa.me/905425026060" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+</body></html>
