@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Alize Güzellik Merkezi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Alize Güzellik Merkezi — Cennet, Küçükçekmece. Cilt bakımı, epilasyon ve solaryum. Google'da 5,0 puan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* Düzen: sakin, ortalanmış giriş ve tam 5,0 puanı merkeze alan bir vitrin; geniş fotoğraf bandı; hizmetler üç sütun; saat/adres sade. */
+:root {
+  --zemin: #F4F1EA;
+  --yuzey: #FBFAF6;
+  --metin: #23302A;
+  --soluk: #5E6B63;
+  --cizgi: #DCD7CA;
+  --ada: #4E6E5D;       /* adaçayı yeşili */
+  --kum: #C9A66B;       /* kum altını */
+  --f-baslik: "Cormorant Garamond", Georgia, serif;
+  --f-govde: "Jost", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #141A17; --yuzey: #1B2420; --metin: #ECEFE9; --soluk: #A8B5AD; --cizgi: #2D3833; --ada: #8DB7A0; --kum: #D9B97F; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #141A17; --yuzey: #1B2420; --metin: #ECEFE9; --soluk: #A8B5AD; --cizgi: #2D3833; --ada: #8DB7A0; --kum: #D9B97F; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1060px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); font-weight: 600; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--ada); }
+a:focus-visible { outline: 3px solid var(--ada); outline-offset: 3px; border-radius: 6px; }
+
+.ornek { background: var(--ada); color: #fff; font-size: 0.84rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; flex-wrap: wrap; border-bottom: 1px solid var(--cizgi); }
+.logo { text-decoration: none; color: var(--metin); text-align: left; }
+.logo b { font-family: var(--f-baslik); font-size: 1.9rem; letter-spacing: .14em; display: block; line-height: 1; }
+.logo span { font-size: 0.72rem; letter-spacing: .32em; text-transform: uppercase; color: var(--soluk); }
+.ust a.tel { text-decoration: none; color: var(--metin); font-weight: 500; letter-spacing: .04em; }
+
+.giris { text-align: center; padding-block: 64px 48px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.yildiz { color: var(--kum); letter-spacing: 6px; font-size: 1.1rem; }
+.giris .puan { font-size: 0.95rem; letter-spacing: .14em; text-transform: uppercase; color: var(--soluk); }
+.giris h1 { font-size: clamp(2.6rem, 6.4vw, 5rem); line-height: 1; max-width: 13em; }
+.giris h1 i { color: var(--ada); }
+.giris p { color: var(--soluk); max-width: 32em; font-size: 1.15rem; }
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+.dugme { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 4px; font-weight: 500; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; font-size: 0.88rem; }
+.dugme svg { width: 18px; height: 18px; }
+.dugme.dolu { background: var(--ada); color: #fff; }
+.dugme.bos { border: 1px solid var(--metin); color: var(--metin); }
+
+.bant img { width: 100%; height: clamp(240px, 42vw, 460px); object-fit: cover; display: block; border-radius: 6px; }
+
+section { padding-block: 64px; }
+.bas { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; margin-bottom: 34px; }
+.bas small { letter-spacing: .3em; text-transform: uppercase; color: var(--kum); font-size: 0.75rem; font-weight: 600; }
+.bas h2 { font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.05; }
+
+.hizmetler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--cizgi); border-bottom: 1px solid var(--cizgi); }
+.hizmet { padding: 30px 26px; display: flex; flex-direction: column; gap: 10px; text-align: center; }
+.hizmet + .hizmet { border-left: 1px solid var(--cizgi); }
+.hizmet .no { font-family: var(--f-baslik); color: var(--kum); font-size: 1.1rem; }
+.hizmet h3 { font-size: 1.8rem; }
+.hizmet p { color: var(--soluk); }
+
+.yorumlar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.yorum { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 6px; padding: 26px; display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.yorum p { font-family: var(--f-baslik); font-size: 1.3rem; line-height: 1.3; font-weight: 500; }
+.yorum footer { color: var(--soluk); font-size: 0.86rem; letter-spacing: .04em; margin-top: auto; }
+
+.ziyaret { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.ziyaret img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; display: block; }
+.liste { display: grid; grid-template-columns: minmax(0, 1fr) auto; row-gap: 10px; column-gap: 20px; font-variant-numeric: tabular-nums; border-top: 1px solid var(--cizgi); padding-top: 14px; margin-top: 14px; }
+.liste span:nth-child(even) { text-align: right; font-weight: 500; }
+.ziyaret h3 { font-size: 1.9rem; }
+.ziyaret .adres { color: var(--soluk); margin-top: 20px; }
+
+.dip { padding-block: 26px 90px; color: var(--soluk); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); }
+.wp { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px rgba(0, 0, 0, .22); z-index: 5; }
+.wp svg { width: 30px; height: 30px; }
+
+@media (max-width: 860px) {
+  .hizmetler, .yorumlar { grid-template-columns: minmax(0, 1fr); }
+  .hizmet + .hizmet { border-left: 0; border-top: 1px solid var(--cizgi); }
+  .ziyaret { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 540px) { section { padding-block: 44px; } .giris { padding-block: 44px 36px; } }
+</style>
+
+</head><body>
+<div class="ornek">Örnek tasarım · Alize Güzellik Merkezi için hazırlanmıştır. Fotoğraflar temsilidir.</div>
+
+<div class="sar">
+  <header class="ust">
+    <a class="logo" href="#"><b>ALİZE</b><span>Güzellik Merkezi</span></a>
+    <a class="tel" href="tel:+905536151447">0553 615 14 47</a>
+  </header>
+
+  <div class="giris">
+    <span class="yildiz" aria-hidden="true">★★★★★</span>
+    <span class="puan">Google'da 5,0 · 202 yorum</span>
+    <h1>Cildiniz için <i>özen,</i> sizin için huzur.</h1>
+    <p>Cilt bakımı, epilasyon ve solaryumda kaliteli ürünler, hijyenik uygulama ve güler yüzlü bir ekip. Cennet Mahallesi'nde, yürüyüş yolunun hemen üzerinde.</p>
+    <div class="dugmeler">
+      <a class="dugme dolu" href="https://wa.me/905536151447" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+        Randevu al
+      </a>
+      <a class="dugme bos" href="https://maps.google.com/?cid=14531364809744412326" target="_blank" rel="noopener">Yol tarifi</a>
+    </div>
+  </div>
+
+  <div class="bant"><img src="img/px-12115040.jpg" alt="Güzellik uzmanı yüz bakımı uyguluyor"></div>
+</div>
+
+<section>
+  <div class="sar">
+    <div class="bas"><small>Hizmetlerimiz</small><h2>Size ayrılan zaman</h2></div>
+    <div class="hizmetler">
+      <div class="hizmet"><span class="no">I</span><h3>Cilt bakımı</h3><p>Cildinizin ihtiyacına göre bakım; temizlik, nem ve canlılık.</p></div>
+      <div class="hizmet"><span class="no">II</span><h3>Epilasyon</h3><p>Düzenli seanslarla istenmeyen tüylerden kurtulma; batık ve kıl dönmesine eğilimli ciltlerde özenli uygulama.</p></div>
+      <div class="hizmet"><span class="no">III</span><h3>Solaryum</h3><p>Bakımlı cihazlarla, kontrollü ve konforlu solaryum.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><small>Yorumlar</small><h2>Bizi tercih edenler</h2></div>
+    <div class="yorumlar">
+      <figure class="yorum"><p>"Randevumdan önce de sonra da aşırı ilgiliydiler. Kullandıkları ürünler kaliteli, çalışanlar işinin ehli."</p><footer>Alican U. · Google yorumu</footer></figure>
+      <figure class="yorum"><p>"İşlemler hem özenli hem de hijyenik yapılıyor. İlgi ve güler yüz de ayrıca çok iyi."</p><footer>Arzu Ö. · Google yorumu</footer></figure>
+      <figure class="yorum"><p>"Solaryum hizmeti ve kullanılan cihazlar gerçekten harika, gönül rahatlığıyla tavsiye ederim."</p><footer>Zeynep Ç. · Google yorumu</footer></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar ziyaret">
+    <img src="img/px-3985361.jpg" alt="Temiz bir bakım odasında yüz bakımı">
+    <div>
+      <h3>Çalışma saatleri</h3>
+      <div class="liste">
+        <span>Pazartesi – Cumartesi</span><span>10:00 – 20:00</span>
+        <span>Pazar</span><span>Kapalı</span>
+      </div>
+      <p class="adres">Cennet Mah., Zafer Sk. No:12/C<br>Yürüyüş yolu üzerinde, zabıta kulübesinin yanı<br>34290 Küçükçekmece / İstanbul</p>
+      <div class="dugmeler" style="justify-content:flex-start;margin-top:22px">
+        <a class="dugme dolu" href="https://maps.google.com/?cid=14531364809744412326" target="_blank" rel="noopener">Haritada aç</a>
+        <a class="dugme bos" href="tel:+905536151447">Ara</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sar">
+  <footer class="dip">
+    <span>© 2026 Alize Güzellik Merkezi</span>
+    <span>Küçükçekmece / İstanbul</span>
+  </footer>
+</div>
+
+<a class="wp" href="https://wa.me/905536151447" target="_blank" rel="noopener" aria-label="WhatsApp'tan randevu al">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+</body></html>
