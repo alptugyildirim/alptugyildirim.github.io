@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>İktidar Teknik Servis</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="İktidar Teknik Servis — Halkalı, Küçükçekmece. Kombi ve beyaz eşya servisi. Aynı gün yerinde servis, yapılan işlere 1 yıl garanti.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+/* Düzen: acil servis mantığı — ilk ekranda büyük "Hemen ara"; telefonda altta sabit ara/WhatsApp çubuğu; hizmetler, güvenceler, bölgeler, yorumlar, saatler. */
+:root {
+  --zemin: #F3F2EE;
+  --yuzey: #FFFFFF;
+  --metin: #1B1F23;
+  --soluk: #5B6168;
+  --cizgi: #DAD8D1;
+  --koyu: #1B1F23;       /* kömür */
+  --sari: #FFB703;       /* iş güvenliği sarısı */
+  --sari-yazi: #1B1F23;
+  --f-baslik: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-govde: "Barlow", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #121417; --yuzey: #1B1E22; --metin: #EEF0F2; --soluk: #A6ADB5; --cizgi: #2C3036; --koyu: #0B0D0F; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #121417; --yuzey: #1B1E22; --metin: #EEF0F2; --soluk: #A6ADB5; --cizgi: #2C3036; --koyu: #0B0D0F; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); margin: 0; text-wrap: balance; text-transform: uppercase; letter-spacing: .01em; }
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--sari); outline-offset: 3px; border-radius: 6px; }
+
+.ornek { background: var(--sari); color: var(--sari-yazi); font-size: 0.85rem; font-weight: 600; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.kahraman { background: var(--koyu); color: #fff; }
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; flex-wrap: wrap; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+.logo { font-family: var(--f-baslik); font-weight: 800; font-size: 1.7rem; letter-spacing: .04em; text-decoration: none; color: #fff; }
+.logo span { color: var(--sari); }
+.ust .tel { font-family: var(--f-baslik); font-weight: 700; font-size: 1.3rem; text-decoration: none; color: var(--sari); letter-spacing: .03em; }
+.giris { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 40px; align-items: center; padding-block: 44px 52px; }
+.giris .etiket { display: inline-block; background: var(--sari); color: var(--sari-yazi); font-weight: 700; font-size: 0.85rem; padding: 5px 12px; border-radius: 4px; text-transform: uppercase; letter-spacing: .06em; }
+.giris h1 { font-size: clamp(2.7rem, 6.2vw, 4.9rem); line-height: .95; margin-top: 16px; }
+.giris h1 span { color: var(--sari); }
+.giris p { margin-top: 18px; font-size: 1.15rem; color: rgba(255, 255, 255, .82); max-width: 32em; }
+.ara-blok { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 22px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1.05rem; }
+.btn svg { width: 22px; height: 22px; }
+.btn.sari { background: var(--sari); color: var(--sari-yazi); font-family: var(--f-baslik); font-size: 1.4rem; letter-spacing: .03em; padding: 12px 24px; }
+.btn.wp-b { background: #25D366; color: #08361a; }
+.giris figure { margin: 0; position: relative; }
+.giris figure img { width: 100%; aspect-ratio: 4 / 3.2; object-fit: cover; border-radius: 10px; display: block; }
+.giris figure .puan { position: absolute; left: 14px; bottom: 14px; background: var(--yuzey); color: var(--metin); border-radius: 8px; padding: 10px 14px; font-weight: 600; }
+.giris figure .puan b { font-family: var(--f-baslik); font-size: 1.5rem; }
+.giris figure .puan .y { color: var(--sari); }
+
+.guvenceler { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 10px; margin-top: -26px; position: relative; }
+.guvence { padding: 18px 20px; display: flex; gap: 12px; align-items: center; }
+.guvence + .guvence { border-left: 1px solid var(--cizgi); }
+.guvence .i { width: 40px; height: 40px; border-radius: 8px; background: var(--sari); color: var(--sari-yazi); display: grid; place-items: center; flex: none; }
+.guvence .i svg { width: 22px; height: 22px; }
+.guvence b { font-family: var(--f-baslik); font-size: 1.2rem; text-transform: uppercase; line-height: 1.05; display: block; }
+.guvence span { color: var(--soluk); font-size: 0.9rem; }
+
+section { padding-block: 60px; }
+.bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.bas h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
+.bas p { color: var(--soluk); max-width: 30em; }
+
+.hizmetler { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.hizmet { background: var(--yuzey); border: 1px solid var(--cizgi); border-top: 5px solid var(--sari); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.hizmet h3 { font-size: 1.5rem; line-height: 1.05; }
+.hizmet p { color: var(--soluk); font-size: 0.98rem; }
+
+.bolgeler { display: flex; flex-wrap: wrap; gap: 8px; }
+.bolgeler span { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 0.95rem; }
+.bolgeler span.ana { background: var(--koyu); color: #fff; border-color: var(--koyu); }
+
+.ikili { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; align-items: stretch; }
+.yorum { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 10px; padding: 22px; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.yorum .y { color: var(--sari); letter-spacing: 2px; }
+.yorum footer { color: var(--soluk); font-size: 0.9rem; margin-top: auto; }
+
+.bilgi { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.kart { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+.kart h3 { font-size: 1.4rem; }
+.saat { display: grid; grid-template-columns: minmax(0, 1fr) auto; row-gap: 6px; column-gap: 14px; font-variant-numeric: tabular-nums; }
+.saat span:nth-child(even) { font-weight: 700; text-align: right; }
+.kart .soluk { color: var(--soluk); }
+.kart a.git { font-weight: 700; color: var(--metin); text-decoration-color: var(--sari); text-decoration-thickness: 3px; }
+
+.dip { padding-block: 26px 120px; color: var(--soluk); font-size: 0.92rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); }
+
+/* telefonda altta sabit arama çubuğu */
+.alt-cubuk { display: none; }
+@media (max-width: 860px) {
+  .giris { grid-template-columns: minmax(0, 1fr); padding-block: 32px 46px; }
+  .guvenceler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guvence:nth-child(3) { border-left: 0; }
+  .guvence:nth-child(n+3) { border-top: 1px solid var(--cizgi); }
+  .hizmetler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ikili, .bilgi { grid-template-columns: minmax(0, 1fr); }
+  .alt-cubuk { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--koyu); padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+  .alt-cubuk a { justify-content: center; }
+}
+@media (max-width: 520px) {
+  .guvenceler, .hizmetler { grid-template-columns: minmax(0, 1fr); }
+  .guvence + .guvence { border-left: 0; border-top: 1px solid var(--cizgi); }
+  section { padding-block: 44px; }
+  .ust .tel { display: none; }
+}
+</style>
+
+</head><body>
+<div class="ornek">Örnek tasarım · İktidar Teknik Servis için hazırlanmıştır. Fotoğraflar temsilidir.</div>
+
+<header class="kahraman">
+  <div class="sar ust">
+    <a class="logo" href="#">İktidar <span>Teknik Servis</span></a>
+    <a class="tel" href="tel:+905424950677">0542 495 06 77</a>
+  </div>
+  <div class="sar giris">
+    <div>
+      <span class="etiket">Kombi ve beyaz eşya servisi</span>
+      <h1>Arıza mı var? <span>Aynı gün</span> yerinde servis.</h1>
+      <p>Kombi, çamaşır makinesi, buzdolabı ve diğer beyaz eşyalarınız için Küçükçekmece ve çevresinde hızlı, garantili tamir. Orijinal yedek parça kullanıyoruz.</p>
+      <div class="ara-blok">
+        <a class="btn sari" href="tel:+905424950677">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+          Hemen ara
+        </a>
+        <a class="btn wp-b" href="https://wa.me/905424950677" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <figure>
+      <img src="img/px-7859953.jpg" alt="Teknisyen bir kombinin iç aksamını onarıyor">
+      <div class="puan"><b>4,5</b> <span class="y">★★★★★</span> · 478 Google yorumu</div>
+    </figure>
+  </div>
+</header>
+
+<div class="sar">
+  <div class="guvenceler">
+    <div class="guvence"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div><b>Aynı gün servis</b><span>Yerinde, hızlı müdahale</span></div></div>
+    <div class="guvence"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><div><b>1 yıl garanti</b><span>Yapılan tüm işlerde</span></div></div>
+    <div class="guvence"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></span><div><b>Orijinal parça</b><span>Kaliteli yedek malzeme</span></div></div>
+    <div class="guvence"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span><div><b>4,5 puan</b><span>478 Google yorumu</span></div></div>
+  </div>
+</div>
+
+<section>
+  <div class="sar">
+    <div class="bas"><h2>Neleri tamir ediyoruz</h2><p>Arızayı telefonda anlatın; size en kısa sürede gelelim.</p></div>
+    <div class="hizmetler">
+      <div class="hizmet"><h3>Kombi</h3><p>Arıza tespiti, onarım, yedek parça değişimi ve bakım.</p></div>
+      <div class="hizmet"><h3>Çamaşır makinesi</h3><p>Çalışmayan, su boşaltmayan ya da ses yapan makinelerin onarımı.</p></div>
+      <div class="hizmet"><h3>Buzdolabı</h3><p>Soğutmayan ya da arıza veren buzdolaplarına yerinde servis.</p></div>
+      <div class="hizmet"><h3>Diğer beyaz eşya</h3><p>Evinizdeki diğer elektronik cihazlar için de arayabilirsiniz.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><h2>Hizmet verdiğimiz bölgeler</h2><p>İstanbul Avrupa Yakası'nda aynı gün servis.</p></div>
+    <div class="bolgeler">
+      <span class="ana">Küçükçekmece</span><span class="ana">Halkalı</span><span>Atakent</span><span>Sefaköy</span><span>Başakşehir</span><span>İkitelli</span><span>Bahçelievler</span><span>Avcılar</span><span>Bakırköy</span><span>Florya</span><span>Beylikdüzü</span><span>Esenyurt</span><span>Bağcılar</span><span>Güngören</span><span>Güneşli</span><span>Yenibosna</span><span>Bahçeşehir</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><h2>Müşterilerimiz anlatıyor</h2></div>
+    <div class="ikili">
+      <figure class="yorum"><span class="y">★★★★★</span><p>"Yoğun iş tempomda ona rica ettim beni kırmadı saat 22:00 evime geldi. Çamaşır makinemin gövdesi çürümüştü, orijinal yedek parça ile değişimini yaptı."</p><footer>Yusuf E. · Google yorumu</footer></figure>
+      <figure class="yorum"><span class="y">★★★★★</span><p>"Atakent bölgesinde çok nezih ve profesyonel ekip diyebilirim. Buzdolabımı yaptı… çok memnun kaldık teşekkürler. Tavsiye ederim."</p><footer>Cihan E. · Google yorumu</footer></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar bilgi">
+    <div class="kart"><h3>Çalışma saatleri</h3><div class="saat"><span>Pazartesi – Cumartesi</span><span>08:30 – 22:00</span><span>Pazar</span><span>10:00 – 20:00</span></div></div>
+    <div class="kart"><h3>Bize ulaşın</h3><span>0542 495 06 77</span><span>0212 495 06 77</span><a class="git" href="https://wa.me/905424950677" target="_blank" rel="noopener">WhatsApp'tan yazın</a></div>
+    <div class="kart"><h3>Adres</h3><span class="soluk">Halkalı, İstasyon Mah., Yarımburgaz Cd. No:26/B, Küçükçekmece / İstanbul</span><a class="git" href="https://maps.google.com/?cid=11732819233945671003" target="_blank" rel="noopener">Haritada aç</a></div>
+  </div>
+</section>
+
+<div class="sar">
+  <footer class="dip"><span>© 2026 İktidar Teknik Servis</span><span>Küçükçekmece / İstanbul</span></footer>
+</div>
+
+<div class="alt-cubuk">
+  <a class="btn sari" href="tel:+905424950677">Hemen ara</a>
+  <a class="btn wp-b" href="https://wa.me/905424950677" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+</body></html>
