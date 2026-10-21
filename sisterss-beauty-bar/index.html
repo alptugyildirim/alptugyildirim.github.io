@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Sisterss Beauty Bar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Sisterss Beauty Bar — Cennet, Küçükçekmece. Protez tırnak, jel tırnak ve kalıcı oje. Her gün 23:30'a kadar açık.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Düzen: butik tırnak barı — dikey fotoğraf + büyük italik başlık; "gece 23:30'a kadar" ana vaat; hizmet menüsü fiyat listesi gibi. */
+:root {
+  --zemin: #FBF4F2;
+  --yuzey: #FFFFFF;
+  --metin: #2B1A1E;
+  --soluk: #7A6267;
+  --cizgi: #EBD9D6;
+  --bordo: #8E1F3A;
+  --pembe: #F3C9CF;
+  --f-baslik: "DM Serif Display", Georgia, serif;
+  --f-govde: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #1A1114; --yuzey: #24171B; --metin: #F6E9EA; --soluk: #C2A7AC; --cizgi: #3A262C; --bordo: #F08AA3; --pembe: #4A2731; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #1A1114; --yuzey: #24171B; --metin: #F6E9EA; --soluk: #C2A7AC; --cizgi: #3A262C; --bordo: #F08AA3; --pembe: #4A2731; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1080px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--bordo); }
+a:focus-visible { outline: 3px solid var(--bordo); outline-offset: 3px; border-radius: 8px; }
+
+.ornek { background: var(--metin); color: var(--zemin); font-size: 0.84rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; flex-wrap: wrap; }
+.isim { font-family: var(--f-baslik); font-size: 1.6rem; color: var(--metin); text-decoration: none; line-height: 1; }
+.isim em { color: var(--bordo); }
+.ust nav { display: flex; gap: 10px; flex-wrap: wrap; }
+.kucuk { font-weight: 700; font-size: 0.92rem; text-decoration: none; color: var(--metin); padding: 9px 14px; border-radius: 999px; border: 1px solid var(--cizgi); background: var(--yuzey); }
+
+.giris { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 48px; align-items: center; padding-block: 24px 60px; }
+.giris .ust-yazi { font-weight: 700; font-size: 0.85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--bordo); }
+.giris h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1; margin-top: 14px; }
+.giris h1 em { color: var(--bordo); }
+.giris p { margin-top: 20px; color: var(--soluk); font-size: 1.15rem; max-width: 30em; }
+.dugmeler { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.dugme { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+.dugme svg { width: 19px; height: 19px; }
+.dugme.dolu { background: var(--bordo); color: #fff; }
+.dugme.bos { border: 1.5px solid var(--metin); color: var(--metin); }
+.kemer { position: relative; }
+.kemer img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 28px 28px; display: block; }
+.kemer .rozet { position: absolute; right: -10px; bottom: 34px; background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 20px; padding: 14px 18px; box-shadow: 0 14px 30px rgba(43, 26, 30, .14); }
+.kemer .rozet b { font-family: var(--f-baslik); font-size: 1.8rem; font-weight: 400; display: block; line-height: 1; }
+.kemer .rozet span { color: var(--soluk); font-size: 0.88rem; }
+
+.gece { background: var(--bordo); color: #fff; }
+.gece .sar { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-block: 26px; flex-wrap: wrap; }
+.gece b { font-family: var(--f-baslik); font-weight: 400; font-size: clamp(1.5rem, 3vw, 2.1rem); }
+.gece span { opacity: .9; }
+
+section { padding-block: 64px; }
+.bas { text-align: center; max-width: 34em; margin: 0 auto 32px; display: flex; flex-direction: column; gap: 10px; }
+.bas h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.05; }
+.bas p { color: var(--soluk); }
+
+.menu { max-width: 720px; margin: 0 auto; }
+.menu-satir { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; padding-block: 20px; border-bottom: 1px dashed var(--cizgi); }
+.menu-satir h3 { font-size: 1.5rem; }
+.menu-satir .not { color: var(--bordo); font-weight: 700; font-size: 0.9rem; align-self: center; }
+.menu-satir p { grid-column: 1 / -1; color: var(--soluk); }
+
+.yorum-alan { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 40px; align-items: center; }
+.yorum-alan img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 28px; display: block; }
+.puan b { font-family: var(--f-baslik); font-weight: 400; font-size: 3.6rem; line-height: 1; }
+.puan span { color: var(--soluk); margin-left: 10px; }
+.alinti { margin: 22px 0 0; padding-left: 20px; border-left: 3px solid var(--bordo); font-family: var(--f-baslik); font-style: italic; font-size: 1.3rem; line-height: 1.35; }
+.alinti + .alinti { margin-top: 20px; }
+.alinti footer { font-family: var(--f-govde); font-style: normal; font-size: 0.88rem; color: var(--soluk); margin-top: 8px; }
+
+.bilgi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.kart { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+.kart small { text-transform: uppercase; letter-spacing: .12em; font-weight: 700; font-size: 0.75rem; color: var(--bordo); }
+.kart b { font-family: var(--f-baslik); font-weight: 400; font-size: 1.35rem; line-height: 1.2; }
+.kart span { color: var(--soluk); }
+
+.dip { padding-block: 26px 90px; color: var(--soluk); font-size: 0.92rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); }
+.wp { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px rgba(0, 0, 0, .22); z-index: 5; }
+.wp svg { width: 30px; height: 30px; }
+
+@media (max-width: 860px) {
+  .giris, .yorum-alan { grid-template-columns: minmax(0, 1fr); }
+  .kemer { max-width: 420px; }
+  .kemer .rozet { right: 8px; }
+  .bilgi { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 540px) { section { padding-block: 44px; } }
+</style>
+
+</head><body>
+<div class="ornek">Örnek tasarım · Sisterss Beauty Bar için hazırlanmıştır. Fotoğraflar temsilidir.</div>
+
+<div class="sar">
+  <header class="ust">
+    <a class="isim" href="#">Sisterss <em>Beauty Bar</em></a>
+    <nav aria-label="Bağlantılar">
+      <a class="kucuk" href="https://www.instagram.com/sisterssbeautybarr/" target="_blank" rel="noopener">Instagram</a>
+      <a class="kucuk" href="tel:+905421892880">0542 189 28 80</a>
+    </nav>
+  </header>
+
+  <div class="giris">
+    <div>
+      <span class="ust-yazi">Cennet · Küçükçekmece</span>
+      <h1>Tırnaklarınız <em>özenle,</em> tam istediğiniz gibi.</h1>
+      <p>Protez tırnak, jel tırnak ve kalıcı ojede titiz ve hijyenik çalışma. Her müşteriden sonra sterilize edilen ekipmanlar.</p>
+      <div class="dugmeler">
+        <a class="dugme dolu" href="https://wa.me/905421892880" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          Randevu al
+        </a>
+        <a class="dugme bos" href="https://maps.google.com/?cid=14076576479126868206" target="_blank" rel="noopener">Yol tarifi</a>
+      </div>
+    </div>
+    <div class="kemer">
+      <img src="img/px-3997382.jpg" alt="Kırmızı ojeli, bakımlı tırnaklar">
+      <div class="rozet"><b>4,8 ★</b><span>325 Google yorumu</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="gece">
+  <div class="sar">
+    <b>Her gün 23:30'a kadar açığız.</b>
+    <span>İş çıkışı ya da akşam yemeğinden sonra da gelebilirsiniz.</span>
+  </div>
+</div>
+
+<section>
+  <div class="sar">
+    <div class="bas">
+      <h2>Hizmetlerimiz</h2>
+      <p>Fiyat ve uygun saat için WhatsApp'tan yazmanız yeterli.</p>
+    </div>
+    <div class="menu">
+      <div class="menu-satir"><h3>Protez tırnak</h3><span class="not">Uzun süre kalıcı</span><p>İstediğiniz boy ve şekilde, doğal görünümlü protez tırnak uygulaması.</p></div>
+      <div class="menu-satir"><h3>Jel tırnak</h3><span class="not">Doğal ve şık</span><p>Kendi tırnağınızın üzerine dayanıklı jel uygulama.</p></div>
+      <div class="menu-satir"><h3>Kalıcı oje</h3><span class="not">Hızlı işlem</span><p>Uzun süre parlaklığını koruyan kalıcı oje ve renk seçenekleri.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar yorum-alan">
+    <img src="img/px-4677845.jpg" alt="Tırnaklara koyu renk oje sürülüyor">
+    <div>
+      <div class="puan"><b>4,8</b><span>325 Google yorumu</span></div>
+      <blockquote class="alinti">"İşini gerçekten özenle ve titizlikle yapıyor. Hem hijyen konusunda çok dikkatli hem de her seferinde tam istediğim gibi doğal ve şık tırnaklar ortaya çıkarıyor."<footer>Ebru S. · Google yorumu</footer></blockquote>
+      <blockquote class="alinti">"En sevdiğim yanı ise işlemin kısa sürede bitmesi; hem hızlı hem de kalite asla düşmüyor."<footer>Mervenur Ü. · Google yorumu</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar bilgi">
+    <div class="kart"><small>Çalışma saatleri</small><b>Pzt – Cmt 10:00 – 23:30</b><span>Pazar 11:00 – 23:30</span></div>
+    <div class="kart"><small>Adres</small><b>Pakten Sk. No:21C</b><span>Cennet Mah., Küçükçekmece / İstanbul</span><a href="https://maps.google.com/?cid=14076576479126868206" target="_blank" rel="noopener">Haritada aç</a></div>
+    <div class="kart"><small>Randevu</small><b>0542 189 28 80</b><span>WhatsApp'tan yazabilir ya da arayabilirsiniz.</span><a href="https://www.instagram.com/sisterssbeautybarr/" target="_blank" rel="noopener">@sisterssbeautybarr</a></div>
+  </div>
+</section>
+
+<div class="sar">
+  <footer class="dip">
+    <span>© 2026 Sisterss Beauty Bar</span>
+    <span>Küçükçekmece / İstanbul</span>
+  </footer>
+</div>
+
+<a class="wp" href="https://wa.me/905421892880" target="_blank" rel="noopener" aria-label="WhatsApp'tan randevu al">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+</body></html>
