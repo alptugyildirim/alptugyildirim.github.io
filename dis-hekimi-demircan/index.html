@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Dt. Ubeydullah Demircan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Diş Hekimi Ubeydullah Demircan — Cennet Mahallesi, Küçükçekmece. Hafta içi ve cumartesi 10:00–00:00, pazar 11:00–22:00 açık muayenehane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Düzen: "akşam da açık muayenehane" — porselen beyazı + derin petrol; giriş yanında büyük saat kartı (gece 00:00'a kadar açık olmak asıl fark); tedavi listesi; ilk muayene adımları; sık sorulanlar; iletişim. Sağlık tanıtım kuralları gereği hasta yorumu, puan, önce/sonra ve üstünlük iddiası yok. */
+:root {
+  --zemin: #F6F8F7;
+  --yuzey: #FFFFFF;
+  --metin: #10292B;
+  --soluk: #586B6C;
+  --cizgi: #DCE5E3;
+  --petrol: #0F4C4F;
+  --petrol-acik: #E3EFEE;
+  --nane: #7CC6B6;
+  --f-baslik: "DM Serif Display", Georgia, serif;
+  --f-govde: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #0D1617; --yuzey: #142122; --metin: #E8F1EF; --soluk: #A3B6B4; --cizgi: #24393A; --petrol-acik: #183133; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #0D1617; --yuzey: #142122; --metin: #E8F1EF; --soluk: #A3B6B4; --cizgi: #24393A; --petrol-acik: #183133; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); font-weight: 400; margin: 0; text-wrap: balance; letter-spacing: -0.005em; }
+p { margin: 0; }
+a { color: var(--petrol); }
+a:focus-visible { outline: 2px solid var(--nane); outline-offset: 3px; }
+.etiket { font-size: 0.78rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--soluk); }
+
+.ornek { background: var(--petrol); color: #E8F1EF; font-size: 0.84rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--metin); }
+.logo .dis { width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--metin); display: grid; place-items: center; }
+.logo .dis svg { width: 22px; height: 22px; }
+.logo b { font-family: var(--f-baslik); font-weight: 400; font-size: 1.4rem; display: block; line-height: 1.05; }
+.logo small { font-size: 0.74rem; color: var(--soluk); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+.ust .tel { font-weight: 700; text-decoration: none; color: var(--metin); border: 1.5px solid var(--cizgi); background: var(--yuzey); padding: 9px 16px; border-radius: 999px; white-space: nowrap; }
+
+/* giriş */
+.giris { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 40px; align-items: stretch; padding-block: 28px 72px; }
+.giris .sol { position: relative; border-radius: 28px; overflow: hidden; min-height: 520px; display: flex; align-items: flex-end; }
+.giris .sol img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.giris .sol::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16, 41, 43, .45), rgba(16, 41, 43, .72) 45%, rgba(16, 41, 43, .92)); }
+.giris .sol .metin { position: relative; z-index: 1; padding: clamp(24px, 4vw, 44px); color: #fff; }
+.giris h1 { font-size: clamp(2.2rem, 4.2vw, 3.4rem); line-height: 1.04; }
+.giris h1 em { color: var(--nane); }
+.giris .sol p { margin-top: 14px; color: #D7E6E3; font-size: 1.1rem; max-width: 30em; }
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; }
+.btn svg { width: 19px; height: 19px; }
+.btn.acik { background: #fff; color: #10292B; }
+.btn.cizgili { border: 1.5px solid rgba(255, 255, 255, .55); color: #fff; }
+.btn.petrol { background: var(--petrol); color: #fff; }
+
+/* saat kartı */
+.saat { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 28px; padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 18px; }
+.saat .ust-satir { display: flex; align-items: center; gap: 14px; }
+.saat .ay { width: 52px; height: 52px; border-radius: 16px; background: var(--petrol); color: var(--nane); display: grid; place-items: center; flex: none; }
+.saat .ay svg { width: 26px; height: 26px; }
+.saat h2 { font-size: 1.9rem; line-height: 1.1; }
+.saat .buyuk { font-family: var(--f-baslik); font-size: clamp(3.4rem, 6vw, 4.6rem); line-height: 1; color: var(--petrol); }
+.saat .buyuk small { font-family: var(--f-govde); font-size: 1rem; color: var(--soluk); font-weight: 600; display: block; margin-top: 6px; }
+.saat table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+.saat td { padding: 9px 0; border-top: 1px solid var(--cizgi); }
+.saat td:last-child { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.saat tr.bugun td { color: var(--petrol); }
+.saat p.not { color: var(--soluk); font-size: 0.92rem; margin-top: auto; }
+
+section { padding-block: 80px; }
+.bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+.bas h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; margin-top: 8px; }
+.bas p { color: var(--soluk); max-width: 30em; }
+
+/* tedaviler */
+.tedaviler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.tedavi { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 22px; padding: 24px; display: grid; gap: 8px; align-content: start; }
+.tedavi .ik { width: 44px; height: 44px; border-radius: 14px; background: var(--petrol-acik); color: var(--petrol); display: grid; place-items: center; }
+.tedavi .ik svg { width: 22px; height: 22px; }
+.tedavi h3 { font-size: 1.45rem; margin-top: 6px; }
+.tedavi p { color: var(--soluk); font-size: 0.98rem; }
+
+/* ilk muayene */
+.ilk { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+.ilk img { width: 100%; aspect-ratio: 4 / 4.2; object-fit: cover; border-radius: 28px; display: block; }
+.ilk h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.05; margin-top: 8px; }
+.ilk > div > p { color: var(--soluk); margin-top: 14px; }
+.adimlar { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 0; }
+.adimlar li { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 14px; padding-block: 16px; border-top: 1px solid var(--cizgi); }
+.adimlar li b.no { font-family: var(--f-baslik); font-weight: 400; font-size: 1.9rem; color: var(--nane); line-height: 1; }
+.adimlar li strong { display: block; font-weight: 700; }
+.adimlar li span { color: var(--soluk); }
+
+/* sss */
+.sss { display: grid; gap: 10px; max-width: 860px; }
+.sss details { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 18px; padding: 18px 22px; }
+.sss summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.sss summary::-webkit-details-marker { display: none; }
+.sss summary::after { content: "+"; font-size: 1.3rem; color: var(--petrol); line-height: 1; }
+.sss details[open] summary::after { content: "–"; }
+.sss details p { color: var(--soluk); margin-top: 10px; }
+
+/* iletişim */
+.iletisim { background: #0F4C4F; color: #E8F1EF; border-radius: 28px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 36px; padding: clamp(28px, 5vw, 56px); }
+.iletisim h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.05; }
+.iletisim p { color: #BFD7D3; margin-top: 12px; }
+.iletisim dl { margin: 0; display: grid; gap: 16px; }
+.iletisim dt { font-size: 0.74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: #7CC6B6; }
+.iletisim dd { margin: 3px 0 0; font-size: 1.05rem; }
+.iletisim dd a { color: #fff; }
+
+.dip { padding-block: 26px 90px; color: var(--soluk); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.wp { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px rgba(0, 0, 0, .25); z-index: 5; }
+.wp svg { width: 30px; height: 30px; }
+
+@media (max-width: 900px) {
+  .giris, .ilk, .iletisim { grid-template-columns: minmax(0, 1fr); }
+  .giris .sol { min-height: 460px; }
+  .tedaviler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  section { padding-block: 56px; }
+  .tedaviler { grid-template-columns: minmax(0, 1fr); }
+  .logo small { display: none; }
+  .ust .tel span { display: none; }
+}
+</style>
+</head><body>
+<div class="ornek">Örnek tasarım · Diş Hekimi Ubeydullah Demircan için hazırlanmıştır. Fotoğraflar temsilidir; yayında muayenehanenin kendi fotoğrafları kullanılır.</div>
+
+<div class="sar">
+  <header class="ust">
+    <a class="logo" href="#" aria-label="Dt. Ubeydullah Demircan">
+      <span class="dis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C10.4 4 8.6 3.4 6.8 3.8 4.4 4.3 3.3 6.6 3.7 9.2c.3 2 1.2 3.4 1.6 5.4.4 2.2.6 5.6 2.2 5.9 1.6.3 1.9-3.4 2.6-5.1.4-1 1.1-1.4 1.9-1.4s1.5.4 1.9 1.4c.7 1.7 1 5.4 2.6 5.1 1.6-.3 1.8-3.7 2.2-5.9.4-2 1.3-3.4 1.6-5.4.4-2.6-.7-4.9-3.1-5.4-1.8-.4-3.6.2-5.2 1.7z"/></svg></span>
+      <span><b>Dt. Ubeydullah Demircan</b><small>Diş Hekimi · Cennet, Küçükçekmece</small></span>
+    </a>
+    <a class="tel" href="tel:+905314642420">☎ <span>0531 464 24 20</span></a>
+  </header>
+
+  <div class="giris">
+    <div class="sol">
+      <img src="img/px-4269268.jpg" alt="Aydınlık, temiz bir diş muayene odası">
+      <div class="metin">
+        <span class="etiket" style="color:#BFD7D3">Cennet Mahallesi · Küçükçekmece</span>
+        <h1 style="margin-top:12px">Diş randevunuz için <em>işten izin almanıza gerek yok.</em></h1>
+        <p>Muayenehanemiz hafta içi ve cumartesi gece 00:00'a, pazar 22:00'ye kadar açık. Size uygun saati birlikte belirleyelim.</p>
+        <div class="dugmeler">
+          <a class="btn acik" href="tel:+905314642420"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Randevu için arayın</a>
+          <a class="btn cizgili" href="https://wa.me/905314642420" target="_blank" rel="noopener">WhatsApp'tan yazın</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="saat" aria-label="Çalışma saatleri">
+      <div class="ust-satir">
+        <span class="ay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></svg></span>
+        <h2>Akşam da açığız</h2>
+      </div>
+      <div class="buyuk">00:00<small>Pazartesi–cumartesi kapanış saati</small></div>
+      <table>
+        <tr><td>Pazartesi – Cuma</td><td>10:00 – 00:00</td></tr>
+        <tr><td>Cumartesi</td><td>10:00 – 00:00</td></tr>
+        <tr><td>Pazar</td><td>11:00 – 22:00</td></tr>
+      </table>
+      <p class="not">Gelmeden önce arayarak randevu almanızı rica ederiz.</p>
+    </aside>
+  </div>
+</div>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><div><span class="etiket">Tedaviler</span><h2>Muayenehanede yapılan işlemler</h2></div><p>Hangi tedavinin size uygun olduğuna muayeneden sonra, seçenekler anlatılarak birlikte karar verilir.</p></div>
+    <div class="tedaviler">
+      <div class="tedavi"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span><h3>Muayene ve kontrol</h3><p>Ağız ve diş muayenesi, gerekli görülürse röntgen ve tedavi planı.</p></div>
+      <div class="tedavi"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 22v-6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6"/></svg></span><h3>Dolgu</h3><p>Çürük dokunun temizlenip dişin dolgu ile onarılması.</p></div>
+      <div class="tedavi"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg></span><h3>Kanal tedavisi</h3><p>Dişin iç kısmındaki iltihabın temizlenmesi ve kanalların doldurulması.</p></div>
+      <div class="tedavi"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></span><h3>Diş taşı temizliği</h3><p>Diş taşı ve plakların temizlenmesi, diş eti sağlığı için kontrol.</p></div>
+      <div class="tedavi"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-2 9H8z"/><path d="M10 12v9M14 12v9"/></svg></span><h3>Diş çekimi</h3><p>Kurtarılamayan ya da sorun çıkaran dişlerin çekimi.</p></div>
+      <div class="tedavi"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="10" rx="5"/><path d="M8 8v10M12 8v10M16 8v10"/></svg></span><h3>Protez</h3><p>Eksik dişler için sabit ya da hareketli protez seçenekleri.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar ilk">
+    <img src="img/px-5355858.jpg" alt="Diş muayene koltuğu ve düzenli tedavi odası">
+    <div>
+      <span class="etiket">İlk muayeneniz</span>
+      <h2>Ne olacağını önceden bilmek içinizi rahatlatır.</h2>
+      <p>Diş hekimine gitmekten çekinen pek çok kişi var. İlk ziyaretinizde sizi nelerin beklediği aşağıda.</p>
+      <ol class="adimlar">
+        <li><b class="no">1</b><div><strong>Sizi dinleriz</strong><span>Şikâyetinizi, varsa önceki tedavilerinizi ve kullandığınız ilaçları konuşuruz.</span></div></li>
+        <li><b class="no">2</b><div><strong>Muayene ederiz</strong><span>Ağız içi muayene yapılır; gerekirse röntgen çekilir.</span></div></li>
+        <li><b class="no">3</b><div><strong>Seçenekleri anlatırız</strong><span>Durumunuzu ve tedavi seçeneklerini açıkça anlatırız; sorularınızı sorabilirsiniz.</span></div></li>
+        <li><b class="no">4</b><div><strong>Kararı birlikte veririz</strong><span>Tedaviye ne zaman ve nasıl başlanacağını birlikte planlarız.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><div><span class="etiket">Sık sorulanlar</span><h2>Aklınıza takılanlar</h2></div></div>
+    <div class="sss">
+      <details open><summary>Akşam saatlerinde randevu alabilir miyim?</summary><p>Evet. Hafta içi ve cumartesi gece 00:00'a kadar, pazar 22:00'ye kadar açığız. Uygun saat için arayabilir ya da WhatsApp'tan yazabilirsiniz.</p></details>
+      <details><summary>Akşam diş ağrım başlarsa ne yapmalıyım?</summary><p>Çalışma saatlerimiz içinde arayın; durumunuzu dinleyip ne zaman gelebileceğinizi birlikte belirleyelim.</p></details>
+      <details><summary>İlk muayeneye gelirken yanımda ne getirmeliyim?</summary><p>Kimliğiniz, varsa eski röntgenleriniz ve düzenli kullandığınız ilaçların listesi yeterlidir.</p></details>
+      <details><summary>Ücretler hakkında bilgi alabilir miyim?</summary><p>Tedavinin ücreti, muayeneden sonra belirlenen tedavi planına göre değişir. Muayenede size ayrıntılı bilgi verilir.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="iletisim">
+      <div>
+        <h2>Randevu için arayın ya da yazın.</h2>
+        <p>Cennet Mahallesi'nde, Hürriyet Caddesi'ne yakın.</p>
+        <div class="dugmeler">
+          <a class="btn acik" href="tel:+905314642420">0531 464 24 20</a>
+          <a class="btn cizgili" href="https://maps.google.com/?cid=7142021519725488449" target="_blank" rel="noopener">Yol tarifi al</a>
+        </div>
+      </div>
+      <dl>
+        <div><dt>Adres</dt><dd>Cennet Mah., Hürriyet Cad. 1, Yıldırım Sk. No:4, 34290 Küçükçekmece / İstanbul</dd></div>
+        <div><dt>Çalışma saatleri</dt><dd>Pzt–Cmt 10:00–00:00 · Pazar 11:00–22:00</dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/dtudemircan/" target="_blank" rel="noopener">@dtudemircan</a></dd></div>
+      </dl>
+    </div>
+    <footer class="dip"><span>© 2026 Dt. Ubeydullah Demircan</span><span>Cennet · Küçükçekmece</span></footer>
+  </div>
+</section>
+
+<a class="wp" href="https://wa.me/905314642420" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+</body></html>
