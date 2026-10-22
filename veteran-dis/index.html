@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Veteran Ağız ve Diş Sağlığı</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Özel Veteran Ağız ve Diş Sağlığı Polikliniği — Cennet, Küçükçekmece. Haftanın 7 günü açık; hafta içi 11:00–00:00, cumartesi 11:00–02:00, pazar 12:00–00:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Rubik:wght@400;500;600&display=swap">
+<style>
+/* Düzen: "gece vardiyası" — koyu zemin önce; tam genişlik fotoğraf (duvar saatli oda) üstünde canlı "şu an açık mı" durumu (İstanbul saatine göre hesaplanır); haftalık saat çizelgesi yatay çubuklarla, geç saatler görsel olarak öne çıkar; tedaviler kart değil büyük tipografik liste; en altta dev telefon numarası bandı. Sağlık tanıtım kuralları: yorum, puan, fiyat, üstünlük iddiası yok. */
+:root {
+  --zemin: #0B1216;
+  --yuzey: #121C22;
+  --metin: #EAF2F1;
+  --soluk: #93A6A8;
+  --cizgi: #22323A;
+  --neon: #5EF2C8;
+  --sari: #FFD166;
+  --f-baslik: "Unbounded", "Segoe UI", system-ui, sans-serif;
+  --f-govde: "Rubik", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { --zemin: #F2F5F4; --yuzey: #FFFFFF; --metin: #0B1216; --soluk: #52646A; --cizgi: #D6E0DF; --neon: #0E9C78; --sari: #B07800; color-scheme: light; }
+}
+:root[data-theme="light"] { --zemin: #F2F5F4; --yuzey: #FFFFFF; --metin: #0B1216; --soluk: #52646A; --cizgi: #D6E0DF; --neon: #0E9C78; --sari: #B07800; color-scheme: light; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--neon); outline-offset: 3px; }
+.kucuk { font-size: 0.76rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; color: var(--soluk); }
+
+.ornek { background: #000; color: #EAF2F1; font-size: 0.82rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* sahne */
+.sahne { position: relative; min-height: min(88vh, 760px); display: flex; flex-direction: column; color: #EAF2F1; overflow: hidden; }
+.sahne img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 30%; filter: saturate(.7); }
+.sahne::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11, 18, 22, .94) 0%, rgba(11, 18, 22, .78) 45%, rgba(11, 18, 22, .25) 100%), linear-gradient(0deg, rgba(11, 18, 22, 1) 0%, rgba(11, 18, 22, 0) 30%); }
+.sahne > :not(img) { position: relative; z-index: 1; }
+.sahne > .sar { width: 100%; }
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 22px; }
+.ust .ad { font-family: var(--f-baslik); font-weight: 700; font-size: 1.15rem; letter-spacing: .06em; }
+.ust .ad small { display: block; font-family: var(--f-govde); font-weight: 500; font-size: 0.72rem; letter-spacing: .2em; color: #93A6A8; text-transform: uppercase; }
+.ust .ara { border: 1.5px solid rgba(234, 242, 241, .4); padding: 10px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; white-space: nowrap; }
+.sahne .orta { margin-block: auto; padding-block: 40px 70px; }
+.durum { display: inline-flex; align-items: center; gap: 10px; background: rgba(94, 242, 200, .12); border: 1px solid rgba(94, 242, 200, .4); color: #5EF2C8; padding: 8px 16px; border-radius: 999px; font-weight: 600; }
+.durum i { width: 10px; height: 10px; border-radius: 50%; background: #5EF2C8; box-shadow: 0 0 0 0 rgba(94, 242, 200, .6); animation: nabiz 2s infinite; }
+.durum.kapali { background: rgba(255, 209, 102, .12); border-color: rgba(255, 209, 102, .4); color: #FFD166; }
+.durum.kapali i { background: #FFD166; animation: none; }
+@keyframes nabiz { 70% { box-shadow: 0 0 0 10px rgba(94, 242, 200, 0); } 100% { box-shadow: 0 0 0 0 rgba(94, 242, 200, 0); } }
+@media (prefers-reduced-motion: reduce) { .durum i { animation: none; } }
+.sahne h1 { font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 1.02; margin-top: 22px; max-width: 13em; }
+.sahne h1 span { color: #5EF2C8; }
+.sahne p.alt { color: #B9C8C9; font-size: 1.15rem; margin-top: 20px; max-width: 32em; }
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 15px 24px; border-radius: 999px; font-weight: 600; text-decoration: none; }
+.btn svg { width: 19px; height: 19px; }
+.btn.neon { background: #5EF2C8; color: #0B1216; }
+.btn.cizgi { border: 1.5px solid rgba(234, 242, 241, .45); color: #EAF2F1; }
+
+section { padding-block: 88px; }
+.bas { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; align-items: end; margin-bottom: 36px; }
+.bas h2 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); line-height: 1.06; margin-top: 10px; }
+.bas p { color: var(--soluk); }
+
+/* çizelge */
+.cizelge { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 24px; padding: clamp(18px, 3vw, 32px); }
+.satir { display: grid; grid-template-columns: 92px minmax(0, 1fr) 128px; gap: 16px; align-items: center; padding-block: 11px; }
+.satir + .satir { border-top: 1px solid var(--cizgi); }
+.satir .gun { font-weight: 600; }
+.satir .saat { text-align: right; font-variant-numeric: tabular-nums; color: var(--soluk); font-size: 0.95rem; }
+.iz { position: relative; height: 14px; border-radius: 999px; background: var(--cizgi); }
+.iz b { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, var(--neon), #3FB6E8); }
+.satir.bugun .gun { color: var(--neon); }
+.satir.bugun .gun::after { content: " · bugün"; font-weight: 500; font-size: 0.8rem; color: var(--soluk); }
+.olcek { display: grid; grid-template-columns: 92px minmax(0, 1fr) 128px; gap: 16px; margin-top: 8px; }
+.olcek div { position: relative; height: 1.3em; color: var(--soluk); font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+.olcek div span { position: absolute; transform: translateX(-50%); }
+.olcek div span:first-child { transform: none; }
+.olcek div span:last-child { transform: translateX(-100%); }
+.gece-not { margin-top: 18px; color: var(--soluk); font-size: 0.95rem; }
+.gece-not b { color: var(--sari); }
+
+/* tedavi listesi */
+.liste { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 56px; }
+.liste li { break-inside: avoid; padding-block: 20px; border-top: 1px solid var(--cizgi); }
+.liste li h3 { font-size: clamp(1.25rem, 2.4vw, 1.7rem); }
+.liste li p { color: var(--soluk); margin-top: 6px; }
+
+/* ikili */
+.ikili { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 0; border-radius: 24px; overflow: hidden; border: 1px solid var(--cizgi); background: var(--yuzey); }
+.ikili img { width: 100%; height: 420px; object-fit: cover; display: block; }
+.ikili .metin { padding: clamp(24px, 4vw, 48px); display: grid; gap: 14px; align-content: center; }
+.ikili h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.1; }
+.ikili p { color: var(--soluk); }
+
+/* telefon bandı */
+.bant { background: #5EF2C8; color: #0B1216; }
+.bant .sar { padding-block: 56px; display: grid; gap: 14px; }
+.bant .kucuk { color: #0B1216; opacity: .7; }
+.bant a.numara { font-family: var(--f-baslik); font-weight: 700; font-size: clamp(2.3rem, 9vw, 7rem); line-height: 1; text-decoration: none; letter-spacing: -0.03em; }
+.bant .bilgi { display: flex; gap: 12px 40px; flex-wrap: wrap; font-weight: 500; }
+.bant .bilgi a { text-decoration: underline; }
+.dip { color: var(--soluk); font-size: 0.86rem; padding-block: 22px 30px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .bas, .ikili { grid-template-columns: minmax(0, 1fr); }
+  .liste { columns: 1; }
+  .ikili img { min-height: 220px; height: 240px; }
+  .satir, .olcek { grid-template-columns: 54px minmax(0, 1fr) 96px; gap: 10px; }
+  .satir .saat { font-size: 0.82rem; }
+  .satir.bugun .gun::after { content: ""; }
+  .sahne::after { background: linear-gradient(0deg, rgba(11, 18, 22, 1) 0%, rgba(11, 18, 22, .82) 50%, rgba(11, 18, 22, .55) 100%); }
+  section { padding-block: 60px; }
+}
+</style>
+</head><body>
+<div class="ornek">Örnek tasarım · Özel Veteran Ağız ve Diş Sağlığı Polikliniği için hazırlanmıştır. Fotoğraflar temsilidir; yayında polikliniğin kendi fotoğrafları kullanılır.</div>
+
+<header class="sahne">
+  <img src="img/px-6812480.jpg" alt="Duvarında saat bulunan aydınlık bir diş tedavi odası">
+  <div class="sar ust">
+    <div class="ad">VETERAN<small>Ağız ve Diş Sağlığı Polikliniği</small></div>
+    <a class="ara" href="tel:+902128307061">0212 830 70 61</a>
+  </div>
+  <div class="sar orta">
+    <span class="durum" id="durum"><i></i><span id="durum-yazi">Haftanın 7 günü, gece yarısına kadar açık</span></span>
+    <h1>Diş hekimine gitmek için <span>gündüzü beklemeyin.</span></h1>
+    <p class="alt">Cennet Mahallesi'ndeki polikliniğimiz her gün açık: hafta içi ve pazar gece yarısına, cumartesi gece 02:00'ye kadar. İşten sonra da randevu alabilirsiniz.</p>
+    <div class="dugmeler">
+      <a class="btn neon" href="tel:+902128307061"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Randevu için arayın</a>
+      <a class="btn cizgi" href="#saatler">Çalışma saatleri</a>
+    </div>
+  </div>
+</header>
+
+<section id="saatler">
+  <div class="sar">
+    <div class="bas">
+      <div><span class="kucuk">Çalışma saatleri</span><h2>Gün biterken biz hâlâ açığız.</h2></div>
+      <p>Çubuklar sabah 08:00'den gece 02:00'ye kadar olan zamanı gösteriyor. Polikliniğimizin açık olduğu saatler renkli.</p>
+    </div>
+    <div class="cizelge" id="cizelge">
+      <div class="satir" data-gun="1"><span class="gun">Pzt</span><div class="iz"><b style="left:16.67%;right:11.11%"></b></div><span class="saat">11:00 – 00:00</span></div>
+      <div class="satir" data-gun="2"><span class="gun">Sal</span><div class="iz"><b style="left:16.67%;right:11.11%"></b></div><span class="saat">11:00 – 00:00</span></div>
+      <div class="satir" data-gun="3"><span class="gun">Çar</span><div class="iz"><b style="left:16.67%;right:11.11%"></b></div><span class="saat">11:00 – 00:00</span></div>
+      <div class="satir" data-gun="4"><span class="gun">Per</span><div class="iz"><b style="left:16.67%;right:11.11%"></b></div><span class="saat">11:00 – 00:00</span></div>
+      <div class="satir" data-gun="5"><span class="gun">Cum</span><div class="iz"><b style="left:16.67%;right:11.11%"></b></div><span class="saat">11:00 – 00:00</span></div>
+      <div class="satir" data-gun="6"><span class="gun">Cmt</span><div class="iz"><b style="left:16.67%;right:0"></b></div><span class="saat">11:00 – 02:00</span></div>
+      <div class="satir" data-gun="0"><span class="gun">Paz</span><div class="iz"><b style="left:22.22%;right:11.11%"></b></div><span class="saat">12:00 – 00:00</span></div>
+      <div class="olcek" aria-hidden="true"><span></span><div><span style="left:0%">08</span><span style="left:22.22%">12</span><span style="left:44.44%">16</span><span style="left:66.67%">20</span><span style="left:88.89%">00</span><span style="left:100%">02</span></div><span></span></div>
+    </div>
+    <p class="gece-not"><b>Cumartesi gecesi 02:00'ye kadar</b> açığız. Gelmeden önce arayıp randevu almanızı rica ederiz.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><div><span class="kucuk">Tedaviler</span><h2>Polikliniğimizde yapılan işlemler</h2></div><p>Hangi tedavinin size uygun olduğuna muayeneden sonra, seçenekler anlatılarak birlikte karar verilir.</p></div>
+    <ul class="liste">
+      <li><h3>Muayene</h3><p>Ağız içi muayene, gerekirse röntgen ve tedavi planı.</p></li>
+      <li><h3>Dolgu</h3><p>Çürüyen kısmın temizlenip dişin onarılması.</p></li>
+      <li><h3>Kanal tedavisi</h3><p>Diş içindeki iltihaplı dokunun temizlenip kanalların doldurulması.</p></li>
+      <li><h3>Diş taşı temizliği</h3><p>Diş taşı ve plakların temizlenmesi, diş eti kontrolü.</p></li>
+      <li><h3>Diş çekimi</h3><p>Kurtarılamayan ya da sorun çıkaran dişlerin çekimi.</p></li>
+      <li><h3>Protez</h3><p>Eksik dişler için sabit ya da hareketli protez seçenekleri.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="ikili">
+      <img src="img/px-15771808.jpg" alt="Tedavi için hazırlanmış steril aletler">
+      <div class="metin">
+        <span class="kucuk">İlk ziyaretiniz</span>
+        <h2>Önce dinler, sonra anlatırız.</h2>
+        <p>İlk muayenede şikâyetinizi dinler, ağız içi muayene yapar ve gerekirse röntgen çekeriz. Ardından durumunuzu ve tedavi seçeneklerini açıkça anlatır, sorularınızı yanıtlarız. Kararı birlikte veririz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="bant">
+  <div class="sar">
+    <span class="kucuk">Randevu ve bilgi</span>
+    <a class="numara" href="tel:+902128307061">0212 830 70 61</a>
+    <div class="bilgi">
+      <span>Cennet Mah., Yahya Kemal Beyatlı Cd. No:17B, 34290 Küçükçekmece / İstanbul</span>
+      <a href="https://maps.google.com/?cid=12078046865970441283" target="_blank" rel="noopener">Yol tarifi al</a>
+    </div>
+  </div>
+</div>
+<div class="sar"><footer class="dip"><span>© 2026 Özel Veteran Ağız ve Diş Sağlığı Polikliniği</span><span>Cennet · Küçükçekmece</span></footer></div>
+
+<script>
+// İstanbul saatine göre "şu an açık mı" durumu ve bugünün satırı. Saatler dakika cinsinden; 1440'ı aşan bitiş ertesi güne taşar.
+(function () {
+  var saatler = { 0: [720, 1440], 1: [660, 1440], 2: [660, 1440], 3: [660, 1440], 4: [660, 1440], 5: [660, 1440], 6: [660, 1560] };
+  var gunAd = ['pazar', 'pazartesi', 'salı', 'çarşamba', 'perşembe', 'cuma', 'cumartesi'];
+  var acilis = { 660: "11:00'de", 720: "12:00'de" };
+  var kapanis = { 1440: 'gece yarısına kadar', 1560: "gece 02:00'ye kadar" };
+  try {
+    var p = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Istanbul', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    var g = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[p.find(function (x) { return x.type === 'weekday'; }).value];
+    var dk = (+p.find(function (x) { return x.type === 'hour'; }).value % 24) * 60 + +p.find(function (x) { return x.type === 'minute'; }).value;
+    var dun = (g + 6) % 7, bugun = saatler[g], onceki = saatler[dun];
+    var yazi, acik = false;
+    if (dk >= bugun[0] && dk < bugun[1]) { acik = true; yazi = 'Şu an açığız · ' + kapanis[bugun[1]]; }
+    else if (onceki[1] > 1440 && dk < onceki[1] - 1440) { acik = true; yazi = "Şu an açığız · gece 02:00'ye kadar"; }
+    else if (dk < bugun[0]) { yazi = 'Şu an kapalıyız · bugün ' + acilis[bugun[0]] + ' açılıyoruz'; }
+    else { var y = saatler[(g + 1) % 7]; yazi = 'Şu an kapalıyız · yarın ' + acilis[y[0]] + ' açılıyoruz'; }
+    document.getElementById('durum-yazi').textContent = yazi;
+    if (!acik) document.getElementById('durum').classList.add('kapali');
+    var gosterilen = (onceki[1] > 1440 && dk < onceki[1] - 1440) ? dun : g;
+    var satir = document.querySelector('.satir[data-gun="' + gosterilen + '"]');
+    if (satir) satir.classList.add('bugun');
+  } catch (e) {}
+})();
+</script>
+
+</body></html>

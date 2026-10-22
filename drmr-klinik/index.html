@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>DR.MR Klinik Halkalı</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="DR.MR Klinik Ağız ve Diş Sağlığı Polikliniği — Halkalı Merkez, Fatih Caddesi No:49 B. Pazartesi–cumartesi 09:00–22:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Düzen: "kimlik paneli + sözlük". Masaüstünde solda sabit duran mürdüm renkli kimlik paneli (dev DR.MR monogramı, saat, telefon, adres, randevu); sağda kayan içerik: büyük cümle, iki fotoğraflı şerit, A'dan Z'ye tedavi sözlüğü (terim + sade açıklama), ziyaret adımları. Telefonda panel üstte kart olur, altta yapışkan randevu düğmesi. Sağlık tanıtım kuralları: yorum, puan, fiyat, üstünlük iddiası yok. */
+:root {
+  --zemin: #FBF7F3;
+  --yuzey: #FFFFFF;
+  --metin: #26172E;
+  --soluk: #6B5E70;
+  --cizgi: #E9E0E6;
+  --murdum: #3B1F4A;
+  --seftali: #F2A07B;
+  --seftali-acik: #FCE7DC;
+  --f-baslik: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-govde: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --zemin: #150E19; --yuzey: #1D1422; --metin: #F3ECF4; --soluk: #B9AABD; --cizgi: #33263A; --seftali-acik: #3A2219; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --zemin: #150E19; --yuzey: #1D1422; --metin: #F3ECF4; --soluk: #B9AABD; --cizgi: #33263A; --seftali-acik: #3A2219; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--zemin); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--f-baslik); font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--seftali); outline-offset: 3px; }
+
+.ornek { background: var(--metin); color: var(--zemin); font-size: 0.82rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.duzen { display: grid; grid-template-columns: 380px minmax(0, 1fr); min-height: 100vh; background: linear-gradient(90deg, #3B1F4A 380px, transparent 380px); }
+
+/* kimlik paneli */
+.panel { background: #3B1F4A; color: #F7EEF3; position: sticky; top: 0; height: 100vh; overflow: auto; padding: 36px 34px 30px max(34px, env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 26px; }
+.monogram { font-family: var(--f-baslik); font-weight: 700; font-size: 5.4rem; line-height: .82; letter-spacing: -0.05em; }
+.monogram span { color: #F2A07B; }
+.panel .alt-ad { font-size: 0.82rem; letter-spacing: .18em; text-transform: uppercase; color: #CDB7D6; margin-top: 10px; }
+.saat-blok { border-top: 1px solid rgba(247, 238, 243, .18); padding-top: 18px; }
+.saat-blok b { font-family: var(--f-baslik); font-size: 2.3rem; display: block; line-height: 1; }
+.saat-blok span { color: #CDB7D6; font-size: 0.95rem; }
+.panel dl { margin: 0; display: grid; gap: 14px; }
+.panel dt { font-size: 0.72rem; letter-spacing: .18em; text-transform: uppercase; color: #F2A07B; font-weight: 600; }
+.panel dd { margin: 2px 0 0; }
+.panel dd a { text-decoration: none; font-family: var(--f-baslik); font-size: 1.35rem; }
+.panel .randevu { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #F2A07B; color: #26172E; text-decoration: none; font-family: var(--f-baslik); font-weight: 700; font-size: 1.1rem; padding: 16px 20px; border-radius: 14px; }
+.panel .randevu svg { width: 22px; height: 22px; }
+.panel .wp-yazi { font-size: 0.9rem; color: #CDB7D6; text-align: center; }
+.panel .wp-yazi a { color: #F7EEF3; }
+
+/* içerik */
+.icerik { padding: 64px clamp(20px, 5vw, 72px) 80px; padding-right: max(clamp(20px, 5vw, 72px), env(safe-area-inset-right, 0px)); max-width: 980px; }
+.buyuk-cumle { font-family: var(--f-baslik); font-weight: 600; font-size: clamp(2.3rem, 4.6vw, 4rem); line-height: 1.04; letter-spacing: -0.03em; }
+.buyuk-cumle em { font-style: normal; background: linear-gradient(transparent 62%, var(--seftali-acik) 62%); }
+.giris-alt { color: var(--soluk); font-size: 1.15rem; margin-top: 20px; max-width: 34em; }
+.serit { display: grid; grid-template-columns: 1.6fr 1fr; gap: 14px; margin-top: 44px; }
+.serit img { width: 100%; height: 300px; object-fit: cover; object-position: 50% 0; display: block; border-radius: 22px; }
+
+.bolum { margin-top: 90px; }
+.bolum-bas { display: flex; align-items: baseline; gap: 16px; border-bottom: 2px solid var(--metin); padding-bottom: 14px; }
+.bolum-bas .no { font-family: var(--f-baslik); font-weight: 700; color: var(--seftali); font-size: 1rem; }
+.bolum-bas h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+
+/* sözlük */
+.sozluk { margin: 0; }
+.terim { display: grid; grid-template-columns: 64px minmax(0, 220px) minmax(0, 1fr); gap: 20px; padding-block: 22px; border-bottom: 1px solid var(--cizgi); align-items: baseline; }
+.terim .harf { font-family: var(--f-baslik); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--seftali); }
+.terim dt { font-family: var(--f-baslik); font-weight: 600; font-size: 1.25rem; }
+.terim dd { margin: 0; color: var(--soluk); }
+
+/* adımlar */
+.yol { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: a; }
+.yol li { counter-increment: a; padding: 22px 20px 0 0; border-top: 6px solid var(--cizgi); position: relative; }
+.yol li::before { content: ""; position: absolute; top: -6px; left: 0; height: 6px; width: 40%; background: var(--seftali); }
+.yol li b { display: block; font-family: var(--f-baslik); font-size: 1.15rem; }
+.yol li b::before { content: counter(a, decimal-leading-zero) "  "; color: var(--soluk); font-weight: 500; }
+.yol li span { color: var(--soluk); font-size: 0.97rem; display: block; margin-top: 6px; }
+
+.not-kutu { margin-top: 70px; background: var(--seftali-acik); border-radius: 22px; padding: 28px 30px; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 20px; align-items: center; }
+.not-kutu .saat-ikon { width: 64px; height: 64px; border-radius: 50%; background: #3B1F4A; color: #F2A07B; display: grid; place-items: center; }
+.not-kutu .saat-ikon svg { width: 30px; height: 30px; }
+.not-kutu h3 { font-size: 1.4rem; }
+.not-kutu p { color: var(--soluk); margin-top: 4px; }
+
+.dip { margin-top: 70px; padding-top: 22px; border-top: 1px solid var(--cizgi); color: var(--soluk); font-size: 0.88rem; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.yapiskan { display: none; }
+
+@media (max-width: 960px) {
+  .duzen { grid-template-columns: minmax(0, 1fr); background: none; }
+  .panel { position: static; height: auto; padding: 30px max(20px, env(safe-area-inset-left, 0px)) 28px; }
+  .monogram { font-size: 4.2rem; }
+  .panel .randevu { display: none; }
+  .icerik { padding-top: 44px; }
+  .serit { grid-template-columns: minmax(0, 1fr); }
+  .serit img { height: 240px; }
+  .serit img + img { display: none; }
+  .terim { grid-template-columns: 44px minmax(0, 1fr); gap: 4px 14px; }
+  .terim dd { grid-column: 2; }
+  .terim .harf { font-size: 1.7rem; grid-row: span 2; }
+  .yol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: 26px; }
+  .not-kutu { grid-template-columns: minmax(0, 1fr); }
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+  .yapiskan { display: flex; position: fixed; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 5; align-items: center; justify-content: space-between; background: #3B1F4A; color: #F7EEF3; text-decoration: none; font-family: var(--f-baslik); font-weight: 700; padding: 15px 20px; border-radius: 16px; box-shadow: 0 12px 28px rgba(38, 23, 46, .35); }
+  .yapiskan span { color: #F2A07B; }
+}
+@media (max-width: 520px) {
+  .yol { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head><body>
+<div class="ornek">Örnek tasarım · DR.MR Klinik için hazırlanmıştır. Fotoğraflar temsilidir; yayında kliniğin kendi fotoğrafları kullanılır.</div>
+
+<div class="duzen">
+  <aside class="panel">
+    <div>
+      <div class="monogram" aria-label="DR.MR">DR<span>.</span>MR</div>
+      <div class="alt-ad">Klinik · Ağız ve Diş Sağlığı Polikliniği · Halkalı Merkez</div>
+    </div>
+    <div class="saat-blok">
+      <b>09:00–22:00</b>
+      <span>Pazartesi–cumartesi · Pazar kapalı</span>
+    </div>
+    <dl>
+      <div><dt>Telefon ve WhatsApp</dt><dd><a href="tel:+905345490686">0534 549 06 86</a></dd></div>
+      <div><dt>Adres</dt><dd>Halkalı Merkez, Fatih Cd. No:49 B D:2, 34303 Küçükçekmece / İstanbul</dd></div>
+      <div><dt>Yol tarifi</dt><dd><a href="https://maps.google.com/?cid=6923569872407339561" target="_blank" rel="noopener" style="font-size:1rem;font-family:var(--f-govde);text-decoration:underline">Google Haritalar'da aç</a></dd></div>
+    </dl>
+    <a class="randevu" href="tel:+905345490686">Randevu için arayın <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <p class="wp-yazi">ya da <a href="https://wa.me/905345490686" target="_blank" rel="noopener">WhatsApp'tan yazın</a></p>
+  </aside>
+
+  <main class="icerik">
+    <p class="buyuk-cumle">Halkalı Merkez'de, <em>akşam 22:00'ye kadar</em> açık bir diş polikliniği.</p>
+    <p class="giris-alt">İş çıkışı, okul sonrası ya da cumartesi; size uyan saatte randevu verelim. Muayeneden sonra durumunuzu ve seçenekleri açıkça anlatır, tedavi planını birlikte yaparız.</p>
+    <div class="serit">
+      <img src="img/px-287237.jpg" alt="Aydınlık bir tedavi odasında diş ünitesi">
+      <img src="img/px-6812461.jpg" alt="Diş ünitesi ve aletleri">
+    </div>
+
+    <section class="bolum" id="tedaviler">
+      <div class="bolum-bas"><span class="no">01</span><h2>Tedaviler, sade bir dille</h2></div>
+      <dl class="sozluk">
+        <div class="terim"><span class="harf">D</span><dt>Diş taşı temizliği</dt><dd>Dişlerin üzerinde biriken sert tabakanın ve plakların temizlenmesi. Diş eti sağlığı için düzenli yapılması önerilir.</dd></div>
+        <div class="terim"><span class="harf">D</span><dt>Dolgu</dt><dd>Çürüyen kısmın temizlenip dişin, rengine yakın bir malzemeyle onarılması.</dd></div>
+        <div class="terim"><span class="harf">K</span><dt>Kanal tedavisi</dt><dd>Dişin içindeki iltihaplı dokunun temizlenip kanalların doldurulması; dişi çekmeden korumayı amaçlar.</dd></div>
+        <div class="terim"><span class="harf">K</span><dt>Kaplama</dt><dd>Fazla madde kaybı olan ya da rengi bozulan dişin üzerinin bir kaplamayla kapatılması.</dd></div>
+        <div class="terim"><span class="harf">M</span><dt>Muayene</dt><dd>Ağız içi muayene ve gerekirse röntgen; her tedavinin ilk adımı.</dd></div>
+        <div class="terim"><span class="harf">P</span><dt>Protez</dt><dd>Eksik dişlerin yerine sabit ya da hareketli protezle tamamlanması.</dd></div>
+      </dl>
+    </section>
+
+    <section class="bolum">
+      <div class="bolum-bas"><span class="no">02</span><h2>Kliniğe ilk geldiğinizde</h2></div>
+      <ol class="yol">
+        <li><b>Tanışma</b><span>Şikâyetinizi, geçmiş tedavilerinizi ve varsa kullandığınız ilaçları konuşuruz.</span></li>
+        <li><b>Muayene</b><span>Ağız içi muayene yapılır, gerekirse röntgen çekilir.</span></li>
+        <li><b>Seçenekler</b><span>Durumunuzu ve tedavi seçeneklerini anlatırız; sorularınızı yanıtlarız.</span></li>
+        <li><b>Plan</b><span>Tedavinin adımlarını ve randevu günlerini birlikte belirleriz.</span></li>
+      </ol>
+    </section>
+
+    <div class="not-kutu">
+      <span class="saat-ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      <div><h3>Gelmeden önce arayın</h3><p>Randevu saatinizi önceden belirlersek beklemeden muayeneye alınırsınız. Telefon ve WhatsApp: 0534 549 06 86.</p></div>
+    </div>
+
+    <footer class="dip"><span>© 2026 DR.MR Klinik Ağız ve Diş Sağlığı Polikliniği</span><span>Halkalı Merkez · Küçükçekmece</span></footer>
+  </main>
+</div>
+
+<a class="yapiskan" href="tel:+905345490686">Randevu için arayın <span>0534 549 06 86</span></a>
+
+</body></html>
