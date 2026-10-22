@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Petstory Veteriner Kliniği 7/24</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Petstory Veteriner Kliniği — Küçükçekmece'de 7/24 açık veteriner kliniği. Muayene, aşı, yatılı tedavi ve acil bakım. Vet. Hekim Cengiz Baran.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Düzen: "hikâye defteri" — isimden yola çıkan sıcak, kâğıt dokulu sayfa; büyük 7/24 mührü; gerçek Google yorumlarından üç kısa hikâye; hizmetler; hekim; iletişim. */
+:root {
+  --kagit: #FBF5EC;
+  --yuzey: #FFFFFF;
+  --metin: #2B2320;
+  --soluk: #6E625B;
+  --cizgi: #EADFD0;
+  --kiremit: #C4532F;
+  --kiremit-acik: #F6E3D8;
+  --gece: #1F2A3A;
+  --yildiz: #F2B84B;
+  --f-baslik: "Newsreader", Georgia, serif;
+  --f-govde: "Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --kagit: #17130F; --yuzey: #201A15; --metin: #F3EBE1; --soluk: #BFB2A6; --cizgi: #342A22; --kiremit: #E57A55; --kiremit-acik: #3A2219; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --kagit: #17130F; --yuzey: #201A15; --metin: #F3EBE1; --soluk: #BFB2A6; --cizgi: #342A22; --kiremit: #E57A55; --kiremit-acik: #3A2219; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--kagit); color: var(--metin); font-family: var(--f-govde); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.sar { max-width: 1160px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-baslik); font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+a { color: var(--kiremit); }
+a:focus-visible { outline: 2px solid var(--kiremit); outline-offset: 3px; }
+.etiket { font-size: 0.78rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: var(--kiremit); }
+
+.ornek { background: var(--gece); color: #F3EBE1; font-size: 0.84rem; text-align: center; padding-block: 7px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+.ust { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--metin); }
+.logo .iz { width: 40px; height: 40px; border-radius: 12px; background: var(--kiremit); color: #fff; display: grid; place-items: center; }
+.logo .iz svg { width: 24px; height: 24px; }
+.logo b { font-family: var(--f-baslik); font-size: 1.45rem; font-weight: 600; line-height: 1; display: block; }
+.logo small { font-size: 0.74rem; color: var(--soluk); letter-spacing: .08em; }
+.acik { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.92rem; background: var(--yuzey); border: 1px solid var(--cizgi); padding: 8px 14px; border-radius: 999px; }
+.acik i { width: 9px; height: 9px; border-radius: 50%; background: #2FA86A; box-shadow: 0 0 0 4px rgba(47, 168, 106, .18); }
+
+/* giriş */
+.giris { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; align-items: center; padding-block: 36px 72px; }
+.giris h1 { font-size: clamp(2.4rem, 5.2vw, 4.2rem); line-height: 1.04; }
+.giris h1 em { color: var(--kiremit); }
+.giris p.alt { margin-top: 20px; color: var(--soluk); font-size: 1.15rem; max-width: 31em; }
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 22px; border-radius: 14px; font-weight: 700; text-decoration: none; }
+.btn svg { width: 20px; height: 20px; }
+.btn.dolu { background: var(--kiremit); color: #fff; }
+.btn.bos { background: var(--yuzey); border: 1.5px solid var(--cizgi); color: var(--metin); }
+.foto { position: relative; }
+.foto img { width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; display: block; border-radius: 28px; }
+.muhur { position: absolute; left: -26px; bottom: 30px; width: 132px; height: 132px; border-radius: 50%; background: var(--gece); color: #F3EBE1; display: grid; place-items: center; text-align: center; box-shadow: 0 16px 34px rgba(31, 42, 58, .3); transform: rotate(-8deg); }
+.muhur b { font-family: var(--f-baslik); font-size: 2.6rem; line-height: .9; color: var(--yildiz); display: block; }
+.muhur span { font-size: 0.7rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+.puan { position: absolute; right: 18px; top: 18px; background: var(--yuzey); color: var(--metin); border-radius: 14px; padding: 10px 14px; box-shadow: 0 10px 24px rgba(0, 0, 0, .12); font-size: 0.88rem; }
+.puan b { font-size: 1.2rem; }
+.puan .yildizlar { color: var(--yildiz); letter-spacing: 2px; }
+
+section { padding-block: 80px; }
+
+/* gece şeridi */
+.gece { background: var(--gece); color: #F3EBE1; }
+.gece .sar { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-block: 56px; }
+.gece h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.08; }
+.gece h2 em { color: var(--yildiz); }
+.gece p { color: #C9D1DC; margin-top: 12px; }
+.gece .ara { justify-self: end; text-align: right; }
+.gece .ara a { font-family: var(--f-baslik); font-size: clamp(1.9rem, 4vw, 3rem); color: #fff; text-decoration: none; display: block; line-height: 1.1; }
+.gece .ara small { color: #9FB0C4; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; font-size: 0.74rem; }
+
+/* hikâyeler */
+.bas { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+.bas h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; }
+.bas p { color: var(--soluk); max-width: 30em; }
+.hikayeler { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.hikaye { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; }
+.hikaye img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.hikaye .ic { padding: 22px; display: grid; gap: 10px; }
+.hikaye .bolum { font-size: 0.78rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--kiremit); }
+.hikaye blockquote { margin: 0; font-family: var(--f-baslik); font-style: italic; font-size: 1.25rem; line-height: 1.35; }
+.hikaye cite { font-style: normal; color: var(--soluk); font-size: 0.88rem; }
+
+/* hizmetler */
+.hizmetler { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.hizmet { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 20px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+.hizmet .ikon { width: 46px; height: 46px; border-radius: 14px; background: var(--kiremit-acik); color: var(--kiremit); display: grid; place-items: center; }
+.hizmet .ikon svg { width: 24px; height: 24px; }
+.hizmet h3 { font-size: 1.3rem; margin-top: 6px; }
+.hizmet p { color: var(--soluk); font-size: 0.97rem; }
+
+/* hekim */
+.hekim { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
+.hekim img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 28px; display: block; }
+.hekim h2 { font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.06; margin-top: 8px; }
+.hekim p { color: var(--soluk); margin-top: 14px; }
+.imza { margin-top: 22px; display: flex; align-items: center; gap: 14px; }
+.imza .harf { width: 54px; height: 54px; border-radius: 50%; background: var(--kiremit); color: #fff; display: grid; place-items: center; font-family: var(--f-baslik); font-size: 1.3rem; }
+.imza b { display: block; font-family: var(--f-baslik); font-size: 1.2rem; }
+.imza span { color: var(--soluk); font-size: 0.92rem; }
+
+/* sokak */
+.sokak { background: var(--kiremit-acik); border-radius: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); overflow: hidden; }
+.sokak img { width: 100%; height: 440px; object-fit: cover; display: block; }
+.sokak .metin { padding: clamp(26px, 4vw, 48px); display: grid; gap: 14px; align-content: center; }
+.sokak h2 { font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.1; }
+.sokak p { color: var(--soluk); }
+
+/* iletişim */
+.iletisim { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.kart { background: var(--yuzey); border: 1px solid var(--cizgi); border-radius: 22px; padding: 28px; display: grid; gap: 14px; align-content: start; }
+.kart h3 { font-size: 1.6rem; }
+.kart dl { margin: 0; display: grid; gap: 14px; }
+.kart dt { font-size: 0.74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--soluk); }
+.kart dd { margin: 2px 0 0; }
+.kart dd a { color: var(--metin); }
+.kart.koyu { background: var(--gece); color: #F3EBE1; border-color: var(--gece); }
+.kart.koyu p { color: #C9D1DC; }
+
+.dip { padding-block: 26px 90px; color: var(--soluk); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 1px solid var(--cizgi); margin-top: 40px; }
+.wp { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px rgba(0, 0, 0, .25); z-index: 5; }
+.wp svg { width: 30px; height: 30px; }
+
+@media (max-width: 900px) {
+  .giris, .gece .sar, .hekim, .sokak, .iletisim { grid-template-columns: minmax(0, 1fr); }
+  .gece .ara { justify-self: start; text-align: left; }
+  .hikayeler { grid-template-columns: minmax(0, 1fr); }
+  .hizmetler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .muhur { left: 14px; bottom: -22px; width: 112px; height: 112px; }
+  .muhur b { font-size: 2.2rem; }
+  .sokak img { height: 260px; }
+}
+@media (max-width: 560px) {
+  section { padding-block: 56px; }
+  .hizmetler { grid-template-columns: minmax(0, 1fr); }
+  .ust .acik { display: none; }
+}
+</style>
+</head><body>
+<div class="ornek">Örnek tasarım · Petstory Veteriner Kliniği için hazırlanmıştır. Fotoğraflar temsilidir; yayında kliniğin kendi fotoğrafları kullanılır.</div>
+
+<div class="sar">
+  <header class="ust">
+    <a class="logo" href="#">
+      <span class="iz"><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="15.5" rx="4.6" ry="3.9"/><circle cx="6" cy="10" r="2.1"/><circle cx="18" cy="10" r="2.1"/><circle cx="9.2" cy="6" r="2"/><circle cx="14.8" cy="6" r="2"/></svg></span>
+      <span><b>Petstory</b><small>VETERİNER KLİNİĞİ · KÜÇÜKÇEKMECE</small></span>
+    </a>
+    <span class="acik"><i></i>Şu an açık · 7/24</span>
+  </header>
+
+  <div class="giris">
+    <div>
+      <span class="etiket">Gece de gündüz de açığız</span>
+      <h1 style="margin-top:14px">Her minik dostun bir hikâyesi var. Biz o hikâyede <em>hep yanındayız.</em></h1>
+      <p class="alt">Küçükçekmece'de 7/24 hizmet veren veteriner kliniği. Muayene, aşı, yatılı tedavi ve acil durumlar için günün her saati arayabilirsiniz.</p>
+      <div class="dugmeler">
+        <a class="btn dolu" href="tel:+905467484607"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Hemen arayın</a>
+        <a class="btn bos" href="https://maps.google.com/?cid=5777231644730406782" target="_blank" rel="noopener">Yol tarifi al</a>
+      </div>
+    </div>
+    <div class="foto">
+      <img src="img/px-33202416.jpg" alt="Veteriner hekimin kucağında yavru bir kedi">
+      <div class="puan"><span class="yildizlar">★★★★★</span><br><b>5,0</b> · Google'da 206 yorum</div>
+      <div class="muhur"><div><b>7/24</b><span>Açık</span></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="gece">
+  <div class="sar">
+    <div>
+      <span class="etiket" style="color:var(--yildiz)">Acil durumlar</span>
+      <h2 style="margin-top:10px">Gece yarısı bir şey mi oldu? <em>Kapımız açık.</em></h2>
+      <p>Zehirlenme, yaralanma, nefes darlığı ya da ani bir değişiklik fark ettiğinizde beklemeyin; yola çıkmadan önce arayın, sizi hazır karşılayalım.</p>
+    </div>
+    <div class="ara"><small>7/24 telefon</small><a href="tel:+905467484607">0546 748 46 07</a></div>
+  </div>
+</div>
+
+<section>
+  <div class="sar">
+    <div class="bas">
+      <div><span class="etiket">Petstory hikâyeleri</span><h2 style="margin-top:10px">Bize gelenler anlatıyor</h2></div>
+      <p>Google'da 206 yorumla 5,0 puan. Aşağıdakiler bu yorumlardan kısaltılmış birkaç satır.</p>
+    </div>
+    <div class="hikayeler">
+      <article class="hikaye">
+        <img src="img/px-4074742.jpg" alt="Klinikte tedavi gören tüylü bir kedi">
+        <div class="ic">
+          <span class="bolum">Yatılı tedavi</span>
+          <blockquote>“3-4 gün boyunca çok iyi baktılar; her gün arayarak ya da video atarak durumunu bildirdiler.”</blockquote>
+          <cite>Google yorumu</cite>
+        </div>
+      </article>
+      <article class="hikaye">
+        <img src="img/px-6816836.jpg" alt="Hekimin elleri arasında sevilen bir kedi">
+        <div class="ic">
+          <span class="bolum">Sokaktan yuvaya</span>
+          <blockquote>“FIP hastası sokak kedisiydi; 93 gün boyunca ayakta duramayan kediyi evimizin tosun paşası yaptı.”</blockquote>
+          <cite>Google yorumu</cite>
+        </div>
+      </article>
+      <article class="hikaye">
+        <img src="img/px-6816861.jpg" alt="Beyaz bir kedinin gözünü muayene eden hekim">
+        <div class="ic">
+          <span class="bolum">Yıllardır aynı hekim</span>
+          <blockquote>“Yaklaşık 5 yıldır hayatımızda. İki kedimi gözüm kapalı emanet ediyorum.”</blockquote>
+          <cite>Google yorumu</cite>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="bas"><div><span class="etiket">Hizmetlerimiz</span><h2 style="margin-top:10px">Kliniğimizde neler yapıyoruz?</h2></div></div>
+    <div class="hizmetler">
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></span><h3>Muayene ve kontrol</h3><p>Genel sağlık kontrolü, iç hastalıkları ve takip muayeneleri.</p></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l3-3M19 9 8.7 19.3a2.4 2.4 0 0 1-3.4 0l-.6-.6a2.4 2.4 0 0 1 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/></svg></span><h3>Aşı ve parazit</h3><p>Yavru ve yetişkin aşı takvimi, iç ve dış parazit uygulamaları.</p></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></svg></span><h3>Yatılı tedavi</h3><p>Serum ve gözlem gerektiren durumlarda klinikte bakım; size her gün bilgi veriyoruz.</p></div>
+      <div class="hizmet"><span class="ikon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><h3>7/24 acil</h3><p>Gece ve hafta sonu da açık; acil durumda yola çıkmadan önce arayın.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar hekim">
+    <img src="img/px-33394322.jpg" alt="Hekim, yavru bir kediyi besliyor">
+    <div>
+      <span class="etiket">Hekimimiz</span>
+      <h2>Her adımda size haber veren bir hekim.</h2>
+      <p>Petstory'de hayvanınızı muayene eden, tedavisini takip eden ve sizi arayıp bilgi veren aynı kişidir. Yorumlarda sık geçen de bu: sabır, ilgi ve her adımda haber vermek.</p>
+      <div class="imza"><span class="harf">CB</span><div><b>Vet. Hekim Cengiz Baran</b><span>Petstory Veteriner Kliniği</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar">
+    <div class="sokak">
+      <img src="img/px-30343815.jpg" alt="Sokakta dinlenen üç renkli bir kedi" style="object-position:50% 70%">
+      <div class="metin">
+        <span class="etiket">Sokaktaki dostlar</span>
+        <h2>Sokaktan getirilen minikler de bizim hastamız.</h2>
+        <p>Mahallede yaralı ya da hasta bir hayvan bulduğunuzda bize getirebilirsiniz. Tedavisinden sonraki adımlar için de birlikte yol buluruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="sar iletisim">
+    <div class="kart koyu">
+      <span class="etiket" style="color:var(--yildiz)">İletişim</span>
+      <h3>Günün her saati ulaşabilirsiniz</h3>
+      <p>Randevu, aşı takvimi ya da acil bir durum için arayın veya WhatsApp'tan yazın.</p>
+      <div class="dugmeler" style="margin-top:6px">
+        <a class="btn dolu" href="tel:+905467484607">0546 748 46 07</a>
+        <a class="btn bos" href="https://wa.me/905467484607" target="_blank" rel="noopener" style="background:transparent;color:#F3EBE1;border-color:rgba(243,235,225,.35)">WhatsApp</a>
+      </div>
+    </div>
+    <div class="kart">
+      <dl>
+        <div><dt>Adres</dt><dd>Cumhuriyet Mah., Aşık Veysel Cd. No:37 D:2A, 34290 Küçükçekmece / İstanbul</dd></div>
+        <div><dt>Çalışma saatleri</dt><dd>7 gün 24 saat açık</dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/petstory.veterinerklinigi/" target="_blank" rel="noopener">@petstory.veterinerklinigi</a></dd></div>
+      </dl>
+      <a class="btn bos" href="https://maps.google.com/?cid=5777231644730406782" target="_blank" rel="noopener" style="justify-self:start">Haritada aç</a>
+    </div>
+  </div>
+  <div class="sar"><footer class="dip"><span>© 2026 Petstory Veteriner Kliniği</span><span>Küçükçekmece / İstanbul</span></footer></div>
+</section>
+
+<a class="wp" href="https://wa.me/905467484607" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+</body></html>
