@@ -8,7 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* Yerleşim: sayfa bir rota gibi akar — kapından (hero haritası) atölyeye ve geri; üstteki yol çizgisinde araba kaydırmayla ilerler. */
 :root{
@@ -16,7 +16,7 @@
   --blue:#1E4FD6; --on-blue:#FFFFFF; --amber:#F5A400; --on-amber:#14171C;
   --map:#DFE5EB; --street:#FFFFFF; --water:#C3D5EA; --band:#14171C; --on-band:#ECEFF3;
   --shadow:0 1px 2px rgba(20,23,28,.06),0 12px 32px rgba(20,23,28,.10);
-  --f-display:'Big Shoulders Display','Arial Narrow',Arial,sans-serif;
+  --f-display:'Archivo','Segoe UI',Arial,sans-serif;
   --f-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
   --r:14px;
@@ -42,8 +42,8 @@ a{color:inherit}
 .wrap{max-width:1220px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .mono{font-family:var(--f-mono)}
 .eyebrow{font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
-.display{font-family:var(--f-display);font-weight:800;line-height:.92;letter-spacing:.005em}
-.h2{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,5.2vw,68px);line-height:.95}
+.display{font-family:var(--f-display);font-weight:800;line-height:1.02;letter-spacing:-.025em}
+.h2{font-family:var(--f-display);font-weight:800;font-size:clamp(32px,3.8vw,52px);line-height:1.06;letter-spacing:-.02em}
 .lede{color:var(--muted);font-size:19px;max-width:58ch}
 section{padding-block:clamp(64px,9vw,120px)}
 .sec-head{display:grid;gap:16px;margin-bottom:48px;max-width:760px}
@@ -59,7 +59,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 /* Üst menü + yol ilerleme çizgisi */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:900;font-size:30px;letter-spacing:.01em}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:26px;letter-spacing:-.03em}
 .logo-mark{width:34px;height:34px}
 .nav-links{display:flex;gap:28px;font-weight:500;font-size:15px}
 .nav-links a{text-decoration:none;color:var(--muted)}
@@ -70,10 +70,53 @@ section{padding-block:clamp(64px,9vw,120px)}
 
 /* Hero */
 .hero{padding-block:clamp(40px,6vw,72px) clamp(56px,7vw,96px)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
-.hero h1{font-size:clamp(58px,8.4vw,124px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(32px,4.5vw,64px);align-items:center}
+.hero h1{font-size:clamp(42px,5.3vw,76px)}
 .hero h1 .hl{color:var(--blue)}
-.hero-copy{display:grid;gap:28px}
+.hero-copy{display:grid;gap:26px}
+.hero-copy .eyebrow{display:inline-flex;align-items:center;gap:10px}
+.hero-copy .eyebrow::before{content:"";width:28px;height:2px;background:var(--blue)}
+
+/* Gösterge paneli: araç içi bir panel, her temada koyu */
+:root{--dash:#0A0C10;--dash-2:#141821;--dash-line:#252C38;--dash-ink:#E9EEF5;--dash-dim:#7F8A9A;--lcd:#0C1520;--lcd-ink:#CFE2FF;--lcd-dim:#8EA6C6;--tell-red:#FF4A3D;--tell-amber:#FFB52E;--tell-blue:#5B9BFF}
+.cluster{position:relative;border-radius:30px;padding:clamp(18px,2.4vw,30px);background:radial-gradient(130% 120% at 50% -10%,#232A36 0%,var(--dash) 62%);color:var(--dash-ink);box-shadow:0 30px 60px rgba(10,12,16,.35),inset 0 1px 0 rgba(255,255,255,.06);display:grid;gap:18px;overflow:hidden;isolation:isolate}
+.cluster::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.018) 0 2px,transparent 2px 6px);z-index:-1}
+.cluster-head{display:flex;justify-content:space-between;align-items:center;font:600 11px/1 var(--f-mono);letter-spacing:.14em;color:var(--dash-dim)}
+.cluster-head b{display:inline-flex;align-items:center;gap:8px;color:var(--dash-ink);font-weight:600}
+.cluster-head b i{width:8px;height:8px;border-radius:50%;background:#3DDC84;box-shadow:0 0 10px #3DDC84}
+.cluster-face{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:clamp(8px,1.4vw,18px)}
+.gauge{width:100%;height:auto;display:block}
+.needle{transition:transform .9s cubic-bezier(.3,1.4,.5,1);transform-origin:100px 100px}
+.lcd{position:relative;background:linear-gradient(180deg,#0F1B29,var(--lcd));border:1px solid #20304A;border-radius:18px;padding:16px 16px 18px;min-height:228px;display:grid;gap:9px;align-content:start;box-shadow:inset 0 0 40px rgba(91,155,255,.10),0 0 0 6px #0D1016}
+.lcd-tag{font:600 10.5px/1 var(--f-mono);letter-spacing:.14em;color:var(--lcd-dim)}
+.lcd strong{font-family:var(--f-display);font-weight:800;font-size:clamp(18px,1.7vw,23px);line-height:1.12;letter-spacing:-.01em;color:#FFFFFF}
+.lcd p{font-size:14px;line-height:1.5;color:var(--lcd-ink)}
+.lcd-level{justify-self:start;font:600 11px/1 var(--f-mono);letter-spacing:.1em;padding:7px 10px;border-radius:999px;border:1px solid #2C3D57;color:var(--lcd-ink)}
+.lcd-level[data-level="red"]{background:var(--tell-red);border-color:var(--tell-red);color:#140806}
+.lcd-level[data-level="amber"]{background:var(--tell-amber);border-color:var(--tell-amber);color:#1A1203}
+.lcd-level[data-level="blue"]{background:var(--tell-blue);border-color:var(--tell-blue);color:#06101F}
+.lcd.flash{animation:lcdIn .45s ease}
+@keyframes lcdIn{from{opacity:.25;transform:translateY(4px)}to{opacity:1;transform:none}}
+.tells{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.tell{appearance:none;display:grid;justify-items:center;gap:8px;padding:14px 4px 12px;border-radius:16px;background:var(--dash-2);border:1px solid var(--dash-line);color:#3B4452;cursor:pointer;font:500 11.5px/1.2 var(--f-body);transition:border-color .25s ease,transform .2s ease,background .25s ease}
+.tell span{color:var(--dash-dim);text-align:center}
+.tell svg{width:32px;height:32px;transition:color .2s ease,filter .2s ease}
+.tell:hover{transform:translateY(-2px);border-color:#3A4558}
+.tell.on{background:#181D27;border-color:#46536A}
+.tell.on span{color:var(--dash-ink)}
+.tell.on[data-c="red"] svg{color:var(--tell-red);filter:drop-shadow(0 0 7px rgba(255,74,61,.85))}
+.tell.on[data-c="amber"] svg{color:var(--tell-amber);filter:drop-shadow(0 0 7px rgba(255,181,46,.8))}
+.tell.on[data-c="blue"] svg{color:var(--tell-blue);filter:drop-shadow(0 0 7px rgba(91,155,255,.8))}
+.tell.blink svg{animation:blink 1s steps(2,start) infinite}
+@keyframes blink{50%{opacity:.25}}
+.cluster-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.cluster-foot small{font-size:13px;color:var(--dash-dim)}
+.cluster .btn-primary{background:var(--tell-blue);color:#06101F}
+
+/* Bir günlük rota */
+.day{padding-top:0}
+.day-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,5vw,72px);align-items:center}
+.day-copy{display:grid;gap:22px}
 .plate{display:inline-flex;align-items:stretch;border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#FFFFFF;color:#14171C;width:max-content;box-shadow:var(--shadow)}
 .plate b{background:#1E4FD6;color:#fff;font:600 12px/1 var(--f-mono);display:flex;align-items:flex-end;padding:6px 6px 7px}
 .plate span{font:600 22px/1 var(--f-mono);letter-spacing:.12em;padding:9px 14px}
@@ -92,7 +135,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 
 /* Motor kodu bandı */
 .ticker{background:var(--band);color:var(--on-band);overflow:hidden;padding-block:18px}
-.ticker-track{display:flex;gap:56px;width:max-content;animation:tick 38s linear infinite;font-family:var(--f-display);font-weight:800;font-size:30px;letter-spacing:.02em;white-space:nowrap}
+.ticker-track{display:flex;gap:56px;width:max-content;animation:tick 38s linear infinite;font-family:var(--f-display);font-weight:800;font-size:24px;letter-spacing:-.01em;white-space:nowrap}
 .ticker-track span{display:inline-flex;align-items:center;gap:14px}
 .ticker-track em{font:500 14px/1 var(--f-mono);font-style:normal;opacity:.7;letter-spacing:.06em}
 .ticker-track b{color:var(--amber)}
@@ -106,7 +149,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 .step-node{width:64px;height:64px;border-radius:18px;background:var(--surface);border:2px solid var(--ink);display:grid;place-items:center;position:relative;z-index:1}
 .step-node svg{width:30px;height:30px}
 .step .num{font:600 13px/1 var(--f-mono);color:var(--blue);letter-spacing:.08em}
-.step h3{font-family:var(--f-display);font-weight:800;font-size:28px;line-height:1}
+.step h3{font-family:var(--f-display);font-weight:800;font-size:21px;line-height:1.15;letter-spacing:-.01em}
 .step p{color:var(--muted);font-size:15px}
 
 /* Motorlar */
@@ -116,8 +159,8 @@ section{padding-block:clamp(64px,9vw,120px)}
 .eng.feature{grid-row:span 2;background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .eng .code{font:600 12px/1 var(--f-mono);letter-spacing:.1em;color:var(--blue)}
 .eng.feature .code{color:var(--amber)}
-.eng h3{font-family:var(--f-display);font-weight:900;font-size:44px;line-height:.9}
-.eng.feature h3{font-size:clamp(56px,6vw,84px)}
+.eng h3{font-family:var(--f-display);font-weight:800;font-size:32px;line-height:1;letter-spacing:-.02em}
+.eng.feature h3{font-size:clamp(44px,4.4vw,64px)}
 .eng .models{font-size:14px;color:var(--muted)}
 .eng.feature .models{color:color-mix(in srgb,var(--bg) 72%,var(--ink))}
 .eng ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:15px}
@@ -156,7 +199,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 .check{background:var(--amber);color:var(--on-amber)}
 .check .eyebrow{color:var(--on-amber)}
 .check-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
-.check h2{font-family:var(--f-display);font-weight:900;font-size:clamp(44px,6vw,84px);line-height:.92}
+.check h2{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,4.4vw,60px);line-height:1.04;letter-spacing:-.025em}
 .check p{font-size:18px;max-width:52ch}
 .checklist{background:#FFFDF6;color:#14171C;border-radius:18px;padding:26px;display:grid;gap:4px;box-shadow:0 18px 40px rgba(60,40,0,.18);transform:rotate(-1.2deg)}
 .checklist header{display:flex;justify-content:space-between;align-items:center;border-bottom:2px dashed #14171C;padding-bottom:12px;margin-bottom:8px;font:600 13px/1 var(--f-mono);letter-spacing:.06em}
@@ -170,7 +213,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 .price{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:grid;gap:16px;align-content:start}
 .price.hot{border:2px solid var(--blue)}
 .price h3{font-size:18px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px}
-.price .amt{font-family:var(--f-display);font-weight:900;font-size:64px;line-height:.9}
+.price .amt{font-family:var(--f-display);font-weight:800;font-size:50px;line-height:1;letter-spacing:-.03em}
 .price .amt small{font:500 15px/1 var(--f-body);color:var(--muted);margin-left:6px}
 .price ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px;color:var(--muted)}
 .price li{display:flex;gap:10px}
@@ -183,7 +226,7 @@ section{padding-block:clamp(64px,9vw,120px)}
 /* Kapsama + usta */
 .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,36px);display:grid;gap:18px;align-content:start;min-width:0}
-.panel h3{font-family:var(--f-display);font-weight:800;font-size:40px;line-height:.95}
+.panel h3{font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.02em}
 .panel p{color:var(--muted)}
 .panel svg{width:100%;height:auto;display:block}
 .districts{display:flex;flex-wrap:wrap;gap:8px}
@@ -238,7 +281,7 @@ footer{padding-block:48px;border-top:1px solid var(--line)}
 .reveal{transition:opacity .7s ease,transform .7s ease}
 
 @media (max-width:980px){
-  .hero-grid,.report,.check-grid,.form-grid,.duo{grid-template-columns:minmax(0,1fr)}
+  .hero-grid,.day-grid,.report,.check-grid,.form-grid,.duo{grid-template-columns:minmax(0,1fr)}
   .engines{grid-template-columns:repeat(2,minmax(0,1fr))}
   .eng.feature{grid-row:auto;grid-column:span 2}
   .prices{grid-template-columns:minmax(0,1fr)}
@@ -254,6 +297,9 @@ footer{padding-block:48px;border-top:1px solid var(--line)}
   .eng.feature{grid-column:auto}
   .row,.promises{grid-template-columns:minmax(0,1fr)}
   .chips{display:none}
+  .cluster-face{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lcd{grid-column:1 / -1;order:-1;min-height:0}
+  .tells{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -289,19 +335,63 @@ footer{padding-block:48px;border-top:1px solid var(--line)}
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="plate" aria-label="Plaka: 34 VFX 26"><b>TR</b><span>34 VFX 26</span></div>
-      <h1 class="display">ARACIN SANAYİYE GİTSİN.<br><span class="hl">SEN DEĞİL.</span></h1>
-      <p class="lede">Kapından alıyoruz, Dolapdere Sanayi Sitesi'ndeki ustalarımız tamir ediyor, fotoğraflı raporla haber veriyor ve aracını geri getiriyoruz. Onayın olmadan tek vida sökülmez.</p>
+      <span class="eyebrow">Kapıdan kapıya oto tamir · İstanbul</span>
+      <h1 class="display">Panelde bir ışık mı yandı? <span class="hl">Sanayiye sen gitme.</span></h1>
+      <p class="lede">Aracını kapından alıyoruz. Dolapdere Sanayi Sitesi'ndeki ustamız tamir ediyor, her adımı fotoğrafla gösteriyor, aracını geri getiriyoruz. Onayın olmadan tek vida sökülmez.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#ariza">Arıza bildir
+        <a class="btn btn-primary" href="#ariza">Vale çağır
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="#surec">Nasıl işliyor?</a>
       </div>
       <div class="hero-facts">
         <span><i></i>Başakşehir merkezli, ~30 km</span>
         <span><i></i>Fotoğraflı servis raporu</span>
-        <span><i></i>Değişen parça size teslim</span>
+        <span><i></i>Değişen parça sana teslim</span>
       </div>
+    </div>
+
+    <div class="cluster" id="cluster">
+      <div class="cluster-head"><b><i></i>VALEFIX · PANEL</b><span>YANAN IŞIĞA DOKUN</span></div>
+      <div class="cluster-face">
+        <svg class="gauge" id="gSpeed" viewBox="0 0 200 200" role="img" aria-label="Hız göstergesi"></svg>
+        <div class="lcd" id="lcd" aria-live="polite">
+          <span class="lcd-tag" id="lcdTag">BİLGİ EKRANI</span>
+          <strong id="lcdTitle">Hangi ışık yanıyor?</strong>
+          <p id="lcdText">Aşağıdan panelinde yanan ışığa dokun. Ne anlama geldiğini ve ne yapman gerektiğini usta diliyle anlatalım.</p>
+          <span class="lcd-level" id="lcdLevel">HAZIR</span>
+        </div>
+        <svg class="gauge" id="gRpm" viewBox="0 0 200 200" role="img" aria-label="Devir göstergesi"></svg>
+      </div>
+      <div class="tells" role="group" aria-label="İkaz lambaları">
+        <button class="tell" type="button" data-k="engine" data-c="amber" aria-pressed="false">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M5 13v7M5 16.5h3M8 12h4V9h7v3h3l3 3h2v-2h2v9h-2v-2h-2l-3 3H12l-4-3v-8z"/><path d="M14 9V6.5M11.5 6.5h5"/></svg><span>Motor arıza</span></button>
+        <button class="tell" type="button" data-k="oil" data-c="red" aria-pressed="false">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 13l3 1h3l2-2h7l9-3-8 9H9l-2-2-3-1z"/><path d="M14 12V9.5M11.5 9.5h5"/><path d="M27 18c0 1.3-.9 2-1.5 2S24 19.3 24 18s1.5-3 1.5-3 1.5 1.7 1.5 3z" fill="currentColor"/></svg><span>Yağ basıncı</span></button>
+        <button class="tell" type="button" data-k="temp" data-c="red" aria-pressed="false">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M16 4v13"/><circle cx="16" cy="20" r="3.4"/><path d="M16 9h4M16 13h4"/><path d="M4 26c2-1.5 4 1.5 6 0s4 1.5 6 0 4 1.5 6 0 4 1.5 6 0"/></svg><span>Hararet</span></button>
+        <button class="tell" type="button" data-k="battery" data-c="red" aria-pressed="false">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><rect x="4" y="10" width="24" height="15" rx="2"/><path d="M9 10V7h3v3M20 10V7h3v3"/><path d="M8 17.5h5M10.5 15v5M19 17.5h5"/></svg><span>Şarj</span></button>
+        <button class="tell" type="button" data-k="glow" data-c="amber" aria-pressed="false">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M4 9c4 0 4 14 0 14M28 9c-4 0-4 14 0 14"/><path d="M10 16c1.2-3 2.4-3 3.6 0s2.4 3 3.6 0 2.4-3 3.6 0"/></svg><span>Kızdırma</span></button>
+        <button class="tell" type="button" data-k="service" data-c="blue" aria-pressed="false">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M19.5 7.5a5.5 5.5 0 0 0 6.9 6.9L14 26.8a2.9 2.9 0 0 1-4.1-4.1z"/><circle cx="11.9" cy="24.8" r=".8" fill="currentColor"/></svg><span>Bakım</span></button>
+      </div>
+      <div class="cluster-foot">
+        <small id="clusterHint">Örnek panel. Gerçek teşhis için ustamız aracını görmeli.</small>
+        <a class="btn btn-primary" id="clusterCta" href="#ariza">Bu ışık için vale çağır</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BİR GÜNLÜK ROTA -->
+<section class="day">
+  <div class="wrap day-grid">
+    <div class="day-copy reveal">
+      <span class="eyebrow">Aracının bir günü</span>
+      <h2 class="h2">Sen işindeyken aracın sanayide.</h2>
+      <p class="lede">Sabah kapından alıyoruz, öğlen fotoğraflı teşhis geliyor, akşam aracın kapında. Sen sadece onay veriyorsun.</p>
+      <div class="plate" aria-label="Örnek plaka: 34 VFX 26"><b>TR</b><span>34 VFX 26</span></div>
     </div>
 
     <div class="map-card" role="img" aria-label="Temsili harita: araç Bahçeşehir'deki evden Dolapdere Sanayi Sitesi'ndeki atölyeye gidip geri dönüyor">
@@ -310,7 +400,7 @@ footer{padding-block:48px;border-top:1px solid var(--line)}
         <!-- Deniz ve göl -->
         <path d="M0 438 C110 418 220 452 330 428 S510 404 600 420 L600 520 L0 520 Z" fill="var(--water)"/>
         <path d="M268 360 C300 350 330 372 322 404 C316 430 284 436 266 418 C250 400 246 368 268 360 Z" fill="var(--water)"/>
-        <text x="40" y="490" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--muted)" letter-spacing="2">MARMARA DENİZİ</text>
+        <text x="440" y="490" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--muted)" letter-spacing="2">MARMARA DENİZİ</text>
         <!-- Ara sokaklar -->
         <g stroke="var(--street)" stroke-width="3" fill="none" opacity=".9">
           <path d="M40 0 L70 520"/><path d="M120 0 C130 120 110 260 150 520"/><path d="M230 0 L250 360"/><path d="M330 0 C320 120 350 220 340 360"/>
@@ -636,7 +726,7 @@ footer{padding-block:48px;border-top:1px solid var(--line)}
         </g>
         <g transform="translate(300 300)"><rect x="-38" y="-6" width="76" height="62" rx="6" fill="none" stroke="var(--ink)" stroke-width="3"/><path d="M-26 8 h52 M-26 22 h52 M-26 36 h30" stroke="var(--muted)" stroke-width="3"/></g>
         <rect x="190" y="40" width="220" height="44" rx="8" fill="var(--ink)"/>
-        <text x="300" y="60" text-anchor="middle" font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="800" font-size="20" fill="var(--bg)">İMZA OTOMOTİV</text>
+        <text x="300" y="60" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="17" fill="var(--bg)">İMZA OTOMOTİV</text>
         <text x="300" y="76" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--amber)">DOLAPDERE SANAYİ SİTESİ</text>
       </svg>
       <p>ValeFix'in arkasında Dolapdere Sanayi Sitesi'ndeki İmza Otomotiv var. Aracını teslim alan ekip ile motorunu açan usta aynı çatı altında. Uzmanlığımızı sahibinden'de <b>1.3 TCe Merkezi</b> adıyla da görebilirsin.</p>
@@ -714,7 +804,7 @@ footer{padding-block:48px;border-top:1px solid var(--line)}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
       <div class="done" id="formDone" hidden>
-        <h3 style="font-family:var(--f-display);font-weight:800;font-size:38px;line-height:1">Talebin hazır.</h3>
+        <h3 style="font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.05">Talebin hazır.</h3>
         <p style="color:var(--muted)">Bu bir tasarım önizlemesi, form henüz bir yere gönderilmiyor. Canlı sitede bu bilgiler doğrudan ustaya düşecek. Aşağıdaki metni kopyalayıp WhatsApp'tan da gönderebilirsin.</p>
         <pre id="waText"></pre>
         <div class="hero-actions"><button class="btn btn-primary" type="button" id="copyBtn">Metni kopyala</button><button class="btn btn-ghost" type="button" id="againBtn">Yeni talep</button></div>
@@ -785,6 +875,76 @@ footer{padding-block:48px;border-top:1px solid var(--line)}
     }
     function ease(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2}
     requestAnimationFrame(frame);
+  }
+
+  /* Gösterge paneli: kadranlar, ikaz lambaları, bilgi ekranı */
+  var NS='http://www.w3.org/2000/svg';
+  function el(tag,attrs,parent){var n=document.createElementNS(NS,tag);for(var k in attrs)n.setAttribute(k,attrs[k]);if(parent)parent.appendChild(n);return n}
+  function pt(a,r){var t=a*Math.PI/180;return [100+r*Math.cos(t),100+r*Math.sin(t)]}
+  function arc(a1,a2,r){var p=pt(a1,r),q=pt(a2,r);return 'M'+p[0]+' '+p[1]+' A'+r+' '+r+' 0 '+(a2-a1>180?1:0)+' 1 '+q[0]+' '+q[1]}
+  function buildGauge(svg,max,step,unit,div,redFrom){
+    el('circle',{cx:100,cy:100,r:96,fill:'#0E1117',stroke:'#2A3240','stroke-width':2},svg);
+    el('circle',{cx:100,cy:100,r:90,fill:'none',stroke:'#161B24','stroke-width':6},svg);
+    el('path',{d:arc(135,405,84),fill:'none',stroke:'#2E3646','stroke-width':2},svg);
+    if(redFrom!=null) el('path',{d:arc(135+270*redFrom/max,405,84),fill:'none',stroke:'#FF4A3D','stroke-width':6},svg);
+    var minor=step/2;
+    for(var v=0;v<=max+1e-6;v+=minor){
+      var a=135+270*v/max,major=Math.abs(v/step-Math.round(v/step))<1e-6;
+      var p=pt(a,84),q=pt(a,major?71:77);
+      el('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:major?'#E9EEF5':'#5B6676','stroke-width':major?2.4:1.4,'stroke-linecap':'round'},svg);
+      if(major){var l=pt(a,57);var t=el('text',{x:l[0],y:l[1]+4,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-size':11,'font-weight':600,fill:'#9AA5B6'},svg);t.textContent=String(v/div)}
+    }
+    var u=el('text',{x:100,y:142,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-size':10,fill:'#7F8A9A','letter-spacing':1.5},svg);u.textContent=unit;
+    var g=el('g',{'class':'needle'},svg);
+    var tip=pt(135,78),tail=pt(315,14);
+    el('line',{x1:tail[0],y1:tail[1],x2:tip[0],y2:tip[1],stroke:'#FF4A3D','stroke-width':3.2,'stroke-linecap':'round'},g);
+    el('circle',{cx:100,cy:100,r:8,fill:'#1C222D',stroke:'#3A4456','stroke-width':2},svg);
+    return function(f){g.style.transform='rotate('+(270*Math.max(0,Math.min(1,f)))+'deg)'};
+  }
+  var setSpeed=buildGauge(document.getElementById('gSpeed'),220,20,'KM/H',1,null);
+  var setRpm=buildGauge(document.getElementById('gRpm'),7,1,'x1000 RPM',1,6);
+  var rpmBase=0,rpmNow=0;
+  function rpm(f){rpmBase=f;rpmNow=f;setRpm(f/7)}
+
+  var TELL={
+    engine:{tag:'MOTOR ARIZA LAMBASI',title:'Motor arıza lambası yanıyor',text:'Sensör, ateşleme ya da yakıt sisteminden gelebilir. Sabit yanıyorsa birkaç gün içinde baktır. Yanıp sönüyorsa motoru zorlama, uzun yola çıkma.',level:'amber',lt:'KISA SÜREDE BAKTIR',rpm:.85,label:'motor arıza lambası',sym:'Arıza lambası yandı'},
+    oil:{tag:'YAĞ BASINCI',title:'Yağ basıncı ikazı: hemen dur',text:'Güvenli bir yere çek ve motoru kapat. Yağ basıncı yokken çalışan motor kısa sürede zarar görür. Aracı sürme; bize yaz, nasıl alacağımızı birlikte planlayalım.',level:'red',lt:'HEMEN DUR',rpm:0,label:'yağ basıncı ikaz lambası',sym:'Arıza lambası yandı'},
+    temp:{tag:'HARARET',title:'Motor aşırı ısınıyor',text:'Dur ve motoru kapat. Radyatör kapağını sıcakken açma. Su kaçağı, termostat, fan ya da silindir kapak contası olabilir.',level:'red',lt:'HEMEN DUR',rpm:0,label:'hararet ikaz lambası',sym:'Arıza lambası yandı'},
+    battery:{tag:'ŞARJ',title:'Akü şarj olmuyor',text:'Alternatör ya da kayış şarj etmiyor olabilir. Araç bir süre aküyle gider ama bir yerde bırakır. Uzun yola çıkmadan baktır.',level:'amber',lt:'BUGÜN BAKTIR',rpm:.85,label:'şarj ikaz lambası',sym:'Arıza lambası yandı'},
+    glow:{tag:'KIZDIRMA · DİZEL',title:'Kızdırma ışığı sönmüyor',text:'Dizel motorlarda ön ısıtma ikazı. Sönmüyor ya da yanıp sönüyorsa kızdırma bujisi veya motor yönetiminde arıza olabilir. 1.5 dCi ve 1.3 Multijet uzmanlık alanımızda.',level:'amber',lt:'KISA SÜREDE BAKTIR',rpm:0,blink:true,label:'kızdırma ikaz lambası',sym:'Arıza lambası yandı'},
+    service:{tag:'BAKIM ZAMANI',title:'Periyodik bakım geldi',text:'Yağ, filtreler ve triger kontrolü. PureTech motorlarda yağın içinde çalışan triger kayışının durumuna da bakıyoruz.',level:'blue',lt:'PLANLA',rpm:.85,label:'bakım ikazı',sym:'Periyodik bakım'}
+  };
+  var tells=[].slice.call(document.querySelectorAll('.tell'));
+  var lcd=document.getElementById('lcd'),current=null,demo=null;
+  function select(k){
+    var d=TELL[k];current=k;
+    tells.forEach(function(b){var on=b.dataset.k===k;b.classList.toggle('on',on);b.classList.toggle('blink',on&&!!d.blink&&!reduce);b.setAttribute('aria-pressed',on?'true':'false')});
+    document.getElementById('lcdTag').textContent=d.tag;
+    document.getElementById('lcdTitle').textContent=d.title;
+    document.getElementById('lcdText').textContent=d.text;
+    var lv=document.getElementById('lcdLevel');lv.textContent=d.lt;lv.dataset.level=d.level;
+    lcd.classList.remove('flash');void lcd.offsetWidth;lcd.classList.add('flash');
+    rpm(d.rpm);
+  }
+  function stopDemo(){if(demo){clearInterval(demo);demo=null}}
+  tells.forEach(function(b){b.addEventListener('click',function(){stopDemo();select(b.dataset.k)})});
+  document.getElementById('cluster').addEventListener('pointerdown',stopDemo);
+  document.getElementById('clusterCta').addEventListener('click',function(){
+    stopDemo();
+    if(!current) return;
+    var d=TELL[current];
+    [].slice.call(document.querySelectorAll('#symptoms button')).forEach(function(b){if(b.textContent===d.sym)b.setAttribute('aria-pressed','true')});
+    var note=document.getElementById('fNote');
+    if(!note.value.trim()) note.value='Panelde '+d.label+' yandı.';
+  });
+  setSpeed(0);
+  if(reduce){ rpm(.85); }
+  else{
+    setTimeout(function(){setSpeed(1);setRpm(1)},250);
+    setTimeout(function(){setSpeed(0);rpm(.85)},1250);
+    var order=['engine','oil','temp','battery','glow','service'],i=0;
+    setTimeout(function(){ if(current) return; select(order[0]); demo=setInterval(function(){i=(i+1)%order.length;select(order[i])},4200); },2600);
+    setInterval(function(){ if(rpmBase>0){ rpmNow=rpmBase+(Math.random()-.5)*.08; setRpm(rpmNow/7);} },700);
   }
 
   /* Kaydırınca beliren bölümler: yalnızca ilk anda ekranın altında kalanlar */
