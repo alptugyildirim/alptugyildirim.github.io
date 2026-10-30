@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>ValeFix</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Yerleşim: sayfa bir rota gibi akar — kapından (hero haritası) atölyeye ve geri; üstteki yol çizgisinde araba kaydırmayla ilerler. */
+:root{
+  --bg:#ECEFF3; --surface:#F8F9FB; --ink:#14171C; --muted:#56606E; --line:#D2D8E0;
+  --blue:#1E4FD6; --on-blue:#FFFFFF; --amber:#F5A400; --on-amber:#14171C;
+  --map:#DFE5EB; --street:#FFFFFF; --water:#C3D5EA; --band:#14171C; --on-band:#ECEFF3;
+  --shadow:0 1px 2px rgba(20,23,28,.06),0 12px 32px rgba(20,23,28,.10);
+  --f-display:'Big Shoulders Display','Arial Narrow',Arial,sans-serif;
+  --f-body:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Consolas,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1116; --surface:#161A21; --ink:#E8ECF1; --muted:#9AA4B1; --line:#283039;
+  --blue:#5B82FF; --on-blue:#0E1116; --amber:#FFB52E; --on-amber:#14171C;
+  --map:#141920; --street:#232B35; --water:#15273D; --band:#E8ECF1; --on-band:#0E1116;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1116; --surface:#161A21; --ink:#E8ECF1; --muted:#9AA4B1; --line:#283039;
+  --blue:#5B82FF; --on-blue:#0E1116; --amber:#FFB52E; --on-amber:#14171C;
+  --map:#141920; --street:#232B35; --water:#15273D; --band:#E8ECF1; --on-band:#0E1116;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 32px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1220px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-family:var(--f-mono);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.display{font-family:var(--f-display);font-weight:800;line-height:.92;letter-spacing:.005em}
+.h2{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,5.2vw,68px);line-height:.95}
+.lede{color:var(--muted);font-size:19px;max-width:58ch}
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:16px;margin-bottom:48px;max-width:760px}
+
+/* Butonlar */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--f-body);padding:16px 22px;border-radius:999px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:transform .2s ease,background .2s ease,color .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--blue);color:var(--on-blue)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.btn svg{width:18px;height:18px}
+
+/* Üst menü + yol ilerleme çizgisi */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:900;font-size:30px;letter-spacing:.01em}
+.logo-mark{width:34px;height:34px}
+.nav-links{display:flex;gap:28px;font-weight:500;font-size:15px}
+.nav-links a{text-decoration:none;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.road{position:relative;height:10px;background:var(--line)}
+.road::after{content:"";position:absolute;left:0;right:0;top:4px;height:2px;background:repeating-linear-gradient(90deg,var(--bg) 0 14px,transparent 14px 28px);opacity:.9}
+.road-car{position:absolute;top:-5px;left:0;width:34px;height:20px;transform:translateX(0);will-change:transform}
+
+/* Hero */
+.hero{padding-block:clamp(40px,6vw,72px) clamp(56px,7vw,96px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(58px,8.4vw,124px)}
+.hero h1 .hl{color:var(--blue)}
+.hero-copy{display:grid;gap:28px}
+.plate{display:inline-flex;align-items:stretch;border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#FFFFFF;color:#14171C;width:max-content;box-shadow:var(--shadow)}
+.plate b{background:#1E4FD6;color:#fff;font:600 12px/1 var(--f-mono);display:flex;align-items:flex-end;padding:6px 6px 7px}
+.plate span{font:600 22px/1 var(--f-mono);letter-spacing:.12em;padding:9px 14px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--muted);font-size:15px}
+.hero-facts span{display:inline-flex;align-items:center;gap:8px}
+.hero-facts i{width:8px;height:8px;border-radius:50%;background:var(--amber);display:inline-block}
+
+.map-card{position:relative;border-radius:22px;background:var(--map);box-shadow:var(--shadow);overflow:hidden;aspect-ratio:600/520;max-width:100%}
+.map-card svg{display:block;width:100%;height:100%}
+.chips{position:absolute;left:16px;bottom:16px;display:grid;gap:8px;max-width:calc(100% - 32px)}
+.chip{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 12px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.08);opacity:.45;transform:translateX(-6px);transition:opacity .4s ease,transform .4s ease,border-color .4s ease}
+.chip.on{opacity:1;transform:none;border-color:var(--blue)}
+.chip time{font:600 12px/1 var(--f-mono);color:var(--blue);min-width:42px}
+.map-tag{position:absolute;right:16px;top:16px;font:600 12px/1 var(--f-mono);letter-spacing:.08em;background:var(--ink);color:var(--bg);padding:8px 10px;border-radius:8px}
+
+/* Motor kodu bandı */
+.ticker{background:var(--band);color:var(--on-band);overflow:hidden;padding-block:18px}
+.ticker-track{display:flex;gap:56px;width:max-content;animation:tick 38s linear infinite;font-family:var(--f-display);font-weight:800;font-size:30px;letter-spacing:.02em;white-space:nowrap}
+.ticker-track span{display:inline-flex;align-items:center;gap:14px}
+.ticker-track em{font:500 14px/1 var(--f-mono);font-style:normal;opacity:.7;letter-spacing:.06em}
+.ticker-track b{color:var(--amber)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Süreç */
+.steps{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
+.steps-road{position:absolute;left:0;right:0;top:30px;height:4px;background:repeating-linear-gradient(90deg,var(--line) 0 12px,transparent 12px 22px)}
+.steps-car{position:absolute;top:21px;left:0;width:36px;height:22px;transition:left 2.4s cubic-bezier(.6,0,.2,1)}
+.step{position:relative;display:grid;gap:12px;align-content:start}
+.step-node{width:64px;height:64px;border-radius:18px;background:var(--surface);border:2px solid var(--ink);display:grid;place-items:center;position:relative;z-index:1}
+.step-node svg{width:30px;height:30px}
+.step .num{font:600 13px/1 var(--f-mono);color:var(--blue);letter-spacing:.08em}
+.step h3{font-family:var(--f-display);font-weight:800;font-size:28px;line-height:1}
+.step p{color:var(--muted);font-size:15px}
+
+/* Motorlar */
+.engines{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.eng{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:14px;align-content:start;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;min-width:0}
+.eng:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--ink)}
+.eng.feature{grid-row:span 2;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.eng .code{font:600 12px/1 var(--f-mono);letter-spacing:.1em;color:var(--blue)}
+.eng.feature .code{color:var(--amber)}
+.eng h3{font-family:var(--f-display);font-weight:900;font-size:44px;line-height:.9}
+.eng.feature h3{font-size:clamp(56px,6vw,84px)}
+.eng .models{font-size:14px;color:var(--muted)}
+.eng.feature .models{color:color-mix(in srgb,var(--bg) 72%,var(--ink))}
+.eng ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:15px}
+.eng li{display:flex;gap:10px;align-items:baseline}
+.eng li::before{content:"";flex:none;width:7px;height:7px;border-radius:2px;background:var(--amber);transform:translateY(-2px)}
+.eng-art{width:100%;height:auto;max-height:190px}
+.eng-mini{width:56px;height:56px}
+.belt{stroke-dasharray:6 5;animation:belt 1.6s linear infinite}
+.eng:hover .belt{animation-duration:.5s}
+@keyframes belt{to{stroke-dashoffset:-22}}
+.badge{justify-self:start;font:600 12px/1 var(--f-mono);letter-spacing:.06em;padding:7px 10px;border-radius:999px;background:var(--amber);color:var(--on-amber)}
+
+/* Rapor */
+.report{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(32px,6vw,96px);align-items:center}
+.promises{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:36px}
+.promise{display:grid;gap:8px;padding-top:16px;border-top:2px solid var(--ink)}
+.promise h3{font-size:19px;font-weight:700}
+.promise p{color:var(--muted);font-size:15px}
+.phone{position:relative;justify-self:center;width:min(360px,100%);aspect-ratio:9/18.5;border-radius:44px;background:var(--ink);padding:12px;box-shadow:var(--shadow)}
+.phone-screen{height:100%;border-radius:34px;background:var(--bg);overflow:hidden;display:flex;flex-direction:column}
+.ph-top{padding:22px 18px 12px;display:grid;gap:4px;border-bottom:1px solid var(--line);background:var(--surface)}
+.ph-top b{font-size:16px}
+.ph-top small{font:500 12px/1.3 var(--f-mono);color:var(--muted)}
+.ph-feed{flex:1;padding:14px;display:grid;gap:10px;align-content:start}
+.msg{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:13.5px;display:grid;gap:8px;transition:opacity .5s ease,transform .5s ease}
+.msg time{font:500 11px/1 var(--f-mono);color:var(--muted)}
+.msg.pending{opacity:0;transform:translateY(12px)}
+.msg .photo{border-radius:10px;overflow:hidden;background:var(--map)}
+.msg .photo svg{display:block;width:100%;height:auto}
+.msg-actions{display:flex;gap:8px}
+.msg-actions span{flex:1;text-align:center;font-weight:600;font-size:13px;padding:9px;border-radius:10px;background:var(--blue);color:var(--on-blue)}
+.msg-actions span+span{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.sample{position:absolute;top:-14px;right:-8px;font:600 11px/1 var(--f-mono);letter-spacing:.1em;background:var(--amber);color:var(--on-amber);padding:7px 9px;border-radius:7px;transform:rotate(4deg)}
+
+/* Almadan önce kontrol */
+.check{background:var(--amber);color:var(--on-amber)}
+.check .eyebrow{color:var(--on-amber)}
+.check-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.check h2{font-family:var(--f-display);font-weight:900;font-size:clamp(44px,6vw,84px);line-height:.92}
+.check p{font-size:18px;max-width:52ch}
+.checklist{background:#FFFDF6;color:#14171C;border-radius:18px;padding:26px;display:grid;gap:4px;box-shadow:0 18px 40px rgba(60,40,0,.18);transform:rotate(-1.2deg)}
+.checklist header{display:flex;justify-content:space-between;align-items:center;border-bottom:2px dashed #14171C;padding-bottom:12px;margin-bottom:8px;font:600 13px/1 var(--f-mono);letter-spacing:.06em}
+.cl-row{display:grid;grid-template-columns:24px 1fr auto;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid #E6DFC9;font-size:15px}
+.cl-row:last-child{border-bottom:0}
+.cl-row svg{width:22px;height:22px}
+.cl-row em{font:500 12px/1 var(--f-mono);font-style:normal;color:#56606E}
+
+/* Fiyat */
+.prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:grid;gap:16px;align-content:start}
+.price.hot{border:2px solid var(--blue)}
+.price h3{font-size:18px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price .amt{font-family:var(--f-display);font-weight:900;font-size:64px;line-height:.9}
+.price .amt small{font:500 15px/1 var(--f-body);color:var(--muted);margin-left:6px}
+.price ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px;color:var(--muted)}
+.price li{display:flex;gap:10px}
+.price li svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--blue)}
+.pill{font:600 11px/1 var(--f-mono);letter-spacing:.08em;padding:6px 9px;border-radius:999px;background:var(--blue);color:var(--on-blue)}
+.corp{margin-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:22px 26px;border-radius:var(--r);border:1px dashed var(--muted)}
+.corp p{color:var(--muted)}
+.corp b{color:var(--ink)}
+
+/* Kapsama + usta */
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3vw,36px);display:grid;gap:18px;align-content:start;min-width:0}
+.panel h3{font-family:var(--f-display);font-weight:800;font-size:40px;line-height:.95}
+.panel p{color:var(--muted)}
+.panel svg{width:100%;height:auto;display:block}
+.districts{display:flex;flex-wrap:wrap;gap:8px}
+.districts span{font-size:13px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--bg)}
+.ring{transform-origin:300px 210px;animation:ring 3.6s ease-out infinite}
+.ring.r2{animation-delay:1.2s}.ring.r3{animation-delay:2.4s}
+@keyframes ring{from{transform:scale(.2);opacity:.9}to{transform:scale(1.9);opacity:0}}
+
+/* SSS */
+.faq{display:grid;gap:10px;max-width:880px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:600;font-size:17px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:500 24px/1 var(--f-mono);color:var(--blue);transition:transform .25s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:18px;color:var(--muted);max-width:68ch}
+
+/* Form */
+.form-sec{background:var(--band);color:var(--on-band)}
+.form-sec .eyebrow{color:var(--amber)}
+.form-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.form-sec .lede{color:color-mix(in srgb,var(--on-band) 70%,var(--band))}
+form.card{background:var(--bg);color:var(--ink);border-radius:22px;padding:clamp(20px,3vw,32px);display:grid;gap:18px;box-shadow:var(--shadow)}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+label.f{display:grid;gap:7px;font-size:14px;font-weight:600}
+.f input,.f select,.f textarea{font:400 16px/1.4 var(--f-body);color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:12px 13px;width:100%;min-width:0}
+.f textarea{min-height:92px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--blue)}
+.plate-input{display:flex;border:2px solid var(--ink);border-radius:9px;overflow:hidden;background:#FFFFFF}
+.plate-input b{background:#1E4FD6;color:#fff;font:600 11px/1 var(--f-mono);display:flex;align-items:flex-end;padding:6px 6px 8px}
+.plate-input input{border:0;border-radius:0;background:#FFFFFF;color:#14171C;font:600 19px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.symptoms{display:flex;flex-wrap:wrap;gap:8px}
+.symptoms button{font:500 14px/1 var(--f-body);padding:10px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:all .2s ease}
+.symptoms button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.kvkk{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted)}
+.kvkk input{margin-top:3px;width:18px;height:18px;accent-color:var(--blue)}
+.err{color:#C2410C;font-size:14px;font-weight:600}
+.done{display:grid;gap:14px}
+.done pre{white-space:pre-wrap;font:500 13.5px/1.5 var(--f-mono);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin:0;max-height:240px;overflow:auto}
+.contact-lines{display:grid;gap:14px;margin-top:28px}
+.contact-lines div{display:flex;gap:12px;align-items:center}
+.contact-lines svg{width:22px;height:22px;flex:none;color:var(--amber)}
+
+/* Alt bilgi */
+footer{padding-block:48px;border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;font-size:14px;color:var(--muted)}
+.foot b{color:var(--ink)}
+.foot nav{display:flex;flex-wrap:wrap;gap:18px}
+
+/* Kaydırınca beliren */
+.js .reveal.below{opacity:0;transform:translateY(22px)}
+.reveal{transition:opacity .7s ease,transform .7s ease}
+
+@media (max-width:980px){
+  .hero-grid,.report,.check-grid,.form-grid,.duo{grid-template-columns:minmax(0,1fr)}
+  .engines{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .eng.feature{grid-row:auto;grid-column:span 2}
+  .prices{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:minmax(0,1fr);gap:28px}
+  .steps-road,.steps-car{display:none}
+  .step{grid-template-columns:64px minmax(0,1fr);column-gap:18px}
+  .step .num,.step h3,.step p{grid-column:2}
+  .step-node{grid-row:span 3}
+  .nav-links{display:none}
+}
+@media (max-width:560px){
+  .engines{grid-template-columns:minmax(0,1fr)}
+  .eng.feature{grid-column:auto}
+  .row,.promises{grid-template-columns:minmax(0,1fr)}
+  .chips{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal.below{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="js-root">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="ValeFix ana sayfa">
+      <svg class="logo-mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="var(--blue)"/><path d="M8 10 L17 25 L26 10" fill="none" stroke="var(--on-blue)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="10" r="3.4" fill="var(--amber)"/></svg>
+      valefix
+    </a>
+    <nav class="nav-links" aria-label="Bölümler">
+      <a href="#surec">Nasıl işler</a>
+      <a href="#motorlar">Motorlar</a>
+      <a href="#kontrol">Almadan önce kontrol</a>
+      <a href="#fiyat">Fiyat</a>
+      <a href="#sss">SSS</a>
+    </nav>
+    <a class="btn btn-primary" href="#ariza">Arıza bildir</a>
+  </div>
+  <div class="road" aria-hidden="true">
+    <svg class="road-car" id="roadCar" viewBox="0 0 34 20"><rect x="1" y="2" width="30" height="16" rx="6" fill="var(--amber)"/><rect x="19" y="4.5" width="7" height="11" rx="2" fill="var(--ink)"/><rect x="5" y="5" width="4" height="10" rx="1.5" fill="var(--ink)" opacity=".75"/><rect x="31" y="4" width="2" height="4" rx="1" fill="#FFF3C4"/><rect x="31" y="12" width="2" height="4" rx="1" fill="#FFF3C4"/></svg>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="plate" aria-label="Plaka: 34 VFX 26"><b>TR</b><span>34 VFX 26</span></div>
+      <h1 class="display">ARACIN SANAYİYE GİTSİN.<br><span class="hl">SEN DEĞİL.</span></h1>
+      <p class="lede">Kapından alıyoruz, Dolapdere Sanayi Sitesi'ndeki ustalarımız tamir ediyor, fotoğraflı raporla haber veriyor ve aracını geri getiriyoruz. Onayın olmadan tek vida sökülmez.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#ariza">Arıza bildir
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#surec">Nasıl işliyor?</a>
+      </div>
+      <div class="hero-facts">
+        <span><i></i>Başakşehir merkezli, ~30 km</span>
+        <span><i></i>Fotoğraflı servis raporu</span>
+        <span><i></i>Değişen parça size teslim</span>
+      </div>
+    </div>
+
+    <div class="map-card" role="img" aria-label="Temsili harita: araç Bahçeşehir'deki evden Dolapdere Sanayi Sitesi'ndeki atölyeye gidip geri dönüyor">
+      <svg viewBox="0 0 600 520" aria-hidden="true">
+        <rect width="600" height="520" fill="var(--map)"/>
+        <!-- Deniz ve göl -->
+        <path d="M0 438 C110 418 220 452 330 428 S510 404 600 420 L600 520 L0 520 Z" fill="var(--water)"/>
+        <path d="M268 360 C300 350 330 372 322 404 C316 430 284 436 266 418 C250 400 246 368 268 360 Z" fill="var(--water)"/>
+        <text x="40" y="490" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--muted)" letter-spacing="2">MARMARA DENİZİ</text>
+        <!-- Ara sokaklar -->
+        <g stroke="var(--street)" stroke-width="3" fill="none" opacity=".9">
+          <path d="M40 0 L70 520"/><path d="M120 0 C130 120 110 260 150 520"/><path d="M230 0 L250 360"/><path d="M330 0 C320 120 350 220 340 360"/>
+          <path d="M420 0 L440 420"/><path d="M520 0 C500 160 540 300 520 420"/>
+          <path d="M0 110 L600 130"/><path d="M0 240 C200 228 400 262 600 236"/><path d="M0 300 L600 292"/><path d="M0 400 C160 392 260 410 600 384"/>
+          <path d="M150 300 L230 240 L330 250"/><path d="M380 180 L470 260 L540 250"/>
+        </g>
+        <!-- Otoyollar -->
+        <g fill="none" stroke-linecap="round">
+          <path d="M0 64 C200 86 400 36 600 66" stroke="var(--street)" stroke-width="12"/>
+          <path d="M0 176 C150 164 300 198 600 156" stroke="var(--street)" stroke-width="12"/>
+          <path d="M0 356 C160 346 330 378 600 338" stroke="var(--street)" stroke-width="12"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--muted)" letter-spacing="1.5">
+          <text x="500" y="56">K. MARMARA</text><text x="540" y="148">TEM</text><text x="548" y="330">E-5</text>
+        </g>
+        <!-- İlçe adları -->
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)" letter-spacing="1.5" opacity=".9">
+          <text x="150" y="110">ARNAVUTKÖY</text><text x="300" y="282">BAŞAKŞEHİR</text><text x="70" y="226">BAHÇEŞEHİR</text>
+          <text x="60" y="330">ESENYURT</text><text x="360" y="330">KÜÇÜKÇEKMECE</text><text x="470" y="210">SULTANGAZİ</text><text x="480" y="300">BAĞCILAR</text>
+        </g>
+        <!-- 30 km halkası -->
+        <circle cx="370" cy="214" r="150" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-dasharray="4 6" opacity=".55"/>
+        <text x="470" y="96" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--blue)" font-weight="600">~30 KM</text>
+        <!-- Rota -->
+        <path id="route" d="M150 268 C190 246 206 300 248 282 S318 228 370 214" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" opacity=".18"/>
+        <path id="routeLive" d="M150 268 C190 246 206 300 248 282 S318 228 370 214" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 0"/>
+        <!-- Ev -->
+        <g transform="translate(150 268)">
+          <circle r="22" fill="var(--blue)" opacity=".18"/>
+          <circle r="14" fill="var(--blue)"/>
+          <path d="M-6 1 L0 -5 L6 1 M-4 -1 V6 H4 V-1" fill="none" stroke="var(--on-blue)" stroke-width="2" stroke-linejoin="round"/>
+        </g>
+        <g transform="translate(96 296)"><rect width="128" height="26" rx="7" fill="var(--surface)"/><text x="10" y="17" font-family="Instrument Sans, sans-serif" font-size="12" font-weight="600" fill="var(--ink)">Evin · Bahçeşehir</text></g>
+        <!-- Atölye -->
+        <g transform="translate(370 214)">
+          <rect x="-17" y="-17" width="34" height="34" rx="8" fill="var(--ink)"/>
+          <path d="M-6 6 L4 -4 M2 -8 a5 5 0 1 0 6 6 l-3 -1 l-2 -2 z" fill="none" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g transform="translate(340 152)"><rect width="214" height="40" rx="8" fill="var(--surface)"/><text x="10" y="17" font-family="Instrument Sans, sans-serif" font-size="12" font-weight="700" fill="var(--ink)">İmza Otomotiv · 1.3 TCe Merkezi</text><text x="10" y="32" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--muted)">Dolapdere San. Sit. · Başakşehir</text></g>
+        <!-- Araç -->
+        <g id="heroCar">
+          <rect x="-15" y="-8.5" width="30" height="17" rx="6" fill="var(--amber)" stroke="var(--ink)" stroke-width="1.2"/>
+          <rect x="3" y="-6" width="7" height="12" rx="2" fill="var(--ink)"/>
+          <rect x="-11" y="-5.5" width="4" height="11" rx="1.5" fill="var(--ink)" opacity=".75"/>
+        </g>
+      </svg>
+      <span class="map-tag">CANLI ÖRNEK</span>
+      <div class="chips" aria-hidden="true">
+        <div class="chip" data-phase="0"><time>09:14</time>Aracın kapından teslim alındı</div>
+        <div class="chip" data-phase="1"><time>10:05</time>Fotoğraflı rapor gönderildi, onayın bekleniyor</div>
+        <div class="chip" data-phase="2"><time>17:40</time>Aracın kapında, eski parçalar bagajda</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTOR KODLARI -->
+<div class="ticker" aria-label="Uzman olduğumuz motorlar: 1.3 TCe, 1.2 PureTech, 1.5 dCi, 1.3 Multijet, VAG TDI ve TSI">
+  <div class="ticker-track" aria-hidden="true">
+    <span>1.3 TCe <em>H5H · M282</em></span><b>✦</b>
+    <span>1.2 PureTech <em>EB2</em></span><b>✦</b>
+    <span>1.5 dCi <em>K9K</em></span><b>✦</b>
+    <span>1.3 Multijet <em>199A</em></span><b>✦</b>
+    <span>VAG TDI · TSI <em>EA288 · EA211</em></span><b>✦</b>
+    <span>1.3 TCe <em>H5H · M282</em></span><b>✦</b>
+    <span>1.2 PureTech <em>EB2</em></span><b>✦</b>
+    <span>1.5 dCi <em>K9K</em></span><b>✦</b>
+    <span>1.3 Multijet <em>199A</em></span><b>✦</b>
+    <span>VAG TDI · TSI <em>EA288 · EA211</em></span><b>✦</b>
+  </div>
+</div>
+
+<!-- SÜREÇ -->
+<section id="surec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Süreç</span>
+      <h2 class="h2">Beş adımda, sanayiye uğramadan.</h2>
+      <p class="lede">Her adımda sana yazıyoruz. Karar her zaman senin.</p>
+    </div>
+    <div class="steps reveal" id="steps">
+      <div class="steps-road" aria-hidden="true"></div>
+      <svg class="steps-car" id="stepsCar" viewBox="0 0 36 22" aria-hidden="true"><rect x="1" y="2" width="32" height="18" rx="6" fill="var(--amber)" stroke="var(--ink)" stroke-width="1.2"/><rect x="21" y="5" width="7" height="12" rx="2" fill="var(--ink)"/><rect x="5" y="5.5" width="4" height="11" rx="1.5" fill="var(--ink)" opacity=".75"/></svg>
+      <div class="step">
+        <div class="step-node"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path d="M19 11a7 7 0 0 1-14 0M12 18v3"/></svg></div>
+        <span class="num">ADIM 1</span><h3>Arızayı anlat</h3><p>Formu doldur, motor sesini kaydet, fotoğraf ekle. Plakanı ve motorunu yaz.</p>
+      </div>
+      <div class="step">
+        <div class="step-node"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l1 2h3v16H5V5h3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <span class="num">ADIM 2</span><h3>Ön teklif al</h3><p>Usta kaydını dinler, WhatsApp'tan tahmini fiyat ve süre yazar.</p>
+      </div>
+      <div class="step">
+        <div class="step-node"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l2 2M15 8l2 2"/></svg></div>
+        <span class="num">ADIM 3</span><h3>Anahtarı ver</h3><p>Kapından alırken kilometre, yakıt ve mevcut çizikleri fotoğraflı tutanağa geçeriz.</p>
+      </div>
+      <div class="step">
+        <div class="step-node"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M8 5l1.5-2h5L16 5"/></svg></div>
+        <span class="num">ADIM 4</span><h3>Gör ve onayla</h3><p>Teşhisten sonra net fiyatı fotoğraflarla gönderiyoruz. Onaylamazsan işlem yapılmaz.</p>
+      </div>
+      <div class="step">
+        <div class="step-node"><svg viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div>
+        <span class="num">ADIM 5</span><h3>Kapında teslim</h3><p>Tamir biter, araç kapına gelir. Değişen eski parçalar da yanında.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTORLAR -->
+<section id="motorlar" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Uzmanlık</span>
+      <h2 class="h2">Bu motorları içinden tanıyoruz.</h2>
+      <p class="lede">Her motora bakarız ama bu beşinde uzmanız. Doğru parçayı şasi numarasıyla buluruz, işi bilen usta yapar.</p>
+    </div>
+    <div class="engines">
+      <article class="eng feature reveal">
+        <span class="code">H5H · M282 · ZİNCİRLİ</span>
+        <h3>1.3 TCe</h3>
+        <p class="models">Clio 5, Megane 4, Captur, Kadjar, Duster, Qashqai, Mercedes A ve CLA 180/200</p>
+        <svg class="eng-art" viewBox="0 0 340 200" aria-label="Zincirli motor kesiti çizimi" role="img">
+          <rect x="112" y="64" width="200" height="112" rx="10" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <rect x="122" y="30" width="180" height="36" rx="9" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <g fill="currentColor" opacity=".9"><circle cx="152" cy="48" r="6"/><circle cx="192" cy="48" r="6"/><circle cx="232" cy="48" r="6"/><circle cx="272" cy="48" r="6"/></g>
+          <g stroke="currentColor" stroke-width="2" opacity=".35"><path d="M142 90v70M182 90v70M222 90v70M262 90v70"/></g>
+          <circle cx="66" cy="54" r="24" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="66" cy="160" r="17" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="66" cy="54" r="5" fill="currentColor"/><circle cx="66" cy="160" r="4" fill="currentColor"/>
+          <path class="belt" d="M66 28 A26 26 0 0 0 40 54 L47 160 A19 19 0 0 0 85 160 L92 54 A26 26 0 0 0 66 28 Z" fill="none" stroke="var(--amber)" stroke-width="4"/>
+          <text x="16" y="196" font-family="IBM Plex Mono, monospace" font-size="11" fill="currentColor" opacity=".7">ZİNCİR · YAĞ POMPASI · TURBO</text>
+        </svg>
+        <ul>
+          <li>Yağ eksiltme teşhisi ve kompresyon testi</li>
+          <li>Zincir kapağı sızıntısı ve zincir seti</li>
+          <li>Karbon birikimi temizliği</li>
+          <li>Komple motor revizyonu</li>
+        </ul>
+        <span class="badge">Sahibinden'de: 1.3 TCe Merkezi</span>
+      </article>
+
+      <article class="eng reveal">
+        <svg class="eng-mini" viewBox="0 0 56 56" aria-hidden="true"><circle cx="16" cy="18" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="40" cy="38" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path class="belt" d="M16 9 L40 31 M16 27 L40 45" stroke="var(--blue)" stroke-width="3" fill="none"/><path d="M8 48c2-3 4-3 6 0s4 3 6 0" stroke="var(--amber)" stroke-width="2" fill="none"/></svg>
+        <span class="code">EB2 · YAĞLI KAYIŞ</span>
+        <h3>1.2 PureTech</h3>
+        <p class="models">208, 2008, 301, 308, C3, C4, C-Elysée, Corsa F</p>
+        <ul><li>Yağ içindeki triger kayışı kontrolü ve değişimi</li><li>Yağ pompası süzgeci temizliği</li><li>Kayış/zincir dönüşümü danışmanlığı</li></ul>
+      </article>
+
+      <article class="eng reveal">
+        <svg class="eng-mini" viewBox="0 0 56 56" aria-hidden="true"><path d="M28 8a20 20 0 1 1-19 26" fill="none" stroke="currentColor" stroke-width="2"/><path d="M28 16a12 12 0 1 1-11 16" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="28" cy="28" r="4" fill="var(--blue)"/><path class="belt" d="M6 34h10" stroke="var(--amber)" stroke-width="3"/></svg>
+        <span class="code">K9K · DİZEL</span>
+        <h3>1.5 dCi</h3>
+        <p class="models">Clio, Megane, Fluence, Symbol, Kangoo, Duster, Qashqai</p>
+        <ul><li>Yatak sarma teşhisi ve revizyon</li><li>Enjektör ve turbo</li><li>Triger seti</li></ul>
+      </article>
+
+      <article class="eng reveal">
+        <svg class="eng-mini" viewBox="0 0 56 56" aria-hidden="true"><rect x="22" y="6" width="12" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M28 32v10" stroke="currentColor" stroke-width="2"/><path class="belt" d="M28 44l-6 8M28 44v9M28 44l6 8" stroke="var(--blue)" stroke-width="2.5"/><path d="M16 14h6M34 14h6" stroke="var(--amber)" stroke-width="2.5"/></svg>
+        <span class="code">199A · DİZEL</span>
+        <h3>1.3 Multijet</h3>
+        <p class="models">Egea, Linea, Doblo, Fiorino, Punto, Corsa D</p>
+        <ul><li>Revizyon ve zincir seti</li><li>Enjektör ve EGR</li><li>Yağ basıncı arızaları</li></ul>
+      </article>
+
+      <article class="eng reveal">
+        <svg class="eng-mini" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="20" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 18l8 22 6-14 6 14 8-22" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linejoin="round"/><circle class="belt" cx="28" cy="28" r="24" fill="none" stroke="var(--amber)" stroke-width="2"/></svg>
+        <span class="code">EA288 · EA211</span>
+        <h3>VAG TDI · TSI</h3>
+        <p class="models">Golf, Passat, Jetta, Polo, Octavia, Leon, Caddy</p>
+        <ul><li>TDI turbo ve enjektör</li><li>TSI zincir ve yağ tüketimi</li><li>Revizyon</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RAPOR -->
+<section style="background:var(--surface)">
+  <div class="wrap report">
+    <div class="reveal">
+      <div class="sec-head" style="margin-bottom:0">
+        <span class="eyebrow">Şeffaf servis</span>
+        <h2 class="h2">Motorunun içini, telefonundan gör.</h2>
+        <p class="lede">Aracın atölyeye girdiği andan çıktığı ana kadar ne yapıldığını fotoğraf ve videoyla görürsün. Sürpriz fatura olmaz.</p>
+      </div>
+      <div class="promises">
+        <div class="promise"><h3>Onaysız işlem yok</h3><p>Ön tekliften sonra çıkan her ek iş, fotoğrafıyla birlikte onayına gelir.</p></div>
+        <div class="promise"><h3>Eski parça sende</h3><p>Değişen parçaları poşetleyip aracınla birlikte teslim ederiz.</p></div>
+        <div class="promise"><h3>Doğru parça</h3><p>Parçayı şasi numarasıyla eşleştiririz, takmadan önce fotoğrafını atarız.</p></div>
+        <div class="promise"><h3>Yazılı garanti</h3><p>İşçilik ve parça garantisinin süresi raporda yazar.</p></div>
+      </div>
+    </div>
+    <div class="phone reveal" id="phone">
+      <span class="sample">ÖRNEK RAPOR</span>
+      <div class="phone-screen">
+        <div class="ph-top"><b>Servis raporu</b><small>34 VFX 26 · Clio 5 · 1.3 TCe</small></div>
+        <div class="ph-feed">
+          <div class="msg"><time>09:14 · Teslim tutanağı</time>Kilometre 84.210, yakıt ¼, sağ arka kapıda mevcut çizik fotoğraflandı.</div>
+          <div class="msg pending"><time>11:32 · Teşhis</time>
+            <div class="photo"><svg viewBox="0 0 300 120" aria-label="Zincir kapağında yağ sızıntısı çizimi" role="img"><rect width="300" height="120" fill="var(--map)"/><rect x="40" y="22" width="220" height="80" rx="10" fill="none" stroke="var(--muted)" stroke-width="3"/><circle cx="96" cy="62" r="22" fill="none" stroke="var(--muted)" stroke-width="3"/><path d="M150 40c-4 10-4 18 0 24s4 14 0 22" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linecap="round"/><circle cx="150" cy="96" r="5" fill="var(--amber)"/><circle cx="150" cy="62" r="34" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-dasharray="5 5"/></svg></div>
+            Zincir kapağı contasından yağ sızıntısı. Conta değişimi öneriyoruz.
+          </div>
+          <div class="msg pending"><time>11:34 · Onayın bekleniyor</time>Net fiyat ve süre: aynı gün teslim.
+            <div class="msg-actions"><span>Onayla</span><span>Ustayı ara</span></div>
+          </div>
+          <div class="msg pending"><time>17:40 · Teslim</time>Aracın kapında. Eski conta bagajda, garanti belgesi torpidoda.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALMADAN ÖNCE KONTROL -->
+<section class="check" id="kontrol">
+  <div class="wrap check-grid">
+    <div class="reveal" style="display:grid;gap:22px">
+      <span class="eyebrow">Yeni hizmet</span>
+      <h2>Almadan önce motoruna biz bakalım.</h2>
+      <p>sahibinden'de gözüne bir TCe ya da PureTech mi kestirdin? Satıcının onayıyla aracı alıp atölyeye getiriyor, motorunu açmadan ölçüyoruz. Rapor sende, karar sende.</p>
+      <div class="hero-actions"><a class="btn" style="background:var(--on-amber);color:var(--amber)" href="#ariza">Kontrol randevusu al</a></div>
+    </div>
+    <div class="checklist reveal" aria-label="Örnek motor kontrol listesi">
+      <header><span>MOTOR KONTROL RAPORU</span><span>ÖRNEK</span></header>
+      <div class="cl-row"><svg viewBox="0 0 24 24" fill="none" stroke="#1E4FD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Kompresyon testi, 4 silindir<em>bar</em></div>
+      <div class="cl-row"><svg viewBox="0 0 24 24" fill="none" stroke="#1E4FD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Yağ seviyesi, rengi, tüketim izi<em>ölçüm</em></div>
+      <div class="cl-row"><svg viewBox="0 0 24 24" fill="none" stroke="#1E4FD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Triger kayışı veya zincir durumu<em>görsel</em></div>
+      <div class="cl-row"><svg viewBox="0 0 24 24" fill="none" stroke="#1E4FD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Arıza kodu taraması<em>OBD</em></div>
+      <div class="cl-row"><svg viewBox="0 0 24 24" fill="none" stroke="#1E4FD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Motor sesi ve titreşim kaydı<em>video</em></div>
+      <div class="cl-row"><svg viewBox="0 0 24 24" fill="none" stroke="#1E4FD6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Sızıntı ve conta kontrolü<em>görsel</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- FİYAT -->
+<section id="fiyat">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Fiyat</span>
+      <h2 class="h2">Vale ücreti sabit. Tamir fiyatı onayına bağlı.</h2>
+    </div>
+    <div class="prices">
+      <div class="price reveal">
+        <h3>Standart</h3>
+        <div class="amt">₺499<small>/ gidiş-dönüş</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Başakşehir merkezli 30 km içi</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Fotoğraflı teslim tutanağı</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>WhatsApp'tan durum bildirimi</li>
+        </ul>
+      </div>
+      <div class="price hot reveal">
+        <h3>Öncelikli <span class="pill">POPÜLER</span></h3>
+        <div class="amt">₺899<small>/ gidiş-dönüş</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>2 saat içinde teslim alma</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Atölyede öncelikli sıra</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Seçtiğin saat aralığında teslim</li>
+        </ul>
+      </div>
+      <div class="price reveal">
+        <h3>Büyük iş</h3>
+        <div class="amt">₺0<small>/ vale bizden</small></div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>15.000 TL üzeri tamirde vale ücretsiz</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Motor revizyonu, triger, turbo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg>Revizyon süresince düzenli video</li>
+        </ul>
+      </div>
+    </div>
+    <div class="corp reveal">
+      <p><b>Filo, kiralama ve kurye işletmeleri:</b> aylık sabit bakım paketi ve çoklu araç takibi.</p>
+      <a class="btn btn-ghost" href="#ariza">Kurumsal teklif iste</a>
+    </div>
+  </div>
+</section>
+
+<!-- KAPSAMA + ATÖLYE -->
+<section style="padding-top:0">
+  <div class="wrap duo">
+    <div class="panel reveal">
+      <span class="eyebrow">Kapsama alanı</span>
+      <h3>Dolapdere'den 30 km.</h3>
+      <svg viewBox="0 0 600 420" role="img" aria-label="Dolapdere merkezli kapsama alanı şeması">
+        <rect width="600" height="420" rx="16" fill="var(--map)"/>
+        <circle cx="300" cy="210" r="70" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="300" cy="210" r="130" fill="none" stroke="var(--line)" stroke-width="2"/>
+        <circle cx="300" cy="210" r="190" fill="none" stroke="var(--blue)" stroke-width="2" stroke-dasharray="5 7"/>
+        <circle class="ring" cx="300" cy="210" r="100" fill="none" stroke="var(--blue)" stroke-width="2"/>
+        <circle class="ring r2" cx="300" cy="210" r="100" fill="none" stroke="var(--blue)" stroke-width="2"/>
+        <circle class="ring r3" cx="300" cy="210" r="100" fill="none" stroke="var(--blue)" stroke-width="2"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--muted)"><text x="372" y="206">10</text><text x="432" y="206">20</text><text x="492" y="206">30 KM</text></g>
+        <g font-family="Instrument Sans, sans-serif" font-size="13" font-weight="600" fill="var(--ink)">
+          <circle cx="210" cy="190" r="5" fill="var(--blue)"/><text x="134" y="180">Bahçeşehir</text>
+          <circle cx="200" cy="270" r="5" fill="var(--blue)"/><text x="130" y="292">Esenyurt</text>
+          <circle cx="120" cy="300" r="5" fill="var(--blue)"/><text x="62" y="322">Beylikdüzü</text>
+          <circle cx="250" cy="320" r="5" fill="var(--blue)"/><text x="220" y="342">Avcılar</text>
+          <circle cx="350" cy="290" r="5" fill="var(--blue)"/><text x="362" y="294">Küçükçekmece</text>
+          <circle cx="420" cy="250" r="5" fill="var(--blue)"/><text x="432" y="254">Bağcılar</text>
+          <circle cx="400" cy="150" r="5" fill="var(--blue)"/><text x="412" y="154">Sultangazi</text>
+          <circle cx="250" cy="90" r="5" fill="var(--blue)"/><text x="262" y="94">Arnavutköy</text>
+          <circle cx="470" cy="330" r="5" fill="var(--blue)"/><text x="482" y="334">Bakırköy</text>
+        </g>
+        <rect x="282" y="192" width="36" height="36" rx="9" fill="var(--ink)"/>
+        <path d="M294 216 L304 206 M302 202 a5 5 0 1 0 6 6 l-3 -1 l-2 -2 z" fill="none" stroke="var(--amber)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="300" y="248" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" font-weight="600" fill="var(--ink)">DOLAPDERE</text>
+      </svg>
+      <p>Şimdilik İstanbul Avrupa Yakası. Biraz daha uzaktaysan yine yaz; revizyon gibi büyük işlerde şehrin her yerinden alıyoruz.</p>
+    </div>
+    <div class="panel reveal">
+      <span class="eyebrow">Atölye</span>
+      <h3>Aracın kimin elinde?</h3>
+      <svg viewBox="0 0 600 420" role="img" aria-label="Lifte kaldırılmış araç çizimi, İmza Otomotiv atölyesi">
+        <rect width="600" height="420" rx="16" fill="var(--map)"/>
+        <rect x="0" y="360" width="600" height="60" fill="var(--line)"/>
+        <g fill="var(--ink)"><rect x="110" y="110" width="20" height="252" rx="3"/><rect x="470" y="110" width="20" height="252" rx="3"/></g>
+        <g stroke="var(--ink)" stroke-width="6" stroke-linecap="round"><path d="M130 236 H220"/><path d="M470 236 H380"/></g>
+        <g transform="translate(0 -6)">
+          <path d="M160 226 L196 186 Q210 170 236 168 L370 166 Q404 166 426 186 L456 204 Q470 210 470 224 L470 236 L150 236 Z" fill="var(--amber)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M210 192 Q222 178 240 178 L296 178 L296 204 L200 204 Z" fill="var(--ink)" opacity=".85"/>
+          <path d="M306 178 L366 178 Q392 178 410 196 L414 204 L306 204 Z" fill="var(--ink)" opacity=".85"/>
+          <circle cx="210" cy="240" r="24" fill="var(--ink)"/><circle cx="210" cy="240" r="10" fill="var(--map)"/>
+          <circle cx="410" cy="240" r="24" fill="var(--ink)"/><circle cx="410" cy="240" r="10" fill="var(--map)"/>
+        </g>
+        <g transform="translate(300 300)"><rect x="-38" y="-6" width="76" height="62" rx="6" fill="none" stroke="var(--ink)" stroke-width="3"/><path d="M-26 8 h52 M-26 22 h52 M-26 36 h30" stroke="var(--muted)" stroke-width="3"/></g>
+        <rect x="190" y="40" width="220" height="44" rx="8" fill="var(--ink)"/>
+        <text x="300" y="60" text-anchor="middle" font-family="Big Shoulders Display, Arial Narrow, sans-serif" font-weight="800" font-size="20" fill="var(--bg)">İMZA OTOMOTİV</text>
+        <text x="300" y="76" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--amber)">DOLAPDERE SANAYİ SİTESİ</text>
+      </svg>
+      <p>ValeFix'in arkasında Dolapdere Sanayi Sitesi'ndeki İmza Otomotiv var. Aracını teslim alan ekip ile motorunu açan usta aynı çatı altında. Uzmanlığımızı sahibinden'de <b>1.3 TCe Merkezi</b> adıyla da görebilirsin.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SSS -->
+<section id="sss" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">SSS</span><h2 class="h2">Aklına takılanlar.</h2></div>
+    <div class="faq reveal">
+      <details><summary>Hangi bölgelerde hizmet veriyorsunuz?</summary><p>Başakşehir merkezli yaklaşık 30 km: Bahçeşehir, Esenyurt, Beylikdüzü, Avcılar, Küçükçekmece, Bağcılar, Sultangazi, Arnavutköy ve çevresi. Revizyon gibi büyük işlerde daha uzağa da geliyoruz.</p></details>
+      <details><summary>Aracımı kim tamir ediyor?</summary><p>Dolapdere Sanayi Sitesi'ndeki İmza Otomotiv ustaları. Aracın başka bir yere gönderilmez.</p></details>
+      <details><summary>Onay vermeden tamire başlanır mı?</summary><p>Hayır. Teşhisten sonra net fiyatı fotoğraflarla gönderiyoruz. Onay vermezsen aracın, yalnızca vale ücretiyle geri getirilir.</p></details>
+      <details><summary>Değişen parçaları görebilir miyim?</summary><p>Evet. Eski parçalar poşetlenip aracınla birlikte teslim edilir. Takılan parçanın fotoğrafı da rapora eklenir.</p></details>
+      <details><summary>Almadan önce motor kontrolü nasıl oluyor?</summary><p>Satıcıyla gün ve saati sen ayarlarsın, aracı satıcının onayıyla alıp atölyeye getiririz. Kompresyon, yağ, kayış veya zincir, arıza kodları ve sızıntılar kontrol edilir, rapor sana gelir.</p></details>
+      <details><summary>Ödeme nasıl yapılıyor?</summary><p>Tamir bittiğinde kart veya havale ile ödersin. Fatura e-postana gelir.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ARIZA BİLDİR -->
+<section class="form-sec" id="ariza">
+  <div class="wrap form-grid">
+    <div class="reveal" style="display:grid;gap:18px">
+      <span class="eyebrow">Arıza bildir</span>
+      <h2 class="h2">Anlat, gerisini biz halledelim.</h2>
+      <p class="lede">İki dakikalık form. Motorun sesini kaydedebiliyorsan ekle, usta dinleyip ön teklifi WhatsApp'tan yazar.</p>
+      <div class="contact-lines">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Dolapdere Sanayi Sitesi, Başakşehir / İstanbul</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 14l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 3 6a1 1 0 0 1 1-1z"/></svg><span class="mono">0 (5XX) XXX XX XX</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Hafta içi 08:30–18:30 · Cumartesi 09:00–14:00</div>
+      </div>
+    </div>
+
+    <form class="card reveal" id="faultForm" novalidate>
+      <div id="formBody" style="display:grid;gap:18px">
+        <div class="row">
+          <label class="f" for="fName">Adın<input id="fName" name="name" autocomplete="name" placeholder="Ad Soyad"></label>
+          <label class="f" for="fPhone">Telefon<input id="fPhone" name="phone" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx"></label>
+        </div>
+        <div class="row">
+          <label class="f" for="fPlate">Plaka
+            <span class="plate-input"><b>TR</b><input id="fPlate" name="plate" maxlength="11" placeholder="34 ABC 123"></span>
+          </label>
+          <label class="f" for="fEngine">Motor
+            <select id="fEngine" name="engine">
+              <option value="">Seç</option>
+              <option>1.3 TCe</option><option>1.2 PureTech</option><option>1.5 dCi</option><option>1.3 Multijet</option><option>VAG TDI / TSI</option><option>Diğer / bilmiyorum</option>
+            </select>
+          </label>
+        </div>
+        <div class="row">
+          <label class="f" for="fCar">Araç<input id="fCar" name="car" placeholder="Örn. Clio 5, 2021"></label>
+          <label class="f" for="fArea">Semt<input id="fArea" name="area" placeholder="Örn. Bahçeşehir"></label>
+        </div>
+        <div class="f" style="display:grid;gap:8px">
+          <span style="font-size:14px;font-weight:600">Belirti</span>
+          <div class="symptoms" id="symptoms">
+            <button type="button" aria-pressed="false">Yağ eksiltiyor</button>
+            <button type="button" aria-pressed="false">Motordan ses var</button>
+            <button type="button" aria-pressed="false">Arıza lambası yandı</button>
+            <button type="button" aria-pressed="false">Egzozdan duman</button>
+            <button type="button" aria-pressed="false">Çekişten düştü</button>
+            <button type="button" aria-pressed="false">Almadan önce kontrol</button>
+            <button type="button" aria-pressed="false">Periyodik bakım</button>
+          </div>
+        </div>
+        <label class="f" for="fNote">Biraz anlat<textarea id="fNote" name="note" placeholder="Ne zaman başladı, hangi durumda oluyor?"></textarea></label>
+        <label class="f" for="fFile">Ses kaydı veya fotoğraf<input id="fFile" name="file" type="file" accept="audio/*,image/*,video/*" multiple></label>
+        <label class="kvkk" for="fKvkk"><input id="fKvkk" type="checkbox">Bilgilerimin talebimi yanıtlamak için işlenmesine izin veriyorum. KVKK aydınlatma metnini okudum.</label>
+        <p class="err" id="formErr" hidden></p>
+        <button class="btn btn-primary" type="submit" style="justify-self:start">Ön teklif iste
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="done" id="formDone" hidden>
+        <h3 style="font-family:var(--f-display);font-weight:800;font-size:38px;line-height:1">Talebin hazır.</h3>
+        <p style="color:var(--muted)">Bu bir tasarım önizlemesi, form henüz bir yere gönderilmiyor. Canlı sitede bu bilgiler doğrudan ustaya düşecek. Aşağıdaki metni kopyalayıp WhatsApp'tan da gönderebilirsin.</p>
+        <pre id="waText"></pre>
+        <div class="hero-actions"><button class="btn btn-primary" type="button" id="copyBtn">Metni kopyala</button><button class="btn btn-ghost" type="button" id="againBtn">Yeni talep</button></div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div style="display:grid;gap:6px"><span><b>ValeFix</b> · Servis ortağı İmza Otomotiv · 1.3 TCe Merkezi</span><span>Dolapdere Sanayi Sitesi, Başakşehir / İstanbul</span></div>
+    <nav aria-label="Yasal"><a href="#top">KVKK aydınlatma metni</a><a href="#top">Mesafeli hizmet sözleşmesi</a><a href="#top">Çerez politikası</a></nav>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  root.classList.add('js');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Menüdeki yol: araba kaydırmayla ilerler */
+  var roadCar=document.getElementById('roadCar');
+  function onScroll(){
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    var p=max>0?Math.min(1,Math.max(0,window.scrollY/max)):0;
+    var w=roadCar.parentNode.clientWidth-34;
+    roadCar.style.transform='translateX('+(p*w)+'px)';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+
+  /* Hero haritası: ev → atölye → ev */
+  var route=document.getElementById('route');
+  var live=document.getElementById('routeLive');
+  var car=document.getElementById('heroCar');
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  var L=route.getTotalLength();
+  live.style.strokeDasharray=L+' '+L;
+  function place(t){
+    var a=route.getPointAtLength(t*L);
+    var b=route.getPointAtLength(Math.min(L,t*L+1));
+    var c=route.getPointAtLength(Math.max(0,t*L-1));
+    var ang=Math.atan2(b.y-c.y,b.x-c.x)*180/Math.PI;
+    car.setAttribute('transform','translate('+a.x+' '+a.y+') rotate('+ang+')');
+  }
+  function setPhase(n){chips.forEach(function(c){c.classList.toggle('on',+c.dataset.phase<=n)})}
+  if(reduce){
+    place(1);live.style.strokeDashoffset=0;setPhase(2);
+  }else{
+    var T=11000,start=null;
+    function frame(ts){
+      if(start===null)start=ts;
+      var k=((ts-start)%T)/T,t,phase;
+      if(k<.06){t=0;phase=0}
+      else if(k<.38){t=ease((k-.06)/.32);phase=0}
+      else if(k<.58){t=1;phase=1}
+      else if(k<.9){t=1-ease((k-.58)/.32);phase=1}
+      else{t=0;phase=2}
+      if(k>=.88)phase=2;
+      place(t);
+      live.style.strokeDashoffset=(k<.58? L*(1-t) : L*(1-t));
+      setPhase(phase);
+      requestAnimationFrame(frame);
+    }
+    function ease(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2}
+    requestAnimationFrame(frame);
+  }
+
+  /* Kaydırınca beliren bölümler: yalnızca ilk anda ekranın altında kalanlar */
+  var rev=[].slice.call(document.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window && !reduce){
+    var vh=window.innerHeight;
+    rev.forEach(function(el){ if(el.getBoundingClientRect().top>vh*0.92) el.classList.add('below'); });
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.remove('below'); io.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -8% 0px'});
+    rev.forEach(function(el){ if(el.classList.contains('below')) io.observe(el); });
+  }
+
+  /* Süreç: araba adımlar boyunca ilerler */
+  var steps=document.getElementById('steps'),stepsCar=document.getElementById('stepsCar');
+  function driveSteps(){
+    var nodes=steps.querySelectorAll('.step-node');
+    var i=0;
+    function go(){
+      var n=nodes[i];
+      var x=n.offsetLeft+n.offsetWidth+8;
+      stepsCar.style.left=x+'px';
+      i=(i+1)%nodes.length;
+    }
+    go();
+    if(!reduce) setInterval(go,2600);
+  }
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ driveSteps(); so.disconnect(); } },{threshold:.4});
+    so.observe(steps);
+  } else driveSteps();
+
+  /* Telefon raporu: mesajlar sırayla gelir */
+  var phone=document.getElementById('phone');
+  var pend=[].slice.call(phone.querySelectorAll('.msg.pending'));
+  function showMsgs(){ pend.forEach(function(m,i){ setTimeout(function(){ m.classList.remove('pending'); }, reduce?0:500+i*900); }); }
+  if('IntersectionObserver' in window && !reduce){
+    var po=new IntersectionObserver(function(es){ if(es[0].isIntersecting){ showMsgs(); po.disconnect(); } },{threshold:.35});
+    po.observe(phone);
+    if(phone.getBoundingClientRect().top<window.innerHeight) showMsgs();
+  } else showMsgs();
+
+  /* Form */
+  var sym=document.getElementById('symptoms');
+  sym.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true');
+  });
+  var plate=document.getElementById('fPlate');
+  plate.addEventListener('input',function(){
+    var raw=plate.value.toUpperCase().replace(/[^0-9A-ZÇĞİÖŞÜ]/g,'');
+    var m=raw.match(/^(\d{0,2})([A-ZÇĞİÖŞÜ]{0,3})(\d{0,4})/);
+    plate.value=m?[m[1],m[2],m[3]].filter(Boolean).join(' '):raw;
+  });
+  var form=document.getElementById('faultForm'),err=document.getElementById('formErr');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return document.getElementById(id).value.trim()};
+    var missing=[];
+    if(!v('fName')) missing.push('adını');
+    if(v('fPhone').replace(/\D/g,'').length<10) missing.push('telefonunu');
+    if(!document.getElementById('fKvkk').checked) missing.push('KVKK onayını');
+    if(missing.length){ err.textContent='Devam etmek için '+missing.join(', ')+' ekle.'; err.hidden=false; return; }
+    err.hidden=true;
+    var picked=[].slice.call(sym.querySelectorAll('[aria-pressed="true"]')).map(function(b){return b.textContent});
+    var files=document.getElementById('fFile').files;
+    var lines=['Merhaba ValeFix, ön teklif almak istiyorum.','',
+      'Ad: '+v('fName'),'Telefon: '+v('fPhone'),
+      'Plaka: '+(v('fPlate')||'-'),'Araç: '+(v('fCar')||'-'),'Motor: '+(v('fEngine')||'-'),'Semt: '+(v('fArea')||'-'),
+      'Belirti: '+(picked.join(', ')||'-'),'Not: '+(v('fNote')||'-')];
+    if(files && files.length) lines.push('Ek: '+files.length+' dosya (WhatsApp’tan ayrıca göndereceğim)');
+    document.getElementById('waText').textContent=lines.join('\n');
+    document.getElementById('formBody').hidden=true;
+    document.getElementById('formDone').hidden=false;
+  });
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var btn=this,txt=document.getElementById('waText').textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('waText'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Metin seçildi, kopyala';}
+    try{ navigator.clipboard.writeText(txt).then(function(){btn.textContent='Kopyalandı';},sel); }catch(x){ sel(); }
+  });
+  document.getElementById('againBtn').addEventListener('click',function(){
+    form.reset();
+    [].slice.call(sym.querySelectorAll('button')).forEach(function(b){b.setAttribute('aria-pressed','false')});
+    document.getElementById('formBody').hidden=false;
+    document.getElementById('formDone').hidden=true;
+    document.getElementById('copyBtn').textContent='Metni kopyala';
+  });
+})();
+</script>
+</body>
+</html>
